@@ -12,7 +12,7 @@
   padding: 1rem 0;
   p {
     font-size: 2rem;
-    color: #fff;
+    color: $site-common-white;
     font-weight: bold;
 
     span {
@@ -32,7 +32,7 @@
     align-self: center;
     margin-right: 1rem;
     font-size: 2rem;
-    color: #fff;
+    color: $site-common-white;
     font-weight: 500;
     margin-bottom: 1.5rem;
   }
@@ -41,10 +41,10 @@
     padding: 1rem 2rem;
     font-size: 1.4rem;
     border: none;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
+    border-radius: 20px;
     outline: none;
-    color: $light-dark-color;
+    background-color: $dark-color;
+    color: $site-common-white;
     width: 350px;
   }
 
@@ -55,13 +55,14 @@
     max-height: 500px;
     overflow-y: scroll;
     z-index: 10;
+    border-radius: 20px;
 
     .search-list-item {
       background-color: $light-dark-color;
       padding: 0.5rem;
       border-bottom: 1px solid $dark-color;
       width: calc(350px - 8px);
-      color: #fff;
+      color: $site-common-white;
       cursor: pointer;
       transition: background-color 200ms ease;
 

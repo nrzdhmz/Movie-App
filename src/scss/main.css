@@ -3,6 +3,8 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
 }
 
 body {
@@ -48,7 +50,7 @@ img {
 }
 .logo p {
   font-size: 2rem;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.94);
   font-weight: bold;
 }
 .logo p span {
@@ -66,7 +68,7 @@ img {
   align-self: center;
   margin-right: 1rem;
   font-size: 2rem;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.94);
   font-weight: 500;
   margin-bottom: 1.5rem;
 }
@@ -74,10 +76,10 @@ img {
   padding: 1rem 2rem;
   font-size: 1.4rem;
   border: none;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
+  border-radius: 20px;
   outline: none;
-  color: #292929;
+  background-color: #202428;
+  color: rgba(255, 255, 255, 0.94);
   width: 350px;
 }
 .search-element .search-list {
@@ -87,13 +89,14 @@ img {
   max-height: 500px;
   overflow-y: scroll;
   z-index: 10;
+  border-radius: 20px;
 }
 .search-element .search-list .search-list-item {
   background-color: #292929;
   padding: 0.5rem;
   border-bottom: 1px solid #202428;
   width: 342px;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.94);
   cursor: pointer;
   transition: background-color 200ms ease;
   display: flex;
@@ -154,7 +157,7 @@ img {
   width: 50%;
 }
 .movie-poster img {
-  max-width: 300px;
+  max-width: 330px;
   margin: 0 auto;
   border: 4px solid #fff;
 }
@@ -162,8 +165,21 @@ img {
 .movie-info {
   width: 50%;
   text-align: center;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.94);
   padding-top: 3rem;
+  position: relative;
+}
+.movie-info .addToList {
+  background-color: #383f46;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #F5C518;
+  padding: 0.6rem;
+  font-size: 1.2rem;
+  margin: 0.6rem auto;
+  position: absolute;
+  bottom: 0;
 }
 .movie-info .movie-title {
   font-size: 2rem;
@@ -231,4 +247,16 @@ img {
 .movie-info .writer {
   padding-left: 0;
   margin-left: 0;
+}
+
+.navBar ul {
+  display: flex;
+  gap: 20px;
+}
+.navBar ul li a {
+  border-radius: 8px;
+  background-color: #202428;
+  padding: 0.7rem;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.94);
 }/*# sourceMappingURL=main.css.map */

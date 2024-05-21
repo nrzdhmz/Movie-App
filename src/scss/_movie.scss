@@ -7,7 +7,7 @@
 .movie-poster {
   width: 50%;
   img {
-    max-width: 300px;
+    max-width: 330px;
     margin: 0 auto;
     border: 4px solid #fff;
   }
@@ -15,8 +15,21 @@
 .movie-info {
   width: 50%;
   text-align: center;
-  color: #fff;
+  color: $site-common-white;
   padding-top: 3rem;
+  position: relative;
+  .addToList{
+    background-color: $md-dark-color;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: $yellow-color;
+    padding: 0.6rem;
+    font-size: 1.2rem;
+    margin: 0.6rem auto;
+    position: absolute;
+    bottom: 0;
+  }
   .movie-title {
     font-size: 2rem;
     color: $yellow-color;

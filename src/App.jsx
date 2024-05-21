@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import SearchBox from './components/SearchBox';
+import NavigationBar from './components/NavigationBar';
 import SearchList from './components/SearchList';
 import MovieDetails from './components/MovieDetails';
-import './App.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const App = () => {
@@ -27,8 +27,8 @@ const App = () => {
                     <div className="logo">
                         <p>Codex<span>claim</span></p>
                     </div>
+                    <NavigationBar/>
                     <div className="search-element">
-                        <h3>Search Movie:</h3>
                         <SearchBox onMoviesLoaded={handleMovies} />
                         <SearchList
                             movies={movies}

@@ -1,0 +1,15 @@
+.navBar{
+  ul{
+    display: flex;
+    gap: 20px;
+    li{
+      a{
+        border-radius: 8px;
+        background-color: $dark-color;
+        padding: 0.7rem;
+        font-size: 1.3rem;
+        color: $site-common-white;
+      }
+    }
+  }
+}

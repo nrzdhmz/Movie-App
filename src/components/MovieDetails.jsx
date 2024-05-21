@@ -31,6 +31,7 @@ const MovieDetails = ({ movie }) => {
                     <p className="plot"><b>Plot:</b> {details.Plot}</p>
                     <p className="language"><b>Language:</b> {details.Language}</p>
                     <p className="awards"><b><i className="fas fa-award"></i></b> {details.Awards}</p>
+                    <button className='addToList'><i class="fa-solid fa-plus"></i> Watchlist</button>
                 </div>
             </div>
         )
