@@ -1,0 +1,8 @@
+.wrapper {
+  min-height: 100vh;
+  background-color: $dark-color;
+
+  .container {
+    @import './container';
+  }
+}

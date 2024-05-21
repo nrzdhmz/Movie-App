@@ -1,0 +1,146 @@
+.search-container {
+  background-color: $md-dark-color;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  padding: 1rem 0;
+  border-bottom: 1px solid $light-dark-color;
+
+  p {
+    font-size: 2rem;
+    color: #fff;
+    font-weight: bold;
+
+    span {
+      color: $yellow-color;
+    }
+  }
+}
+
+.search-element {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+
+  h3 {
+    align-self: center;
+    margin-right: 1rem;
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-control {
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+    border: none;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    outline: none;
+    color: $light-dark-color;
+    width: 350px;
+  }
+
+  .search-list {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    max-height: 500px;
+    overflow-y: scroll;
+    z-index: 10;
+
+    .search-list-item {
+      background-color: $light-dark-color;
+      padding: 0.5rem;
+      border-bottom: 1px solid $dark-color;
+      width: calc(350px - 8px);
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 200ms ease;
+
+      &:hover {
+        background-color: #1f1f1f;
+      }
+
+      display: flex;
+      align-items: center;
+
+      .search-item-thumbnail {
+        img {
+          width: 40px;
+          margin-right: 1rem;
+        }
+      }
+
+      .search-item-info {
+        h3 {
+          font-weight: 600;
+          font-size: 1rem;
+        }
+
+        p {
+          font-size: 0.8rem;
+          margin-top: 0.5rem;
+          font-weight: 600;
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+}
+
+.search-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.search-list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.search-list::-webkit-scrollbar-thumb {
+  background-color: $yellow-color;
+  outline: none;
+  border-radius: 10px;
+}
+
+.hide-search-list {
+  display: none;
+}
+
+@media (max-width: 450px) {
+  .logo p {
+    font-size: 1.4rem;
+  }
+  .search-element .form-control {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+  }
+  .search-element h3 {
+    font-size: 1.4rem;
+  }
+  .search-list {
+    width: 90%;
+    right: 50%;
+    transform: translateX(50%);
+  }
+  .search-list .search-list-item {
+    width: 100%;
+  }
+}
+
+@media (min-width: 800px) {
+  .search-element {
+    flex-direction: row;
+  }
+  .search-element h3 {
+    margin-bottom: 0;
+  }
+}
