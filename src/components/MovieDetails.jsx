@@ -5,7 +5,7 @@ const MovieDetails = ({ movie }) => {
 
     useEffect(() => {
         const loadMovieDetails = async () => {
-            const result = await fetch(`http://www.omdbapi.com/?i=${movie.imdbID}&apikey=fc1fef96`);
+            const result = await fetch(`http://www.omdbapi.com/?i=${movie.imdbID}&apikey=a43b432a`);
             const data = await result.json();
             setDetails(data);
         };

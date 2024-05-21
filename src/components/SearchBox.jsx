@@ -5,7 +5,7 @@ const SearchBox = ({ onMoviesLoaded }) => {
 
     const findMovies = async (searchTerm) => {
         if (searchTerm.length > 0) {
-            const URL = `https://omdbapi.com/?s=${searchTerm}&page=1&apikey=fc1fef96`;
+            const URL = `https://omdbapi.com/?s=${searchTerm}&page=1&apikey=a43b432a`
             const res = await fetch(URL);
             const data = await res.json();
             if (data.Response === "True") {
