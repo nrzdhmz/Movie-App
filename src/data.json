@@ -1,0 +1,350 @@
+[
+  {
+    "Title": "Naruto: Shippuden",
+    "Year": "2007-2017",
+    "Rated": "TV-PG",
+    "Released": "28 Oct 2009",
+    "Runtime": "24 min",
+    "Genre": "Animation, Action, Adventure",
+    "Director": "N/A",
+    "Writer": "Masashi Kishimoto",
+    "Actors": "Alexandre Crepet, Junko Takeuchi, Maile Flanagan",
+    "Plot": "Naruto Uzumaki, is a loud, hyperactive, adolescent ninja who constantly searches for approval and recognition, as well as to become Hokage, who is acknowledged as the leader and strongest of all ninja in the village.",
+    "Language": "Japanese",
+    "Country": "Japan",
+    "Awards": "2 wins & 10 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZGFiMWFhNDAtMzUyZS00NmQ2LTljNDYtMmZjNTc5MDUxMzViXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.7/10"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "8.7",
+    "imdbVotes": "165,708",
+    "imdbID": "tt0988824",
+    "Type": "series",
+    "totalSeasons": "23",
+    "Response": "True"
+  },
+  {
+    "Title": "One Piece",
+    "Year": "1999-",
+    "Rated": "TV-14",
+    "Released": "20 Oct 1999",
+    "Runtime": "24 min",
+    "Genre": "Animation, Action, Adventure",
+    "Director": "N/A",
+    "Writer": "Eiichirô Oda",
+    "Actors": "Mayumi Tanaka, Akemi Okamura, Laurent Vernin",
+    "Plot": "Monkey D. Luffy sets off on an adventure with his pirate crew in hopes of finding the greatest treasure ever, known as the \"One Piece.\"",
+    "Language": "Japanese",
+    "Country": "Japan",
+    "Awards": "6 wins & 13 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BM2YwYTkwNjItNGQzNy00MWE1LWE1M2ItOTMzOGI1OWQyYjA0XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "9.0/10"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "9.0",
+    "imdbVotes": "236,746",
+    "imdbID": "tt0388629",
+    "Type": "series",
+    "totalSeasons": "1",
+    "Response": "True"
+  },
+  {
+    "Title": "Bleach",
+    "Year": "2004-2023",
+    "Rated": "TV-14",
+    "Released": "09 Sep 2006",
+    "Runtime": "32S min",
+    "Genre": "Animation, Action, Adventure",
+    "Director": "N/A",
+    "Writer": "Tite Kubo",
+    "Actors": "Johnny Yong Bosch, Michelle Ruff, Stephanie Sheh",
+    "Plot": "High school student Ichigo Kurosaki, who has the ability to see ghosts, gains soul reaper powers from Rukia Kuchiki and sets out to save the world from \"Hollows\".",
+    "Language": "Japanese",
+    "Country": "Japan",
+    "Awards": "2 wins & 8 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZjE0YjVjODQtZGY2NS00MDcyLThhMDAtZGQwMTZiOWNmNjRiXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.2/10"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "8.2",
+    "imdbVotes": "68,354",
+    "imdbID": "tt0434665",
+    "Type": "series",
+    "totalSeasons": "17",
+    "Response": "True"
+  },
+  {
+    "Title": "Attack on Titan",
+    "Year": "2013–2023",
+    "Rated": "TV-MA",
+    "Released": "28 Sep 2013",
+    "Runtime": "24 min",
+    "Genre": "Animation, Action, Adventure",
+    "Director": "N/A",
+    "Writer": "N/A",
+    "Actors": "Jessie James Grelle, Bryce Papenbrook, Trina Nishimura",
+    "Plot": "After his hometown is destroyed and is traumatized, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
+    "Language": "Japanese, English",
+    "Country": "Japan",
+    "Awards": "40 wins & 88 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNDFjYTIxMjctYTQ2ZC00OGQ4LWE3OGYtNDdiMzNiNDZlMDAwXkEyXkFqcGdeQXVyNzI3NjY3NjQ@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "9.1/10"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "9.1",
+    "imdbVotes": "508,686",
+    "imdbID": "tt2560140",
+    "Type": "series",
+    "totalSeasons": "4",
+    "Response": "True"
+  },
+  {
+    "Title": "Jujutsu Kaisen",
+    "Year": "2020–",
+    "Rated": "TV-MA",
+    "Released": "02 Oct 2020",
+    "Runtime": "24 min",
+    "Genre": "Animation, Action, Adventure",
+    "Director": "N/A",
+    "Writer": "N/A",
+    "Actors": "Junya Enoki, Yuma Uchida, Yûichi Nakamura",
+    "Plot": "A boy swallows a cursed talisman - the finger of a demon - and becomes cursed himself. He enters a shaman's school to be able to locate the demon's other body parts and thus exorcise himself.",
+    "Language": "Japanese",
+    "Country": "Japan, United States",
+    "Awards": "31 wins & 43 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNGY4MTg3NzgtMmFkZi00NTg5LWExMmEtMWI3YzI1ODdmMWQ1XkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.6/10"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "8.6",
+    "imdbVotes": "109,817",
+    "imdbID": "tt12343534",
+    "Type": "series",
+    "totalSeasons": "2",
+    "Response": "True"
+  },
+  {
+    "Title": "Hunter x Hunter",
+    "Year": "2011–2014",
+    "Rated": "TV-14",
+    "Released": "17 Apr 2016",
+    "Runtime": "24 min",
+    "Genre": "Animation, Action, Adventure",
+    "Director": "N/A",
+    "Writer": "Yoshihiro Togashi",
+    "Actors": "Issei Futamata, Megumi Han, Cristina Valenzuela",
+    "Plot": "Gon Freecss aspires to become a Hunter, an exceptional being capable of greatness. With his friends and his potential, he seeks out his father, who left him when he was younger.",
+    "Language": "Japanese, English",
+    "Country": "Japan, Poland",
+    "Awards": "2 wins & 1 nomination",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNGM0YTk3MWEtN2JlZC00ZmZmLWIwMDktZTMxZGE5Zjc2MGExXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "9.0/10"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "9.0",
+    "imdbVotes": "131,709",
+    "imdbID": "tt2098220",
+    "Type": "series",
+    "totalSeasons": "1",
+    "Response": "True"
+  },
+  {
+    "Title": "One Punch Man",
+    "Year": "2015–",
+    "Rated": "TV-PG",
+    "Released": "05 Oct 2015",
+    "Runtime": "24 min",
+    "Genre": "Animation, Action, Comedy",
+    "Director": "N/A",
+    "Writer": "N/A",
+    "Actors": "Makoto Furukawa, Kaito Ishikawa, Max Mittelman",
+    "Plot": "The story of Saitama, a hero that does it just for fun &amp; can defeat his enemies with a single punch.",
+    "Language": "Japanese, English",
+    "Country": "Japan",
+    "Awards": "3 wins & 9 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZjJlNzE5YzEtYzQwYS00NTBjLTk5YzAtYzUwOWQyM2E3OGI2XkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.7/10"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "8.7",
+    "imdbVotes": "184,995",
+    "imdbID": "tt4508902",
+    "Type": "series",
+    "totalSeasons": "2",
+    "Response": "True"
+  },
+  {
+    "Title": "The Promised Neverland",
+    "Year": "2019–2021",
+    "Rated": "TV-14",
+    "Released": "14 Apr 2019",
+    "Runtime": "23 min",
+    "Genre": "Animation, Action, Adventure",
+    "Director": "N/A",
+    "Writer": "Kaiu Shirai",
+    "Actors": "Sumire Morohoshi, Mariya Ise, Shinei Ueki",
+    "Plot": "When three gifted kids at an isolated idyllic orphanage discover the secret and sinister purpose they were raised for, they look for a way to escape from their evil caretaker and lead the other children in a risky escape plan.",
+    "Language": "Japanese, Italian, Spanish, English, German, French, Portuguese, Russian",
+    "Country": "Japan",
+    "Awards": "8 wins & 21 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTYwYjYyZDgtMTQ3My00YTI4LThmZTUtZmU1MjllOWRlOTdhXkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.2/10"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "8.2",
+    "imdbVotes": "46,525",
+    "imdbID": "tt8788458",
+    "Type": "series",
+    "totalSeasons": "2",
+    "Response": "True"
+  },
+  {
+    "Title": "Black Clover",
+    "Year": "2017–2021",
+    "Rated": "TV-PG",
+    "Released": "03 Oct 2017",
+    "Runtime": "24 min",
+    "Genre": "Animation, Action, Adventure",
+    "Director": "N/A",
+    "Writer": "N/A",
+    "Actors": "Dallas Reid, Jill Harris, Cris George",
+    "Plot": "Asta and Yuno were abandoned together at the same church and have been inseparable since. As children, they promised that they would compete against each other to see who would become the next Emperor Magus.",
+    "Language": "Portuguese, German, Spanish, English, Japanese",
+    "Country": "Japan, Poland",
+    "Awards": "3 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNTAzYTlkMWEtOTNjZC00ZDU0LWI5ODUtYTRmYzY0MTAzYWZlXkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.2/10"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "8.2",
+    "imdbVotes": "33,826",
+    "imdbID": "tt7441658",
+    "Type": "series",
+    "totalSeasons": "4",
+    "Response": "True"
+  },
+  {
+    "Title": "Solo Leveling",
+    "Year": "2024–",
+    "Rated": "TV-MA",
+    "Released": "06 Jan 2024",
+    "Runtime": "N/A",
+    "Genre": "Animation, Action, Adventure",
+    "Director": "N/A",
+    "Writer": "Chugong",
+    "Actors": "Taito Ban, Aleks Le, Min Seung-woo",
+    "Plot": "In a world of gifted hunters and monsters, a weak hunter Sung Jinwoo gains extraordinary powers through a mysterious program, leading him to become one of the strongest hunters and conquering even the strongest dungeons.",
+    "Language": "Japanese, English",
+    "Country": "Japan, South Korea",
+    "Awards": "1 win",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BODJkZTM3MWYtOTkxNS00YWUxLTg5NjAtOTk4ZWM5MTBmMzAyXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.4/10"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "8.4",
+    "imdbVotes": "19,371",
+    "imdbID": "tt21209876",
+    "Type": "series",
+    "totalSeasons": "1",
+    "Response": "True"
+  },
+  {
+    "Title": "Fire Force",
+    "Year": "2019–",
+    "Rated": "TV-14",
+    "Released": "05 Jul 2019",
+    "Runtime": "23 min",
+    "Genre": "Animation, Action, Drama",
+    "Director": "N/A",
+    "Writer": "N/A",
+    "Actors": "Derick Snow, Alexis Tipton, Eric Vale",
+    "Plot": "A superhuman firefighter force is formed to deal with supernatural fire incidents.",
+    "Language": "Japanese, Hindi",
+    "Country": "Japan",
+    "Awards": "1 win & 16 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BY2IyMDA0NGEtZjIyOS00NjU0LThlOTctODA0OTZmMDU2ZTMxXkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "7.6/10"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "7.6",
+    "imdbVotes": "10,670",
+    "imdbID": "tt9307686",
+    "Type": "series",
+    "totalSeasons": "2",
+    "Response": "True"
+  },
+  {
+    "Title": "Baki",
+    "Year": "2018–2020",
+    "Rated": "TV-MA",
+    "Released": "18 Dec 2018",
+    "Runtime": "45 min",
+    "Genre": "Animation, Action, Drama",
+    "Director": "N/A",
+    "Writer": "N/A",
+    "Actors": "Tôru Furuya, Kirk Thornton, Troy Baker",
+    "Plot": "The protagonist, Baki Hanma, trains with an intense focus to become strong enough to surpass his father, Yujiro Hanma, the strongest fighter in the world.",
+    "Language": "English, Japanese",
+    "Country": "Japan, United States",
+    "Awards": "1 nomination",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMmQxZmRmNmUtZWUxNi00NzhiLWEwNzEtZTUyZWRhOWY5Yjg2XkEyXkFqcGdeQXVyMTAwMzM3NDI3._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "6.8/10"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "6.8",
+    "imdbVotes": "8,797",
+    "imdbID": "tt6357658",
+    "Type": "series",
+    "totalSeasons": "2",
+    "Response": "True"
+  }
+]

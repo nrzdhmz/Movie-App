@@ -26,7 +26,6 @@ const HomePage = () => {
             <div className="container-top">
                 <div className="search-container">
                     <Logo/>
-                    <NavigationBar/>
                     <div className="search-element">
                         <SearchBox onMoviesLoaded={handleMovies} />
                         <SearchList
@@ -35,6 +34,7 @@ const HomePage = () => {
                             show={showSearchList}
                         />
                     </div>
+                    <NavigationBar/>
                 </div>
             </div>
             <div className="container">

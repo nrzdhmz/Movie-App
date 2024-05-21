@@ -1,0 +1,15 @@
+.watch-list-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 50px 0;
+  .movie-item{
+    height: 330px; 
+    width: calc(20% - 10px);
+    cursor: pointer;
+    img{
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+}

@@ -11,6 +11,7 @@ const MovieDetails = ({ movie }) => {
         };
         loadMovieDetails();
     }, [movie]);
+    
 
     return (
         details && (

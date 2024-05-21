@@ -1,0 +1,11 @@
+.profileBtn {
+  display: flex;
+  width: 55px;
+  height: 55px;
+  border: 5px solid $dark-color;
+  background-image: url('https://www.gravatar.com/avatar/?d=mp&s=55');
+  background-size: cover; 
+  background-position: center; 
+  border-radius: 50%;
+  cursor: pointer;
+}

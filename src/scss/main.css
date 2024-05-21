@@ -48,7 +48,7 @@ a:active {
 }
 
 .search-container {
-  max-width: 1200px;
+  width: 80%;
   margin: 0 auto;
   padding: 0 1rem;
   height: 100px;
@@ -263,6 +263,7 @@ a:active {
 
 .navBar ul {
   display: flex;
+  align-items: center;
   gap: 20px;
 }
 .navBar ul li a {
@@ -271,4 +272,33 @@ a:active {
   padding: 0.7rem;
   font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.94);
+}
+
+.watch-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 50px 0;
+}
+.watch-list-container .movie-item {
+  height: 330px;
+  width: calc(20% - 10px);
+  cursor: pointer;
+}
+.watch-list-container .movie-item img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+
+.profileBtn {
+  display: flex;
+  width: 55px;
+  height: 55px;
+  border: 5px solid #202428;
+  background-image: url("https://www.gravatar.com/avatar/?d=mp&s=55");
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  cursor: pointer;
 }/*# sourceMappingURL=main.css.map */
