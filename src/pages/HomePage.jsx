@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import SearchBox from './components/SearchBox';
-import NavigationBar from './components/NavigationBar';
-import SearchList from './components/SearchList';
-import MovieDetails from './components/MovieDetails';
+import SearchBox from '../components/SearchBox';
+import NavigationBar from '../components/NavigationBar';
+import SearchList from '../components/SearchList';
+import MovieDetails from '../components/MovieDetails';
+import Logo from '../components/Logo';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-const App = () => {
+const HomePage = () => {
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [showSearchList, setShowSearchList] = useState(false);
@@ -24,9 +25,7 @@ const App = () => {
         <div className="wrapper">
             <div className="container-top">
                 <div className="search-container">
-                    <div className="logo">
-                        <p>Codex<span>claim</span></p>
-                    </div>
+                    <Logo/>
                     <NavigationBar/>
                     <div className="search-element">
                         <SearchBox onMoviesLoaded={handleMovies} />
@@ -49,4 +48,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default HomePage;

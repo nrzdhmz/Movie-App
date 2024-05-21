@@ -20,6 +20,18 @@ img {
   display: block;
 }
 
+a:visited {
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+}
+
+a:active {
+  color: inherit;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
