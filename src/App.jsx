@@ -22,20 +22,20 @@ const App = () => {
 
     return (
         <div className="wrapper">
-            <div className="logo">
-                <div className="container">
-                    <p>Codex<span>claim</span></p>
-                </div>
-            </div>
-            <div className="search-container">
-                <div className="search-element">
-                    <h3>Search Movie:</h3>
-                    <SearchBox onMoviesLoaded={handleMovies} />
-                    <SearchList
-                        movies={movies}
-                        onMovieSelect={handleMovieSelection}
-                        show={showSearchList}
-                    />
+            <div className="container-top">
+                <div className="search-container">
+                    <div className="logo">
+                        <p>Codex<span>claim</span></p>
+                    </div>
+                    <div className="search-element">
+                        <h3>Search Movie:</h3>
+                        <SearchBox onMoviesLoaded={handleMovies} />
+                        <SearchList
+                            movies={movies}
+                            onMovieSelect={handleMovieSelection}
+                            show={showSearchList}
+                        />
+                    </div>
                 </div>
             </div>
             <div className="container">
