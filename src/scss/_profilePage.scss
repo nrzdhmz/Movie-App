@@ -1,0 +1,93 @@
+.profile-section{
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  color: $site-common-white;
+  .profile-summary{
+    margin: 0 0 25px;
+    padding: 0 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .profile-summary-left{
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      .profile-pic-container{
+        img{
+          display: flex;
+          width: 150px;
+          height: 150px;
+          border: 3px solid $md-dark-color;
+          background-size: cover; 
+          background-position: center; 
+          border-radius: 50%;
+          cursor: pointer;
+        }
+      }
+      .username{
+        font-size: 2rem;  
+        font-weight: 500;
+      }
+      button{
+        background-color: $md-dark-color;
+        color: $site-common-white;
+        font-size: 1.1rem;
+        font-weight: 600;
+        padding: 8px;
+        border: none;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.2s;
+        #pen{
+          font-size: 14px;
+          margin-left: 5px;
+        }
+        &:hover{
+          color: $yellow-color;
+        }
+      }
+    }
+    .profile-summary-right{
+      display: flex;
+      .profile-stats{
+        padding: 10px;
+        a{
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          .value{
+            font-size: 1.8rem;
+          }
+          .definition{
+            font-size: 1.2rem;
+            font-weight: 300;
+          }
+        }
+      }
+    }
+  }
+  .profile-nav{
+    padding: 0 20px;
+    border: 2px solid $md-dark-color;
+    border-radius: 10px;
+    ul{
+      display: flex;
+      li{
+        font-size: 22px;
+        padding: 15px;
+        cursor: pointer;
+        transition: 0.2s;
+        &:hover{
+          color: $yellow-color;
+        }
+      }
+    }
+  }
+}
+
+.border-left{
+  border-left: 1px solid $md-dark-color;
+}

@@ -48,7 +48,7 @@ a:active {
 }
 
 .search-container {
-  width: 80%;
+  width: 65%;
   margin: 0 auto;
   padding: 0 1rem;
   height: 100px;
@@ -467,4 +467,96 @@ a:active {
   border-radius: 10px;
   font-size: 1.4rem;
   color: #DDDDDD;
+}
+
+.profile-section {
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  color: #DDDDDD;
+}
+.profile-section .profile-summary {
+  margin: 0 0 25px;
+  padding: 0 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.profile-section .profile-summary .profile-summary-left {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.profile-section .profile-summary .profile-summary-left .profile-pic-container img {
+  display: flex;
+  width: 150px;
+  height: 150px;
+  border: 3px solid #383f46;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.profile-section .profile-summary .profile-summary-left .username {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.profile-section .profile-summary .profile-summary-left button {
+  background-color: #383f46;
+  color: #DDDDDD;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.profile-section .profile-summary .profile-summary-left button #pen {
+  font-size: 14px;
+  margin-left: 5px;
+}
+.profile-section .profile-summary .profile-summary-left button:hover {
+  color: #F5C518;
+}
+.profile-section .profile-summary .profile-summary-right {
+  display: flex;
+}
+.profile-section .profile-summary .profile-summary-right .profile-stats {
+  padding: 10px;
+}
+.profile-section .profile-summary .profile-summary-right .profile-stats a {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.profile-section .profile-summary .profile-summary-right .profile-stats a .value {
+  font-size: 1.8rem;
+}
+.profile-section .profile-summary .profile-summary-right .profile-stats a .definition {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.profile-section .profile-nav {
+  padding: 0 20px;
+  border: 2px solid #383f46;
+  border-radius: 10px;
+}
+.profile-section .profile-nav ul {
+  display: flex;
+}
+.profile-section .profile-nav ul li {
+  font-size: 22px;
+  padding: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.profile-section .profile-nav ul li:hover {
+  color: #F5C518;
+}
+
+.border-left {
+  border-left: 1px solid #383f46;
 }/*# sourceMappingURL=main.css.map */
