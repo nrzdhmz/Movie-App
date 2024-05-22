@@ -12,10 +12,10 @@ const Filter = ({ onSortChange }) => {
         <button className='filterBtn'>Completed</button>
       </div>
       <select className="filterBy" onChange={e => onSortChange(e.target.value)}>
-        <option value="Default">Default</option>
-        <option value="IMDB">IMDB</option>
-        <option value="Name">Name A-Z</option>
-        <option value="Released Date">Released Date</option>
+        <option className='option' value="Default">Default</option>
+        <option className='option' value="IMDB">IMDb Raiting</option>
+        <option className='option' value="Name">Name A-Z</option>
+        <option className='option' value="Released Date">Released Date</option>
       </select>
     </div>
   );

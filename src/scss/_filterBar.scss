@@ -8,6 +8,10 @@
     color: $site-common-white;
     background-color: $md-dark-color;
     font-size: 1.3rem;
+    .option{
+      font-size: 1.4rem;  
+      // WHY I CANT DO ANY STYLES TO THIS MF
+    }
   }
   .filter{
     display: flex;

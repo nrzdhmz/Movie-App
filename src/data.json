@@ -1,5 +1,305 @@
 [
   {
+    "Title": "The Lord of the Rings: The Fellowship of the Ring",
+    "Year": "2001",
+    "Rated": "PG-13",
+    "Released": "19 Dec 2001",
+    "Runtime": "178 min",
+    "Genre": "Action, Adventure, Drama",
+    "Director": "Peter Jackson",
+    "Writer": "J.R.R. Tolkien, Fran Walsh, Philippa Boyens",
+    "Actors": "Elijah Wood, Ian McKellen, Orlando Bloom",
+    "Plot": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+    "Language": "English, Sindarin",
+    "Country": "New Zealand, United States",
+    "Awards": "Won 4 Oscars. 125 wins & 127 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.9/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "91%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "92/100"
+      }
+    ],
+    "Metascore": "92",
+    "imdbRating": "8.9",
+    "imdbVotes": "2,004,643",
+    "imdbID": "tt0120737",
+    "Type": "movie",
+    "DVD": "28 Jun 2011",
+    "BoxOffice": "$316,115,420",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True"
+  },
+  {
+    "Title": "Interstellar",
+    "Year": "2014",
+    "Rated": "PG-13",
+    "Released": "07 Nov 2014",
+    "Runtime": "169 min",
+    "Genre": "Adventure, Drama, Sci-Fi",
+    "Director": "Christopher Nolan",
+    "Writer": "Jonathan Nolan, Christopher Nolan",
+    "Actors": "Matthew McConaughey, Anne Hathaway, Jessica Chastain",
+    "Plot": "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.",
+    "Language": "English",
+    "Country": "United States, United Kingdom, Canada",
+    "Awards": "Won 1 Oscar. 44 wins & 148 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.7/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "73%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "74/100"
+      }
+    ],
+    "Metascore": "74",
+    "imdbRating": "8.7",
+    "imdbVotes": "2,097,749",
+    "imdbID": "tt0816692",
+    "Type": "movie",
+    "DVD": "24 May 2016",
+    "BoxOffice": "$188,020,017",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True"
+  },
+  {
+    "Title": "Inception",
+    "Year": "2010",
+    "Rated": "PG-13",
+    "Released": "16 Jul 2010",
+    "Runtime": "148 min",
+    "Genre": "Action, Adventure, Sci-Fi",
+    "Director": "Christopher Nolan",
+    "Writer": "Christopher Nolan",
+    "Actors": "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page",
+    "Plot": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
+    "Language": "English, Japanese, French",
+    "Country": "United States, United Kingdom",
+    "Awards": "Won 4 Oscars. 159 wins & 220 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.8/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "87%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "74/100"
+      }
+    ],
+    "Metascore": "74",
+    "imdbRating": "8.8",
+    "imdbVotes": "2,547,638",
+    "imdbID": "tt1375666",
+    "Type": "movie",
+    "DVD": "20 Jun 2013",
+    "BoxOffice": "$292,587,330",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True"
+  },
+  {
+    "Title": "Vikings",
+    "Year": "2013–2020",
+    "Rated": "TV-MA",
+    "Released": "03 Mar 2013",
+    "Runtime": "44 min",
+    "Genre": "Action, Adventure, Drama",
+    "Director": "N/A",
+    "Writer": "Michael Hirst",
+    "Actors": "Katheryn Winnick, Gustaf Skarsgård, Alexander Ludwig",
+    "Plot": "Vikings transports us to the brutal and mysterious world of Ragnar Lothbrok, a Viking warrior and farmer who yearns to explore--and raid--the distant shores across the ocean.",
+    "Language": "English, Old English, Norse, Old, Latin, French, Arabic, Greek, Ancient (to 1453), Russian",
+    "Country": "Ireland, Canada",
+    "Awards": "Won 1 Primetime Emmy. 46 wins & 133 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZWNlZmNiNzItYWMwNC00ODYxLThlNjYtMjU3NzlmNDQxMTY2XkEyXkFqcGdeQXVyMTA3MzQ4MTc0._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.5/10"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "8.5",
+    "imdbVotes": "583,756",
+    "imdbID": "tt2306299",
+    "Type": "series",
+    "totalSeasons": "6",
+    "Response": "True"
+  },
+  {
+    "Title": "BoJack Horseman",
+    "Year": "2014–2020",
+    "Rated": "TV-MA",
+    "Released": "22 Aug 2014",
+    "Runtime": "25 min",
+    "Genre": "Animation, Comedy, Drama",
+    "Director": "N/A",
+    "Writer": "Raphael Bob-Waksberg",
+    "Actors": "Will Arnett, Amy Sedaris, Alison Brie",
+    "Plot": "BoJack Horseman was the star of the hit television show \"Horsin' Around\" in the '80s and '90s, but now he's washed up, living in Hollywood, complaining about everything, and wearing colorful sweaters.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Nominated for 3 Primetime Emmys. 35 wins & 46 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BYWQwMDNkM2MtODU4OS00OTY3LTgwOTItNjE2Yzc0MzRkMDllXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.8/10"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "8.8",
+    "imdbVotes": "186,487",
+    "imdbID": "tt3398228",
+    "Type": "series",
+    "totalSeasons": "6",
+    "Response": "True"
+  },
+  {
+    "Title": "Rick and Morty",
+    "Year": "2013–",
+    "Rated": "TV-MA",
+    "Released": "02 Dec 2013",
+    "Runtime": "23 min",
+    "Genre": "Animation, Adventure, Comedy",
+    "Director": "N/A",
+    "Writer": "Dan Harmon, Justin Roiland",
+    "Actors": "Chris Parnell, Spencer Grammer, Sarah Chalke",
+    "Plot": "The fractured domestic lives of a nihilistic mad scientist and his anxious grandson are further complicated by their inter-dimensional misadventures.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Won 2 Primetime Emmys. 18 wins & 44 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "9.1/10"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "9.1",
+    "imdbVotes": "600,901",
+    "imdbID": "tt2861424",
+    "Type": "series",
+    "totalSeasons": "8",
+    "Response": "True"
+  },
+  {
+    "Title": "Game of Thrones",
+    "Year": "2011–2019",
+    "Rated": "TV-MA",
+    "Released": "17 Apr 2011",
+    "Runtime": "57 min",
+    "Genre": "Action, Adventure, Drama",
+    "Director": "N/A",
+    "Writer": "David Benioff, D.B. Weiss",
+    "Actors": "Emilia Clarke, Peter Dinklage, Kit Harington",
+    "Plot": "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
+    "Language": "English",
+    "Country": "United States, United Kingdom",
+    "Awards": "Won 59 Primetime Emmys. 389 wins & 636 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BN2IzYzBiOTQtNGZmMi00NDI5LTgxMzMtN2EzZjA1NjhlOGMxXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "9.2/10"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "9.2",
+    "imdbVotes": "2,275,721",
+    "imdbID": "tt0944947",
+    "Type": "series",
+    "totalSeasons": "8",
+    "Response": "True"
+  },
+  {
+    "Title": "Breaking Bad",
+    "Year": "2008–2013",
+    "Rated": "TV-MA",
+    "Released": "20 Jan 2008",
+    "Runtime": "49 min",
+    "Genre": "Crime, Drama, Thriller",
+    "Director": "N/A",
+    "Writer": "Vince Gilligan",
+    "Actors": "Bryan Cranston, Aaron Paul, Anna Gunn",
+    "Plot": "A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine with a former student in order to secure his family's future.",
+    "Language": "English, Spanish",
+    "Country": "United States",
+    "Awards": "Won 16 Primetime Emmys. 157 wins & 247 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BYmQ4YWMxYjUtNjZmYi00MDQ1LWFjMjMtNjA5ZDdiYjdiODU5XkEyXkFqcGdeQXVyMTMzNDExODE5._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "9.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "96%"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "9.5",
+    "imdbVotes": "2,124,165",
+    "imdbID": "tt0903747",
+    "Type": "series",
+    "totalSeasons": "5",
+    "Response": "True"
+  },
+  {
+    "Title": "Better Call Saul",
+    "Year": "2015–2022",
+    "Rated": "TV-MA",
+    "Released": "08 Feb 2015",
+    "Runtime": "46 min",
+    "Genre": "Crime, Drama",
+    "Director": "N/A",
+    "Writer": "Vince Gilligan, Peter Gould",
+    "Actors": "Bob Odenkirk, Rhea Seehorn, Jonathan Banks",
+    "Plot": "The trials and tribulations of criminal lawyer Jimmy McGill in the years leading up to his fateful run-in with Walter White and Jesse Pinkman.",
+    "Language": "English, Spanish, Vietnamese",
+    "Country": "United States",
+    "Awards": "Nominated for 53 Primetime Emmys. 69 wins & 324 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTMxOGM0NzItM2E0OS00YWYzLWEzNzUtODUzZTBjM2I4MTZkXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "9.0/10"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "9.0",
+    "imdbVotes": "647,323",
+    "imdbID": "tt3032476",
+    "Type": "series",
+    "totalSeasons": "6",
+    "Response": "True"
+  },
+  {"Title":"The Boys","Year":"2019–","Rated":"TV-MA","Released":"26 Jul 2019","Runtime":"31S min","Genre":"Action, Comedy, Crime","Director":"N/A","Writer":"Eric Kripke","Actors":"Karl Urban, Jack Quaid, Antony Starr","Plot":"A group of vigilantes set out to take down corrupt superheroes who abuse their superpowers.","Language":"English","Country":"United States","Awards":"Won 1 Primetime Emmy. 21 wins & 82 nominations total","Poster":"https://m.media-amazon.com/images/M/MV5BODI5NDUxNjAtZTIxYS00N2M1LWI5NmItODBmM2QyNTU4ZDY4XkEyXkFqcGdeQXVyMTM1NjM2ODg1._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"8.7/10"}],"Metascore":"N/A","imdbRating":"8.7","imdbVotes":"649,347","imdbID":"tt1190634","Type":"series","totalSeasons":"4","Response":"True"},
+  {"Title":"House of the Dragon","Year":"2022–","Rated":"TV-MA","Released":"21 Aug 2022","Runtime":"N/A","Genre":"Action, Adventure, Drama","Director":"N/A","Writer":"Ryan J. Condal, George R.R. Martin","Actors":"Matt Smith, Emma D'Arcy, Olivia Cooke","Plot":"An internal succession war within House Targaryen at the height of its power, 172 years before the birth of Daenerys Targaryen.","Language":"English","Country":"United States","Awards":"Won 1 Primetime Emmy. 13 wins & 69 nominations total","Poster":"https://m.media-amazon.com/images/M/MV5BNzYzMGYwOGYtNmRhYS00YWZhLThjMWMtN2EzMmJjMWFhOGYxXkEyXkFqcGdeQXVyMTY3MDE5MDY1._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"8.4/10"}],"Metascore":"N/A","imdbRating":"8.4","imdbVotes":"371,471","imdbID":"tt11198330","Type":"series","totalSeasons":"3","Response":"True"},       
+  {
     "Title": "Naruto: Shippuden",
     "Year": "2007-2017",
     "Rated": "TV-PG",

@@ -400,6 +400,9 @@ a:active {
   background-color: #383f46;
   font-size: 1.3rem;
 }
+.filter-container .filterBy .option {
+  font-size: 1.4rem;
+}
 .filter-container .filter {
   display: flex;
   align-items: center;
