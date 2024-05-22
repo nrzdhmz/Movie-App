@@ -8,6 +8,49 @@
     display: flex;
     flex-direction: column;
     width: calc(20% - 16px);
+    position: relative;
+    .movieTypeBtn {
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 35px;
+      height: 35px;
+      text-align: center;
+      border-radius: 8px;
+      background-color: white;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:hover{
+        background-color: rgba(255, 255, 255, 0.897);
+        .movie-info{
+          display: none!important;
+        }
+      }
+      i{
+        font-size: 1.65rem;
+      }
+      .changeType{
+        position: absolute;
+        top: 40px;
+        right: 0;
+        flex-direction: column;
+        .type{
+          text-align: left;
+          background-color: white;
+          padding: 15px;
+          font-size: 1.05rem;
+          width: 160px;
+          transition: 0.1s;
+          &:hover{
+            background-color: $site-common-white;
+          }
+        }
+      }
+    }
 
     p {
       margin: 10px 0;
@@ -19,7 +62,6 @@
       position: relative;
       width: 100%;
       cursor: pointer;
-      position: relative;
       .imdb-img{
         background-color: white;
         position: absolute;
@@ -33,11 +75,6 @@
           color: #FFD43B;
         }
       }
-      &:hover{
-        .movie-info{
-          display: flex;
-        }
-      }
       .movie-info{
         display: none;
         flex-direction: column;
@@ -46,7 +83,6 @@
         top: 50%;
         left: 50%;
         position: absolute;
-        z-index: 999;
         width: 350px;
         backdrop-filter: blur(100px);
         -webkit-backdrop-filter: blur(100px);
@@ -62,42 +98,6 @@
         }
         i{
           color: #FFD43B;
-        }
-      }
-      .movieTypeBtn {
-        border: none;
-        cursor: pointer;
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        width: 35px;
-        height: 35px;
-        text-align: center;
-        border-radius: 8px;
-        background-color: white;
-        z-index: 1000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        i{
-          font-size: 1.65rem;
-        }
-        .changeType{
-          position: absolute;
-          top: 40px;
-          right: 0;
-          flex-direction: column;
-          .type{
-            text-align: left;
-            background-color: white;
-            padding: 15px;
-            font-size: 1.05rem;
-            width: 160px;
-            transition: 0.1s;
-            &:hover{
-              background-color: $site-common-white;
-            }
-          }
         }
       }
 
@@ -123,6 +123,9 @@
       }
 
       &:hover {
+        .movie-info{
+          display: flex;
+        }
         &::after {
           opacity: 1;
         }
@@ -138,7 +141,7 @@
   display: none;
 }
 
-.changeType.visible {
+.visible {
   display: flex;
 }
 .lighter{

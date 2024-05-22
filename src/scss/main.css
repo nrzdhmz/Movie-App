@@ -284,6 +284,49 @@ a:active {
   display: flex;
   flex-direction: column;
   width: calc(20% - 16px);
+  position: relative;
+}
+.watch-list-container .watch-list-item .movieTypeBtn {
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  border-radius: 8px;
+  background-color: white;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.watch-list-container .watch-list-item .movieTypeBtn:hover {
+  background-color: rgba(255, 255, 255, 0.897);
+}
+.watch-list-container .watch-list-item .movieTypeBtn:hover .movie-info {
+  display: none !important;
+}
+.watch-list-container .watch-list-item .movieTypeBtn i {
+  font-size: 1.65rem;
+}
+.watch-list-container .watch-list-item .movieTypeBtn .changeType {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  flex-direction: column;
+}
+.watch-list-container .watch-list-item .movieTypeBtn .changeType .type {
+  text-align: left;
+  background-color: white;
+  padding: 15px;
+  font-size: 1.05rem;
+  width: 160px;
+  transition: 0.1s;
+}
+.watch-list-container .watch-list-item .movieTypeBtn .changeType .type:hover {
+  background-color: #DDDDDD;
 }
 .watch-list-container .watch-list-item p {
   margin: 10px 0;
@@ -294,7 +337,6 @@ a:active {
   position: relative;
   width: 100%;
   cursor: pointer;
-  position: relative;
 }
 .watch-list-container .watch-list-item .movie-item-img .imdb-img {
   background-color: white;
@@ -309,9 +351,6 @@ a:active {
   padding-right: 3px;
   color: #FFD43B;
 }
-.watch-list-container .watch-list-item .movie-item-img:hover .movie-info {
-  display: flex;
-}
 .watch-list-container .watch-list-item .movie-item-img .movie-info {
   display: none;
   flex-direction: column;
@@ -320,7 +359,6 @@ a:active {
   top: 50%;
   left: 50%;
   position: absolute;
-  z-index: 999;
   width: 350px;
   backdrop-filter: blur(100px);
   -webkit-backdrop-filter: blur(100px);
@@ -337,42 +375,6 @@ a:active {
 }
 .watch-list-container .watch-list-item .movie-item-img .movie-info i {
   color: #FFD43B;
-}
-.watch-list-container .watch-list-item .movie-item-img .movieTypeBtn {
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 35px;
-  height: 35px;
-  text-align: center;
-  border-radius: 8px;
-  background-color: white;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.watch-list-container .watch-list-item .movie-item-img .movieTypeBtn i {
-  font-size: 1.65rem;
-}
-.watch-list-container .watch-list-item .movie-item-img .movieTypeBtn .changeType {
-  position: absolute;
-  top: 40px;
-  right: 0;
-  flex-direction: column;
-}
-.watch-list-container .watch-list-item .movie-item-img .movieTypeBtn .changeType .type {
-  text-align: left;
-  background-color: white;
-  padding: 15px;
-  font-size: 1.05rem;
-  width: 160px;
-  transition: 0.1s;
-}
-.watch-list-container .watch-list-item .movie-item-img .movieTypeBtn .changeType .type:hover {
-  background-color: #DDDDDD;
 }
 .watch-list-container .watch-list-item .movie-item-img img {
   height: 340px !important;
@@ -394,6 +396,9 @@ a:active {
   -webkit-backdrop-filter: blur(10px);
   transition: opacity 0.3s ease;
 }
+.watch-list-container .watch-list-item .movie-item-img:hover .movie-info {
+  display: flex;
+}
 .watch-list-container .watch-list-item .movie-item-img:hover::after {
   opacity: 1;
 }
@@ -406,7 +411,7 @@ a:active {
   display: none;
 }
 
-.changeType.visible {
+.visible {
   display: flex;
 }
 
