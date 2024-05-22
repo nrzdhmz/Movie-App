@@ -51,14 +51,14 @@ const WatchList = () => {
           <div key={index} className="watch-list-item">
             <div className="movie-item-img">
               <img src={item.Poster} alt={item.Title} />
-              {/* <div className='movie-info' >
+              <div className='movie-info' >
                 <p>{item.Title}</p>
-                <p>{item.imdbRating}</p>
+                <p><i className="fa-solid fa-star"></i>{item.imdbRating}</p>
                 <p>{item.Plot}</p>
                 <p>{item.Language}</p>
-                <p>{item.Released}</p>
-                <p>{item.Genre}</p>
-              </div> */}
+                <p><div className="lighter">Aired: </div>{item.Released}</p>
+                <p><div className="lighter">Genres: </div>{item.Genre}</p>
+              </div>
               <button className="movieTypeBtn" onClick={() => toggleChangeType(index)}>
                 <i className="fas fa-ellipsis-v"></i>
                 <div className={`changeType ${showChangeType[index] ? 'visible' : ''}`}>

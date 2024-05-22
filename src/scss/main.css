@@ -278,7 +278,7 @@ a:active {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 50px 0;
+  padding: 50px 0 250px;
 }
 .watch-list-container .watch-list-item {
   display: flex;
@@ -302,12 +302,19 @@ a:active {
 .watch-list-container .watch-list-item .movie-item-img .movie-info {
   display: none;
   flex-direction: column;
+  padding: 20px;
+  border-radius: 15px;
   top: 50%;
   left: 50%;
   position: absolute;
   z-index: 999;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(20px);
+  width: 350px;
+  backdrop-filter: blur(100px);
+  -webkit-backdrop-filter: blur(100px);
+  z-index: 1001;
+}
+.watch-list-container .watch-list-item .movie-item-img .movie-info i {
+  color: #FFD43B;
 }
 .watch-list-container .watch-list-item .movie-item-img .movieTypeBtn {
   border: none;
