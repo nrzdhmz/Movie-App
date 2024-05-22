@@ -8,7 +8,7 @@ const NavigationBar = () => {
       <ul>
         <li><Link to="/LogIn">Log In</Link></li>
         <li><Link to="/SignUp">Sign Up</Link></li>
-        <li><Link to="/WatchList">WatchList</Link></li>
+        <li><Link to="/WatchListPage">WatchList</Link></li>
         <Profile/>
       </ul>
     </nav>

@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './scss/main.css';
 import HomePage from './pages/HomePage';
-import WatchList from './pages/WatchList';
 import LogIn from './pages/LogIn';
 import SignUp from './pages/SignUp';
 import ProfilePage from './pages/ProfilePage';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import WatchListPage from './pages/WatchListPage';
 
 const router = createBrowserRouter([
   {
@@ -14,8 +14,8 @@ const router = createBrowserRouter([
     element: <HomePage/>
   },  
   {
-    path: '/WatchList' ,
-    element: <WatchList/>
+    path: '/WatchListPage' ,
+    element: <WatchListPage/>
   },  
   {
     path: '/LogIn' ,

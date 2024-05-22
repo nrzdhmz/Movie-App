@@ -2,6 +2,7 @@ import React from 'react'
 import Logo from '../components/Logo'
 import NavigationBar from '../components/NavigationBar'
 import { Link } from 'react-router-dom'
+import { dataLength } from '../components/WatchList';
 
 const ProfilePage = () => {
   return (
@@ -27,7 +28,7 @@ const ProfilePage = () => {
           <div className="profile-summary-right">
             <div className="profile-stats">
               <Link>
-              <span className='value'>0</span>
+              <span className='value'>{dataLength}</span>
               <span className='definition'>Films</span>
               </Link>
             </div>
