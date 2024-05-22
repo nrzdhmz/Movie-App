@@ -14,7 +14,7 @@ const Filter = () => {
       <select className="filterBy">
         <option value="Default">Default</option>
         <option value="Recently Added">Recently Added</option>
-        <option value="Name A-Z">Name A-Z</option>
+        <option value="Name">Name A-Z</option>
         <option value="Released Date">Released Date</option>
       </select>
     </div>

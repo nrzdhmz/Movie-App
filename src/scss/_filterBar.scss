@@ -22,6 +22,12 @@
       cursor: pointer;
       color: $site-common-white;
       background-color: $md-dark-color;
+      &:hover{
+        background-color: lighten($md-dark-color, 20%);
+      }
+      &:active{
+        background-color: darken($yellow-color, 10%);
+      }
     }
   }
 }
