@@ -296,6 +296,19 @@ a:active {
   cursor: pointer;
   position: relative;
 }
+.watch-list-container .watch-list-item .movie-item-img .imdb-img {
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-radius: 5px;
+  color: #202428;
+  padding: 4px 5px;
+}
+.watch-list-container .watch-list-item .movie-item-img .imdb-img i {
+  padding-right: 3px;
+  color: #FFD43B;
+}
 .watch-list-container .watch-list-item .movie-item-img:hover .movie-info {
   display: flex;
 }
@@ -312,6 +325,15 @@ a:active {
   backdrop-filter: blur(100px);
   -webkit-backdrop-filter: blur(100px);
   z-index: 1001;
+}
+.watch-list-container .watch-list-item .movie-item-img .movie-info .img-title {
+  font-size: 1.4rem;
+}
+.watch-list-container .watch-list-item .movie-item-img .movie-info p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  color: #b7b7b7;
 }
 .watch-list-container .watch-list-item .movie-item-img .movie-info i {
   color: #FFD43B;
@@ -386,6 +408,10 @@ a:active {
 
 .changeType.visible {
   display: flex;
+}
+
+.lighter {
+  color: white;
 }
 
 .cover {

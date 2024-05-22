@@ -20,6 +20,19 @@
       width: 100%;
       cursor: pointer;
       position: relative;
+      .imdb-img{
+        background-color: white;
+        position: absolute;
+        top: 0;
+        left: 10px;
+        border-radius: 5px;
+        color: $dark-color;
+        padding: 4px 5px;
+        i{
+          padding-right: 3px;
+          color: #FFD43B;
+        }
+      }
       &:hover{
         .movie-info{
           display: flex;
@@ -38,6 +51,15 @@
         backdrop-filter: blur(100px);
         -webkit-backdrop-filter: blur(100px);
         z-index: 1001;
+        .img-title{
+          font-size: 1.4rem;
+        }
+        p{
+          display: flex;
+          flex-wrap: wrap;
+          gap: 5px;
+          color: darken($site-common-white, 15%);
+        }
         i{
           color: #FFD43B;
         }
@@ -119,7 +141,9 @@
 .changeType.visible {
   display: flex;
 }
-
+.lighter{
+  color: white;
+}
 .cover{
   left: 0;
   top: 0;
