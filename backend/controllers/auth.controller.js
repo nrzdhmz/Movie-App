@@ -1,8 +1,6 @@
 import bcrypt from "bcryptjs";
 import generateTokenAndSetCookie from "../utils/generateToken.js";
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import prisma from "./../prismaClient/index.js";
 
 export const signupController = async (req, res) => {
   try {

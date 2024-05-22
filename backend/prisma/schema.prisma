@@ -17,25 +17,17 @@ model User {
 }
 
 model Watchlist {
-  id              Int               @id @default(autoincrement())
-  userId          Int               @unique
-  watchListMovies WatchListMovies[]
-  user            User              @relation(fields: [userId], references: [id])
-}
-
-model WatchListMovies {
-  id          Int       @id @default(autoincrement())
-  watchListId Int
-  watchList   Watchlist @relation(fields: [watchListId], references: [id])
-  movieId     Int
-  movie       MovieItem @relation(fields: [movieId], references: [id])
+  id              Int         @id @default(autoincrement())
+  userId          Int         @unique
+  watchListMovies MovieItem[] @relation("UserWatchlist")
+  user            User        @relation(fields: [userId], references: [id])
 }
 
 model MovieItem {
-  id              Int               @id @default(autoincrement())
-  movieId         Int
-  watchListMovies WatchListMovies[]
-  status          Status            @default(PlanningToWatch)
+  id              Int         @id @default(autoincrement())
+  movieId         String
+  watchListMovies Watchlist[] @relation("UserWatchlist")
+  status          Status      @default(PlanningToWatch)
 }
 
 enum Status {
