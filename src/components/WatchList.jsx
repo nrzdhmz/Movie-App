@@ -53,7 +53,7 @@ const WatchList = () => {
               <img src={item.Poster} alt={item.Title} />
               <p className='imdb-img'><i className="fa-solid fa-star"></i>{item.imdbRating}</p>
               <div className='movie-info' >
-                <p><div className="lighter img-title">{item.Title}</div></p>
+                <p><div className="lighter"></div></p>
                 <p><i className="fa-solid fa-star"></i>{item.imdbRating}</p>
                 <p>{item.Plot}</p>
                 <p><div className="lighter">Language:</div>{item.Language}</p>
