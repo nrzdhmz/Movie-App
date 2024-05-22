@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-const Filter = () => {
+const Filter = ({ onSortChange }) => {
   return (
     <div className="filter-container">
       <div className='filter'>
@@ -11,14 +11,14 @@ const Filter = () => {
         <button className='filterBtn'>Dropped</button>
         <button className='filterBtn'>Completed</button>
       </div>
-      <select className="filterBy">
+      <select className="filterBy" onChange={e => onSortChange(e.target.value)}>
         <option value="Default">Default</option>
         <option value="Recently Added">Recently Added</option>
         <option value="Name">Name A-Z</option>
         <option value="Released Date">Released Date</option>
       </select>
     </div>
-  )
-}
+  );
+};
 
-export default Filter
+export default Filter;
