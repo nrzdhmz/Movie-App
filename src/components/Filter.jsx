@@ -13,7 +13,7 @@ const Filter = ({ onSortChange }) => {
       </div>
       <select className="filterBy" onChange={e => onSortChange(e.target.value)}>
         <option value="Default">Default</option>
-        <option value="Recently Added">Recently Added</option>
+        <option value="IMDB">IMDB</option>
         <option value="Name">Name A-Z</option>
         <option value="Released Date">Released Date</option>
       </select>

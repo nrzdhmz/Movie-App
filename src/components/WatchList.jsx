@@ -33,9 +33,12 @@ const WatchList = () => {
         const yearB = parseInt(b.Year.substring(0, 4), 10);
         return yearA - yearB;
       });
+    } else if (sortOption === 'IMDB') {
+      sortedData.sort((a, b) => b.imdbRating - a.imdbRating);
     }
     return sortedData;
   };
+  
 
   const sortedData = getSortedData();
 
