@@ -6,8 +6,8 @@ const NavigationBar = () => {
   return (
     <nav className='navBar'>
       <ul>
-        <li><Link to="/LogIn">LOG IN</Link></li>
-        <li><Link to="/SignUp">SIGN UP</Link></li>
+        <li><Link to="/LogIn">Log In</Link></li>
+        <li><Link to="/SignUp">Sign Up</Link></li>
         <li><Link to="/WatchList">WatchList</Link></li>
         <Profile/>
       </ul>

@@ -1,15 +1,99 @@
-.watch-list-container{
+.watch-list-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 20px;
   padding: 50px 0;
-  .movie-item{
-    height: 330px; 
-    width: calc(20% - 10px);
-    cursor: pointer;
-    img{
-      object-fit: cover;
-      height: 100%;
+
+  .watch-list-item {
+    display: flex;
+    flex-direction: column;
+    width: calc(20% - 16px);
+
+    p {
+      margin: 10px 0;
+      font-size: 1.1rem;
+      color: $site-common-white;
+    }
+
+    .movie-item-img {
+      position: relative;
+      width: 100%;
+      cursor: pointer;
+
+      .movieTypeBtn {
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        border-radius: 8px;
+        background-color: white;
+        z-index: 99;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        i{
+          font-size: 1.65rem;
+        }
+        .changeType{
+          position: absolute;
+          top: 40px;
+          right: 0;
+          flex-direction: column;
+          .type{
+            text-align: left;
+            background-color: white;
+            padding: 15px;
+            font-size: 1.05rem;
+            width: 160px;
+            transition: 0.1s;
+            &:hover{
+              background-color: $site-common-white;
+            }
+          }
+        }
+      }
+
+      img {
+        height: 340px !important;
+        object-fit: cover;
+        width: 100%;
+        transition: filter 0.3s ease;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        transition: opacity 0.3s ease;
+      }
+
+      &:hover {
+        &::after {
+          opacity: 1;
+        }
+      }
     }
   }
+}
+
+.remove{
+  color: red;
+}
+.changeType {
+  display: none;
+}
+
+.changeType.visible {
+  display: flex;
 }

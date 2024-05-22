@@ -33,7 +33,7 @@ a:active {
 }
 
 .container {
-  max-width: 1200px;
+  width: 65%;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -62,7 +62,7 @@ a:active {
 }
 .logo p {
   font-size: 2rem;
-  color: rgba(255, 255, 255, 0.94);
+  color: #DDDDDD;
   font-weight: bold;
 }
 .logo p span {
@@ -80,7 +80,7 @@ a:active {
   align-self: center;
   margin-right: 1rem;
   font-size: 2rem;
-  color: rgba(255, 255, 255, 0.94);
+  color: #DDDDDD;
   font-weight: 500;
   margin-bottom: 1.5rem;
 }
@@ -91,7 +91,7 @@ a:active {
   border-radius: 20px;
   outline: none;
   background-color: #202428;
-  color: rgba(255, 255, 255, 0.94);
+  color: #DDDDDD;
   width: 350px;
 }
 .search-element .search-list {
@@ -108,7 +108,7 @@ a:active {
   padding: 0.5rem;
   border-bottom: 1px solid #202428;
   width: 342px;
-  color: rgba(255, 255, 255, 0.94);
+  color: #DDDDDD;
   cursor: pointer;
   transition: background-color 200ms ease;
   display: flex;
@@ -177,7 +177,7 @@ a:active {
 .movie-info {
   width: 50%;
   text-align: center;
-  color: rgba(255, 255, 255, 0.94);
+  color: #DDDDDD;
   padding-top: 3rem;
   position: relative;
 }
@@ -271,24 +271,100 @@ a:active {
   background-color: #202428;
   padding: 0.7rem;
   font-size: 1.3rem;
-  color: rgba(255, 255, 255, 0.94);
+  color: #DDDDDD;
 }
 
 .watch-list-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 20px;
   padding: 50px 0;
 }
-.watch-list-container .movie-item {
-  height: 330px;
-  width: calc(20% - 10px);
+.watch-list-container .watch-list-item {
+  display: flex;
+  flex-direction: column;
+  width: calc(20% - 16px);
+}
+.watch-list-container .watch-list-item p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  color: #DDDDDD;
+}
+.watch-list-container .watch-list-item .movie-item-img {
+  position: relative;
+  width: 100%;
   cursor: pointer;
 }
-.watch-list-container .movie-item img {
+.watch-list-container .watch-list-item .movie-item-img .movieTypeBtn {
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  border-radius: 8px;
+  background-color: white;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.watch-list-container .watch-list-item .movie-item-img .movieTypeBtn i {
+  font-size: 1.65rem;
+}
+.watch-list-container .watch-list-item .movie-item-img .movieTypeBtn .changeType {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  flex-direction: column;
+}
+.watch-list-container .watch-list-item .movie-item-img .movieTypeBtn .changeType .type {
+  text-align: left;
+  background-color: white;
+  padding: 15px;
+  font-size: 1.05rem;
+  width: 160px;
+  transition: 0.1s;
+}
+.watch-list-container .watch-list-item .movie-item-img .movieTypeBtn .changeType .type:hover {
+  background-color: #DDDDDD;
+}
+.watch-list-container .watch-list-item .movie-item-img img {
+  height: 340px !important;
   -o-object-fit: cover;
      object-fit: cover;
-  height: 100%;
+  width: 100%;
+  transition: filter 0.3s ease;
+}
+.watch-list-container .watch-list-item .movie-item-img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: opacity 0.3s ease;
+}
+.watch-list-container .watch-list-item .movie-item-img:hover::after {
+  opacity: 1;
+}
+
+.remove {
+  color: red;
+}
+
+.changeType {
+  display: none;
+}
+
+.changeType.visible {
+  display: flex;
 }
 
 .profileBtn {
@@ -301,4 +377,32 @@ a:active {
   background-position: center;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px 0 0;
+}
+.filter-container .filterBy {
+  padding: 10px;
+  color: #DDDDDD;
+  background-color: #383f46;
+  font-size: 1.3rem;
+}
+.filter-container .filter {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.filter-container .filter .filterBtn {
+  font-size: 1.3rem;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  min-width: 110px;
+  cursor: pointer;
+  color: #DDDDDD;
+  background-color: #383f46;
 }/*# sourceMappingURL=main.css.map */
