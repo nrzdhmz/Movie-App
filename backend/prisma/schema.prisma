@@ -1,0 +1,45 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:Mehemmed2005@localhost:5432/MovieApp?schema=main"
+}
+
+model User {
+  id        Int        @id @default(autoincrement())
+  username  String     @unique
+  watchlist Watchlist?
+  password  String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model Watchlist {
+  id              Int               @id @default(autoincrement())
+  userId          Int               @unique
+  watchListMovies WatchListMovies[]
+  user            User              @relation(fields: [userId], references: [id])
+}
+
+model WatchListMovies {
+  id          Int       @id @default(autoincrement())
+  watchListId Int
+  watchList   Watchlist @relation(fields: [watchListId], references: [id])
+  movieId     Int
+  movie       MovieItem @relation(fields: [movieId], references: [id])
+}
+
+model MovieItem {
+  id              Int               @id @default(autoincrement())
+  movieId         Int
+  watchListMovies WatchListMovies[]
+  status          Status            @default(PlanningToWatch)
+}
+
+enum Status {
+  Watching
+  Finished
+  PlanningToWatch
+}
