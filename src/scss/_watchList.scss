@@ -19,7 +19,22 @@
       position: relative;
       width: 100%;
       cursor: pointer;
-
+      position: relative;
+      &:hover{
+        .movie-info{
+          display: flex;
+        }
+      }
+      .movie-info{
+        display: none;
+        flex-direction: column;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        z-index: 999;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(20px);
+      }
       .movieTypeBtn {
         border: none;
         cursor: pointer;
