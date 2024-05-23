@@ -88,14 +88,18 @@
         backdrop-filter: blur(100px);
         -webkit-backdrop-filter: blur(100px);
         z-index: 1001;
+        gap: 10px;
         .img-title{
           font-size: 1.4rem;
         }
-        p{
+        .info-text{
           display: flex;
           flex-wrap: wrap;
           gap: 5px;
           color: darken($site-common-white, 15%);
+          .movie-info-title{
+            font-size: 1.4rem;
+          }
         }
         i{
           color: #FFD43B;

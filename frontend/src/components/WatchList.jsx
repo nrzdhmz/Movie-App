@@ -64,12 +64,12 @@ const WatchList = () => {
               <img src={item.Poster} alt={item.Title} />
               <p className='imdb-img'><i className="fa-solid fa-star"></i>{item.imdbRating}</p>
               <div className='movie-info' >
-                <div><div className="lighter"></div></div>
-                <div><i className="fa-solid fa-star"></i>{item.imdbRating}</div>
-                <div>{item.Plot}</div>
-                <div><div className="lighter">Language:</div>{item.Language}</div>
-                <div><div className="lighter">Aired:</div>{item.Released}</div>
-                <div><div className="lighter">Genres:</div>{item.Genre}</div>
+                <div className='info-text'><div className="lighter movie-info-title">{item.Title}</div></div>
+                <div className='info-text'><i className="fa-solid fa-star"></i>{item.imdbRating}</div>
+                <div className='info-text'>{item.Plot}</div>
+                <div className='info-text'><div className="lighter">Language:</div>{item.Language}</div>
+                <div className='info-text'><div className="lighter">Aired:</div>{item.Released}</div>
+                <div className='info-text'><div className="lighter">Genres:</div>{item.Genre}</div>
               </div>
             </div>
             <p>{item.Title}</p>

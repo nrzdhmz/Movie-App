@@ -365,15 +365,19 @@ a:active {
   backdrop-filter: blur(100px);
   -webkit-backdrop-filter: blur(100px);
   z-index: 1001;
+  gap: 10px;
 }
 .watch-list-container .watch-list-item .movie-item-img .movie-info .img-title {
   font-size: 1.4rem;
 }
-.watch-list-container .watch-list-item .movie-item-img .movie-info p {
+.watch-list-container .watch-list-item .movie-item-img .movie-info .info-text {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
   color: #b7b7b7;
+}
+.watch-list-container .watch-list-item .movie-item-img .movie-info .info-text .movie-info-title {
+  font-size: 1.4rem;
 }
 .watch-list-container .watch-list-item .movie-item-img .movie-info i {
   color: #FFD43B;
