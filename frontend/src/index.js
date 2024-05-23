@@ -3,16 +3,22 @@ import ReactDOM from 'react-dom/client';
 import './scss/main.css';
 import HomePage from './pages/HomePage';
 import LogIn from './pages/LogIn';
-import SignUp from './pages/SignUp';
+// import SignUp from './pages/SignUp';
 import ProfilePage from './pages/ProfilePage';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import WatchListPage from './pages/WatchListPage';
+import Register from './pages/RegisterPage';
+
 
 const router = createBrowserRouter([
   {
     path: '/' ,
-    element: <HomePage/>
+    element: <Register/>
   },  
+  {
+    path: '/HomePage' ,
+    element: <HomePage/>
+  }, 
   {
     path: '/WatchListPage' ,
     element: <WatchListPage/>
@@ -21,10 +27,10 @@ const router = createBrowserRouter([
     path: '/LogIn' ,
     element: <LogIn/>
   },  
-  {
-    path: '/SignUp' ,
-    element: <SignUp/>
-  },
+  // {
+  //   path: '/SignUp' ,
+  //   element: <SignUp/>
+  // },
   {
     path: '/ProfilePage' ,
     element: <ProfilePage/>

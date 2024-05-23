@@ -3,3 +3,10 @@
   background-color: $dark-color;
   position: relative;
 }
+
+.signUpPage{
+  min-height: 100vh;
+  background-color: $dark-color;
+  display: flex;
+  align-items: center;
+}
