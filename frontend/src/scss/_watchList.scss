@@ -38,6 +38,7 @@
         top: 40px;
         right: 0;
         flex-direction: column;
+        display: none;
         .type{
           text-align: left;
           background-color: white;
@@ -137,9 +138,8 @@
 .remove{
   color: red;
 }
-.changeType {
-  display: none;
-}
+// .changeType {
+// }
 
 .visible {
   display: flex;
@@ -150,8 +150,10 @@
 .cover{
   left: 0;
   top: 0;
+  bottom: 0;
   position: absolute;
+  display: none;
   width: 100%;
   height: 100%;
-  z-index: 900  ;
+  z-index: 900;
 }

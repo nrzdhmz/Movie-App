@@ -10,8 +10,8 @@ const WatchList = () => {
   const toggleChangeType = (index) => {
     const newShowChangeType = Array(data.length).fill(false);
     newShowChangeType[index] = !showChangeType[index];
-    setShowChangeType(newShowChangeType);
     setCoverVisible(!showChangeType[index]);
+    setShowChangeType(newShowChangeType);
   };
 
   const hideChangeType = () => {
@@ -39,12 +39,12 @@ const WatchList = () => {
     return sortedData;
   };
   
-
   const sortedData = getSortedData();
 
   return (
-    <div className="container">
+    <>
       <div className="cover" style={{ display: coverVisible ? 'block' : 'none' }} onClick={hideChangeType}></div>
+      <div className="container">
       <Filter onSortChange={handleSortChange} />
       <div className="watch-list-container">
         {sortedData.map((item, index) => (
@@ -64,18 +64,20 @@ const WatchList = () => {
               <img src={item.Poster} alt={item.Title} />
               <p className='imdb-img'><i className="fa-solid fa-star"></i>{item.imdbRating}</p>
               <div className='movie-info' >
-                <p><div className="lighter"></div></p>
-                <p><i className="fa-solid fa-star"></i>{item.imdbRating}</p>
-                <p>{item.Plot}</p>
-                <p><div className="lighter">Language:</div>{item.Language}</p>
-                <p><div className="lighter">Aired:</div>{item.Released}</p>
-                <p><div className="lighter">Genres:</div>{item.Genre}</p></div>
+                <div><div className="lighter"></div></div>
+                <div><i className="fa-solid fa-star"></i>{item.imdbRating}</div>
+                <div>{item.Plot}</div>
+                <div><div className="lighter">Language:</div>{item.Language}</div>
+                <div><div className="lighter">Aired:</div>{item.Released}</div>
+                <div><div className="lighter">Genres:</div>{item.Genre}</div>
+              </div>
             </div>
             <p>{item.Title}</p>
           </div>
         ))}
       </div>
     </div>
+    </>
   );
 };
 
