@@ -14,20 +14,49 @@ model User {
   password  String
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
+  following Follow[]   @relation("Following")
+  followers Follow[]   @relation("Followers")
+}
+
+model Follow {
+  id            Int  @id @default(autoincrement())
+  followerId    Int
+  followingId   Int
+  follwerUser   User @relation("Followers", fields: [followerId], references: [id])
+  followingUser User @relation("Following", fields: [followingId], references: [id])
 }
 
 model Watchlist {
-  id              Int         @id @default(autoincrement())
-  userId          Int         @unique
-  watchListMovies MovieItem[] @relation("UserWatchlist")
-  user            User        @relation(fields: [userId], references: [id])
+  id         Int         @id @default(autoincrement())
+  userId     Int         @unique
+  movieItems MovieItem[] @relation("UserWatchlist")
+  user       User        @relation(fields: [userId], references: [id])
 }
 
 model MovieItem {
   id              Int         @id @default(autoincrement())
   movieId         String
+  movie           Movie       @relation(fields: [movieId], references: [imdbId])
   watchListMovies Watchlist[] @relation("UserWatchlist")
   status          Status      @default(PlanningToWatch)
+}
+
+model Movie {
+  imdbId     String      @id @unique
+  title      String
+  year       String
+  released   DateTime
+  runtime    Int
+  genre      String
+  actors     String
+  plot       String
+  language   String
+  country    String
+  awards     String
+  poster     String
+  imdbRating Float
+  type       String
+  movieItems MovieItem[]
 }
 
 enum Status {
