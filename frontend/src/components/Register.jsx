@@ -61,7 +61,6 @@ const Register = () => {
           confirmPassword: matchPwd,
         }),
       });
-      console.log(response);
 
       if (!response.ok) {
         throw new Error("Registration failed");
