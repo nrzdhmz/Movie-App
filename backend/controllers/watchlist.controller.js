@@ -1,5 +1,6 @@
 import axios from "axios";
 import prisma from "./../prismaClient/index.js";
+import parseRequest from "../utils/parseRequest.js";
 
 // ADD MOVIE TO WATCHLIST
 export const addWatchlistController = async (req, res) => {
@@ -40,20 +41,7 @@ export const addWatchlistController = async (req, res) => {
 
         await prisma.movie.create({
           data: {
-            actors: movie.Actors,
-            awards: movie.Awards,
-            country: movie.Country,
-            genre: movie.Genre,
-            imdbId: movie.imdbID,
-            imdbRating: Number(movie.imdbRating),
-            language: movie.Language,
-            plot: movie.Plot,
-            poster: movie.Poster,
-            released: new Date(movie.Released),
-            runtime: Number(movie.Runtime.split(" ")[0]),
-            title: movie.Title,
-            type: movie.Type,
-            year: movie.Year,
+            ...parseRequest(movie),
           },
         });
       } catch (err) {
@@ -100,5 +88,36 @@ export const getWatchlistController = async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: "Server error" });
+  }
+};
+
+// UPDATE MOVIE STATUS
+export const updateMovieStatus = async (req, res) => {
+  try {
+    const { movieId, status } = req.body;
+
+    // Find the movie inside watchlist and update its status
+    await prisma.watchlist.update({
+      data: {
+        movieItems: {
+          update: {
+            where: {
+              movieId,
+            },
+            data: {
+              status,
+            },
+          },
+        },
+      },
+      where: {
+        userId: req.user.id,
+      },
+    });
+
+    return res.status(200).json({ message: "Successfully updated" });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ error: "Server error" });
   }
 };

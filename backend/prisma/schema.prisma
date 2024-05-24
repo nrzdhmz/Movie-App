@@ -35,10 +35,10 @@ model Watchlist {
 
 model MovieItem {
   id              Int         @id @default(autoincrement())
-  movieId         String
+  movieId         String      @unique
   movie           Movie       @relation(fields: [movieId], references: [imdbId])
   watchListMovies Watchlist[] @relation("UserWatchlist")
-  status          Status      @default(PlanningToWatch)
+  status          Status      @default(PlanToWatch)
 }
 
 model Movie {
@@ -61,6 +61,8 @@ model Movie {
 
 enum Status {
   Watching
-  Finished
-  PlanningToWatch
+  OnHold
+  PlanToWatch
+  Dropped
+  Completed
 }
