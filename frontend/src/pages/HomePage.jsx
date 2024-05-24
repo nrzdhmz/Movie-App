@@ -25,7 +25,7 @@ const HomePage = () => {
         <div className="wrapper">
             <div className="container-top">
                 <div className="search-container">
-                    <Logo/>
+                    <Logo />
                     <div className="search-element">
                         <SearchBox onMoviesLoaded={handleMovies} />
                         <SearchList
@@ -34,12 +34,12 @@ const HomePage = () => {
                             show={showSearchList}
                         />
                     </div>
-                    <NavigationBar/>
+                    <NavigationBar />
                 </div>
             </div>
             <div className="container">
                 <div className="result-container">
-                    <div className="result-grid"> 
+                    <div className="result-grid">
                         {selectedMovie && <MovieDetails movie={selectedMovie} />}
                     </div>
                 </div>

@@ -1,18 +1,25 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const SearchBox = ({ onMoviesLoaded }) => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const findMovies = async (searchTerm) => {
         if (searchTerm.length > 0) {
-            const URL = `https://omdbapi.com/?s=${searchTerm}&page=1&apikey=a43b432a`
-            const res = await fetch(URL);
-            const data = await res.json();
-            if (data.Response === "True") {
-                onMoviesLoaded(data.Search);
-            } else {
+            const URL = `http://localhost:5000/api/movies/${searchTerm}`;
+            try {
+                const res = await axios.get(URL);
+                if (res.data.Response === "True") {
+                    onMoviesLoaded(res.data.Search);
+                } else {
+                    onMoviesLoaded([]);
+                }
+            } catch (error) {
+                console.error('Error fetching movies:', error);
                 onMoviesLoaded([]);
             }
+        } else {
+            onMoviesLoaded([]);
         }
     };
 
