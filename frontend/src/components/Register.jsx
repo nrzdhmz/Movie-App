@@ -1,15 +1,13 @@
 import { useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-// import axios from '../api/axios';
-
+import { Link, useNavigate } from "react-router-dom";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,16}$/;
-// const REGISTER_URL = '/Register';
 
 const Register = () => {
     const userRef = useRef();
     const errRef = useRef();
+    const navigate = useNavigate(); 
 
     const [user, setUser] = useState('');
     const [validName, setValidName] = useState(false);
@@ -27,20 +25,20 @@ const Register = () => {
 
     useEffect(() => {
         userRef.current.focus();
-    }, [])
+    }, []);
 
     useEffect(() => {
         setValidName(USER_REGEX.test(user));
-    }, [user])
+    }, [user]);
 
     useEffect(() => {
         setValidPwd(PWD_REGEX.test(pwd));
         setValidMatch(pwd === matchPwd);
-    }, [pwd, matchPwd])
+    }, [pwd, matchPwd]);
 
     useEffect(() => {
         setErrMsg('');
-    }, [user, pwd, matchPwd])
+    }, [user, pwd, matchPwd]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -51,32 +49,33 @@ const Register = () => {
             setErrMsg("Invalid Entry");
             return;
         }
+
         try {
-            // const response = await axios.post(REGISTER_URL,
-            //     JSON.stringify({ user, pwd }),
-            //     {
-            //         headers: { 'Content-Type': 'application/json' },
-            //         withCredentials: true
-            //     }
-            // );
-            console.log(user);
-            console.log(pwd);
-            console.log(matchPwd)
+            const response = await fetch('http://localhost:5000/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: user, password: pwd, confirmPassword: matchPwd })
+            });
+
+            if (!response.ok) {
+                throw new Error('Registration failed');
+            }
 
             setUser('');
             setPwd('');
             setMatchPwd('');
+            navigate('/LogIn');
         } catch (err) {
-            if (!err?.response) {
+            if (!err.message) {
                 setErrMsg('No Server Response');
-            } else if (err.response?.status === 409) {
+            } else if (err.message.includes('Username Taken')) {
                 setErrMsg('Username Taken');
             } else {
-                setErrMsg('Registration Failed')
+                setErrMsg('Registration Failed');
             }
             errRef.current.focus();
         }
-    }
+    };
 
     return (
         <div className="container justify">
@@ -89,7 +88,7 @@ const Register = () => {
                         id="username"
                         ref={userRef}
                         autoComplete="off"
-                        onChange={(e) => setUser(e.target.value)} 
+                        onChange={(e) => setUser(e.target.value)}
                         value={user}
                         required
                         placeholder="Username"
@@ -136,14 +135,14 @@ const Register = () => {
                     <div className="logSign">
                         <div>
                             <p>Already registered?</p>
-                            <Link to="/Login">Log in</Link>
+                            <Link to="/LogIn">Log in</Link>
                         </div>
                         <button disabled={!validName || !validPwd || !validMatch ? true : false}>Sign Up</button>
                     </div>
                 </form>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Register
+export default Register;

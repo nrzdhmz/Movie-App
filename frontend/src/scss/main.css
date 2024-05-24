@@ -505,7 +505,7 @@ a:active {
   text-align: center;
 }
 .sign-in-container .sign-inputs {
-  margin: 80px 20px 0;
+  margin: 65px 20px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -530,7 +530,7 @@ a:active {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  margin: 10px 0 50px;
+  margin: 25px 0 50px;
   color: #DDDDDD;
 }
 .sign-in-container .logSign div {
