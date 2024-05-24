@@ -17,7 +17,7 @@ const MovieDetails = ({ movie }) => {
         details && (
             <div className="movie-details">
                 <div className="movie-poster">
-                    <img src={details.Poster !== "N/A" ? details.Poster : "image_not_found.png"} alt="movie poster" />
+                    <img src={details.Poster !== "N/A" ? details.Poster : "./assets/img/image_not_found.png"} alt="movie poster" />
                 </div>
                 <div className="movie-info">
                     <h3 className="movie-title">{details.Title}</h3>

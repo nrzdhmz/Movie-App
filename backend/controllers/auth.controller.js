@@ -37,7 +37,7 @@ export const signupController = async (req, res) => {
 
     if (newUser) {
       // Generate JWT token
-      generateTokenAndSetCookie(newUser._id, res);
+      generateTokenAndSetCookie(newUser.id, res);
 
       // User created successfully
       res.status(201).json({

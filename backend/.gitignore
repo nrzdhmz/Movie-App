@@ -1,4 +1,8 @@
 node_modules
 # Keep environment variables out of version control
 .env
+<<<<<<< HEAD
 prisma
+=======
+prisma
+>>>>>>> 3f8c75646f8b0cf4fe58ce6550dcc89b0e1d6f72
