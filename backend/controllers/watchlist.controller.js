@@ -9,14 +9,6 @@ export const addWatchlistController = async (req, res) => {
       where: { userId: req.user.id },
     });
 
-    if (!watchlist)
-      await prisma.watchlist.create({
-        data: {
-          user: {
-            connect: { id: req.user.id },
-          },
-        },
-      });
     const existingMovieInWatchlist = await prisma.watchlist.findFirst({
       where: {
         movieItems: {
@@ -82,6 +74,29 @@ export const addWatchlistController = async (req, res) => {
       },
     });
     return res.status(200).json({ message: "Film added successfully" });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "Server error" });
+  }
+};
+
+// GET MOVIES IN THE WATCHLIST
+export const getWatchlistController = async (req, res) => {
+  try {
+    const { id: userId } = req.user;
+
+    const movieItems = await prisma.watchlist.findFirst({
+      where: { userId },
+      select: {
+        movieItems: {
+          select: {
+            movie: true,
+          },
+        },
+      },
+    });
+
+    res.status(200).json({ movies: movieItems });
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: "Server error" });
