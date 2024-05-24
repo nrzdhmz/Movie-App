@@ -16,8 +16,8 @@
       .profile-pic-container{
         img{
           display: flex;
-          width: 150px;
-          height: 150px;
+          width: 100px;
+          height: 100px;
           border: 3px solid $md-dark-color;
           background-size: cover; 
           background-position: center; 
@@ -26,13 +26,13 @@
         }
       }
       .username{
-        font-size: 2rem;  
+        font-size: 1.6rem;  
         font-weight: 500;
       }
       button{
         background-color: $md-dark-color;
         color: $site-common-white;
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-weight: 600;
         padding: 8px;
         border: none;
@@ -53,16 +53,16 @@
     .profile-summary-right{
       display: flex;
       .profile-stats{
-        padding: 10px;
+        padding: 5px;
         a{
           display: flex;
           align-items: center;
           flex-direction: column;
           .value{
-            font-size: 1.8rem;
+            font-size: 1.4rem;
           }
           .definition{
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 300;
           }
         }
@@ -76,8 +76,8 @@
     ul{
       display: flex;
       li{
-        font-size: 22px;
-        padding: 15px;
+        font-size: 1rem;  
+        padding: 12px;
         cursor: pointer;
         transition: 0.2s;
         &:hover{

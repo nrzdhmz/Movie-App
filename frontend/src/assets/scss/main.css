@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -8,7 +7,7 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: sans-serif;
 }
 
 a {
@@ -45,13 +44,21 @@ a:active {
 .wrapper {
   min-height: 100vh;
   background-color: #202428;
+  position: relative;
+}
+
+.signUpPage {
+  min-height: 100vh;
+  background-color: #202428;
+  display: flex;
+  align-items: center;
 }
 
 .search-container {
   width: 65%;
   margin: 0 auto;
   padding: 0 1rem;
-  height: 100px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -61,7 +68,7 @@ a:active {
   padding: 1rem 0;
 }
 .logo p {
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: #DDDDDD;
   font-weight: bold;
 }
@@ -85,10 +92,10 @@ a:active {
   margin-bottom: 1.5rem;
 }
 .search-element .form-control {
-  padding: 1rem 2rem;
-  font-size: 1.4rem;
+  padding: 0.7rem 2rem;
+  font-size: 1.2rem;
   border: none;
-  border-radius: 20px;
+  border-radius: 15px;
   outline: none;
   background-color: #202428;
   color: #DDDDDD;
@@ -98,10 +105,10 @@ a:active {
   position: absolute;
   right: 0;
   top: 100%;
-  max-height: 500px;
+  max-height: 400px;
   overflow-y: scroll;
   z-index: 10;
-  border-radius: 20px;
+  border-radius: 15px;
 }
 .search-element .search-list .search-list-item {
   background-color: #292929;
@@ -269,8 +276,8 @@ a:active {
 .navBar ul li a {
   border-radius: 8px;
   background-color: #202428;
-  padding: 0.7rem;
-  font-size: 1.3rem;
+  padding: 0.6rem;
+  font-size: 1.1rem;
   color: #DDDDDD;
 }
 
@@ -278,7 +285,7 @@ a:active {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 50px 0 250px;
+  padding: 30px 0 250px;
 }
 .watch-list-container .watch-list-item {
   display: flex;
@@ -292,8 +299,8 @@ a:active {
   position: absolute;
   top: 5px;
   right: 5px;
-  width: 35px;
-  height: 35px;
+  width: 25px;
+  height: 25px;
   text-align: center;
   border-radius: 8px;
   background-color: white;
@@ -309,20 +316,21 @@ a:active {
   display: none !important;
 }
 .watch-list-container .watch-list-item .movieTypeBtn i {
-  font-size: 1.65rem;
+  font-size: 1.25rem;
 }
 .watch-list-container .watch-list-item .movieTypeBtn .changeType {
   position: absolute;
-  top: 40px;
+  top: 30px;
   right: 0;
   flex-direction: column;
+  display: none;
 }
 .watch-list-container .watch-list-item .movieTypeBtn .changeType .type {
   text-align: left;
   background-color: white;
-  padding: 15px;
-  font-size: 1.05rem;
-  width: 160px;
+  padding: 10px;
+  font-size: 0.8rem;
+  width: 120px;
   transition: 0.1s;
 }
 .watch-list-container .watch-list-item .movieTypeBtn .changeType .type:hover {
@@ -330,7 +338,7 @@ a:active {
 }
 .watch-list-container .watch-list-item p {
   margin: 10px 0;
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   color: #DDDDDD;
 }
 .watch-list-container .watch-list-item .movie-item-img {
@@ -341,8 +349,9 @@ a:active {
 .watch-list-container .watch-list-item .movie-item-img .imdb-img {
   background-color: white;
   position: absolute;
-  top: 0;
-  left: 10px;
+  top: -5px;
+  left: 5px;
+  font-size: 0.8rem;
   border-radius: 5px;
   color: #202428;
   padding: 4px 5px;
@@ -354,30 +363,32 @@ a:active {
 .watch-list-container .watch-list-item .movie-item-img .movie-info {
   display: none;
   flex-direction: column;
-  padding: 20px;
-  border-radius: 15px;
+  padding: 15px;
+  border-radius: 10px;
   top: 50%;
   left: 50%;
   position: absolute;
-  width: 350px;
+  width: 280px;
   backdrop-filter: blur(100px);
   -webkit-backdrop-filter: blur(100px);
   z-index: 1001;
+  gap: 10px;
 }
 .watch-list-container .watch-list-item .movie-item-img .movie-info .img-title {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 }
-.watch-list-container .watch-list-item .movie-item-img .movie-info p {
+.watch-list-container .watch-list-item .movie-item-img .movie-info .info-text {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+  font-size: 0.85rem;
   color: #b7b7b7;
 }
 .watch-list-container .watch-list-item .movie-item-img .movie-info i {
   color: #FFD43B;
 }
 .watch-list-container .watch-list-item .movie-item-img img {
-  height: 340px !important;
+  height: 260px !important;
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
@@ -407,8 +418,8 @@ a:active {
   color: red;
 }
 
-.changeType {
-  display: none;
+.movie-info-title {
+  font-size: 1.1rem;
 }
 
 .visible {
@@ -422,7 +433,9 @@ a:active {
 .cover {
   left: 0;
   top: 0;
+  bottom: 0;
   position: absolute;
+  display: none;
   width: 100%;
   height: 100%;
   z-index: 900;
@@ -430,9 +443,9 @@ a:active {
 
 .profileBtn {
   display: flex;
-  width: 55px;
-  height: 55px;
-  border: 5px solid #202428;
+  width: 50px;
+  height: 50px;
+  border: 3px solid #202428;
   background-image: url("https://www.gravatar.com/avatar/?d=mp&s=55");
   background-size: cover;
   background-position: center;
@@ -444,28 +457,28 @@ a:active {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 50px 0 0;
+  margin: 40px 0 0;
 }
 .filter-container .filterBy {
-  padding: 10px;
+  padding: 5px;
   color: #DDDDDD;
   background-color: #383f46;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 .filter-container .filterBy .option {
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 .filter-container .filter {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 .filter-container .filter .filterBtn {
-  font-size: 1.3rem;
+  font-size: 1rem;
   border: none;
-  padding: 10px;
+  padding: 8px;
   border-radius: 8px;
-  min-width: 110px;
+  min-width: 90px;
   cursor: pointer;
   color: #DDDDDD;
   background-color: #383f46;
@@ -481,56 +494,99 @@ a:active {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 100px);
-}
-.sign-in-container .sign-in {
-  display: flex;
+  height: auto;
   flex-direction: column;
-  justify-content: center;
-  width: 500px;
+  width: 400px;
   border-radius: 20px;
   background-color: #383f46;
 }
-.sign-in-container .sign-in .sign-top {
+.sign-in-container .sign-top {
   color: #DDDDDD;
-  margin: 50px 0 0;
-  font-size: 2.6rem;
+  margin: 40px 0 0;
+  font-size: 2rem;
   text-align: center;
 }
-.sign-in-container .sign-in .sign-inputs {
-  margin: 80px 20px 0;
+.sign-in-container .sign-inputs {
+  margin: 45px 10px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
+  width: 100%;
 }
-.sign-in-container .sign-in .sign-inputs input {
+.sign-in-container .sign-inputs input {
   border-radius: 10px;
-  height: 60px;
+  height: 50px;
   outline: none;
   color: #DDDDDD;
   padding: 0 20px;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   background-color: #202428;
   border: none;
-  width: 90%;
+  width: 75%;
 }
-.sign-in-container .sign-in .logSign {
+.sign-in-container .logSign {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  margin: 50px 0;
+  gap: 10px;
+  margin: 20px 0 40px;
+  color: #DDDDDD;
 }
-.sign-in-container .sign-in .logSign button {
-  width: 150px;
-  height: 60px;
+.sign-in-container .logSign div {
+  display: flex;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+.sign-in-container .logSign div a {
+  color: white;
+}
+.sign-in-container .logSign button {
+  width: 120px;
+  height: 50px;
   background-color: #202428;
   border: none;
   border-radius: 10px;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: #DDDDDD;
+  cursor: pointer;
+}
+
+.justify {
+  justify-content: center;
+  display: flex;
+}
+
+.instructions {
+  background: #202428;
+  color: #DDDDDD;
+  position: relative;
+  border-radius: 10px;
+  padding: 10px;
+  width: 75%;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.hide {
+  display: none;
+}
+
+.errmsg {
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.line {
+  display: inline-block;
 }
 
 .profile-section {
@@ -553,8 +609,8 @@ a:active {
 }
 .profile-section .profile-summary .profile-summary-left .profile-pic-container img {
   display: flex;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   border: 3px solid #383f46;
   background-size: cover;
   background-position: center;
@@ -562,13 +618,13 @@ a:active {
   cursor: pointer;
 }
 .profile-section .profile-summary .profile-summary-left .username {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 500;
 }
 .profile-section .profile-summary .profile-summary-left button {
   background-color: #383f46;
   color: #DDDDDD;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   padding: 8px;
   border: none;
@@ -589,7 +645,7 @@ a:active {
   display: flex;
 }
 .profile-section .profile-summary .profile-summary-right .profile-stats {
-  padding: 10px;
+  padding: 5px;
 }
 .profile-section .profile-summary .profile-summary-right .profile-stats a {
   display: flex;
@@ -597,10 +653,10 @@ a:active {
   flex-direction: column;
 }
 .profile-section .profile-summary .profile-summary-right .profile-stats a .value {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
 }
 .profile-section .profile-summary .profile-summary-right .profile-stats a .definition {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 300;
 }
 .profile-section .profile-nav {
@@ -612,8 +668,8 @@ a:active {
   display: flex;
 }
 .profile-section .profile-nav ul li {
-  font-size: 22px;
-  padding: 15px;
+  font-size: 1rem;
+  padding: 12px;
   cursor: pointer;
   transition: 0.2s;
 }
@@ -623,4 +679,72 @@ a:active {
 
 .border-left {
   border-left: 1px solid #383f46;
+}
+
+/* WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #202428;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.blackBg {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.blackBg .overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #262626;
+  border-radius: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  width: calc(100vw - 88px);
+  min-width: 260px;
+  max-width: 500px;
+  min-height: 500px;
+  max-height: calc(100% - 40px);
+}
+.blackBg .overlay .follow-box-top {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: #F5F5F5;
+  border-bottom: solid 1px #383f46;
+}
+.blackBg .overlay .follow-box-top p {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.blackBg .overlay .follow-box-top i {
+  cursor: pointer;
+  font-size: 2rem;
+}
+.blackBg .overlay .overlay-content {
+  text-align: center;
+  color: white;
 }/*# sourceMappingURL=main.css.map */

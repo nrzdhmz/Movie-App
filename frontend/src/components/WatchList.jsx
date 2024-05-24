@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import data from '../data.json';
+import data from '../db/data.json';
 import Filter from './Filter';
 
 const WatchList = () => {
@@ -10,8 +10,8 @@ const WatchList = () => {
   const toggleChangeType = (index) => {
     const newShowChangeType = Array(data.length).fill(false);
     newShowChangeType[index] = !showChangeType[index];
-    setShowChangeType(newShowChangeType);
     setCoverVisible(!showChangeType[index]);
+    setShowChangeType(newShowChangeType);
   };
 
   const hideChangeType = () => {
@@ -39,12 +39,12 @@ const WatchList = () => {
     return sortedData;
   };
   
-
   const sortedData = getSortedData();
 
   return (
-    <div className="container">
+    <>
       <div className="cover" style={{ display: coverVisible ? 'block' : 'none' }} onClick={hideChangeType}></div>
+      <div className="container">
       <Filter onSortChange={handleSortChange} />
       <div className="watch-list-container">
         {sortedData.map((item, index) => (
@@ -63,19 +63,21 @@ const WatchList = () => {
             <div className="movie-item-img">
               <img src={item.Poster} alt={item.Title} />
               <p className='imdb-img'><i className="fa-solid fa-star"></i>{item.imdbRating}</p>
-              <div className='movie-info' >
-                <p><div className="lighter"></div></p>
-                <p><i className="fa-solid fa-star"></i>{item.imdbRating}</p>
-                <p>{item.Plot}</p>
-                <p><div className="lighter">Language:</div>{item.Language}</p>
-                <p><div className="lighter">Aired:</div>{item.Released}</p>
-                <p><div className="lighter">Genres:</div>{item.Genre}</p></div>
+              <div className='movie-info' > 
+                <div className='info-text'><div className="lighter movie-info-title">{item.Title}</div></div>
+                <div className='info-text'><i className="fa-solid fa-star"></i>{item.imdbRating}</div>
+                <div className='info-text'>{item.Plot}</div>
+                <div className='info-text'><div className="lighter">Language:</div>{item.Language}</div>
+                <div className='info-text'><div className="lighter">Aired:</div>{item.Released}</div>
+                <div className='info-text'><div className="lighter">Genres:</div>{item.Genre}</div>
+              </div>
             </div>
             <p>{item.Title}</p>
           </div>
         ))}
       </div>
     </div>
+    </>
   );
 };
 
