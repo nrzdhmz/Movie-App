@@ -38,3 +38,15 @@ export const getMovieController = async (req, res) => {
     return res.status(500).json({ error: "Server errors" });
   }
 };
+
+export const filterMoviesController = async (req, res) => {
+  const { movieQuery } = req.params;
+
+  const {
+    data: { Search: movies },
+  } = await axios.get(
+    `https://omdbapi.com/?s=${movieQuery}&page=1&apikey=${process.env.OMDB_API_KEY}`
+  );
+
+  return res.status(200).json({ movies });
+};
