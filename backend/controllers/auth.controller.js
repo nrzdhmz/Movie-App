@@ -39,6 +39,14 @@ export const signupController = async (req, res) => {
       // Generate JWT token
       generateTokenAndSetCookie(newUser.id, res);
 
+      await prisma.watchlist.create({
+        data: {
+          user: {
+            connect: { id: newUser.id },
+          },
+        },
+      });
+
       // User created successfully
       res.status(201).json({
         id: newUser.id,
