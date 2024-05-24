@@ -1,5 +1,6 @@
 import express from "express";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 // Routes
 import authRoutes from "./routes/auth.routes.js";
@@ -8,7 +9,7 @@ import watchlistRoutes from "./routes/watchlist.routes.js";
 import prisma from "./prismaClient/index.js";
 
 const app = express();
-
+app.use(cors());
 app.use(express.json()); // to parse the incoming requests with JSON payloads (from req.body)
 app.use(cookieParser()); // to access the cookies
 
