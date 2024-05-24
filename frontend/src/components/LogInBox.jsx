@@ -1,14 +1,16 @@
 import { useRef, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const LogInBox = () => {
   const userRef = useRef();
   const errRef = useRef();
   const navigate = useNavigate();
 
-  const [user, setUser] = useState('');
-  const [pwd, setPwd] = useState('');
+  const [formData, setFormData] = useState({
+    user: '',
+    pwd: '',
+  });
+
   const [errMsg, setErrMsg] = useState('');
 
   useEffect(() => {
@@ -17,9 +19,14 @@ const LogInBox = () => {
 
   useEffect(() => {
     setErrMsg('');
-  }, [user, pwd]);
+  }, [formData]);
 
-  const handleSubmit = async (e) => {
+  const handleChange = e => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async e => {
     e.preventDefault();
 
     try {
@@ -28,8 +35,8 @@ const LogInBox = () => {
         headers: { "Content-Type": "application/json" },
         credentials: "include",
         body: JSON.stringify({
-          username: user,
-          password: pwd,
+          username: formData.user,
+          password: formData.pwd,
         }),
       });
 
@@ -43,9 +50,8 @@ const LogInBox = () => {
         }
       }
 
-      setUser('');
-      setPwd('');
-      navigate('/HomePage');  
+      setFormData({ user: '', pwd: '' });
+      navigate('/HomePage');
     } catch (err) {
       setErrMsg(err.message);
       errRef.current.focus();
@@ -60,21 +66,21 @@ const LogInBox = () => {
         <form className="sign-inputs" onSubmit={handleSubmit}>
           <input
             type="text"
-            id="username"
+            id="user"
             ref={userRef}
             placeholder="Username"
             autoComplete="off"
-            onChange={(e) => setUser(e.target.value)}
-            value={user}
+            onChange={handleChange}
+            value={formData.user}
             required
           />
 
           <input
             type="password"
-            id="password"
+            id="pwd"
             placeholder="Password"
-            onChange={(e) => setPwd(e.target.value)}
-            value={pwd}
+            onChange={handleChange}
+            value={formData.pwd}
             required
           />
           <div className="logSign">

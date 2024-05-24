@@ -9,17 +9,23 @@ const Register = () => {
   const errRef = useRef();
   const navigate = useNavigate();
 
-  const [user, setUser] = useState("");
-  const [validName, setValidName] = useState(false);
-  const [userFocus, setUserFocus] = useState(false);
+  const [formData, setFormData] = useState({
+    user: "",
+    pwd: "",
+    matchPwd: "",
+  });
 
-  const [pwd, setPwd] = useState("");
-  const [validPwd, setValidPwd] = useState(false);
-  const [pwdFocus, setPwdFocus] = useState(false);
+  const [formValidity, setFormValidity] = useState({
+    validName: false,
+    validPwd: false,
+    validMatch: false,
+  });
 
-  const [matchPwd, setMatchPwd] = useState("");
-  const [validMatch, setValidMatch] = useState(false);
-  const [matchFocus, setMatchFocus] = useState(false);
+  const [focus, setFocus] = useState({
+    userFocus: false,
+    pwdFocus: false,
+    matchFocus: false,
+  });
 
   const [errMsg, setErrMsg] = useState("");
 
@@ -28,23 +34,44 @@ const Register = () => {
   }, []);
 
   useEffect(() => {
-    setValidName(USER_REGEX.test(user));
-  }, [user]);
+    setFormValidity(prev => ({
+      ...prev,
+      validName: USER_REGEX.test(formData.user),
+    }));
+  }, [formData.user]);
 
   useEffect(() => {
-    setValidPwd(PWD_REGEX.test(pwd));
-    setValidMatch(pwd === matchPwd);
-  }, [pwd, matchPwd]);
+    setFormValidity(prev => ({
+      ...prev,
+      validPwd: PWD_REGEX.test(formData.pwd),
+      validMatch: formData.pwd === formData.matchPwd,
+    }));
+  }, [formData.pwd, formData.matchPwd]);
 
   useEffect(() => {
     setErrMsg("");
-  }, [user, pwd, matchPwd]);
+  }, [formData]);
+
+  const handleChange = e => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
+
+  const handleFocus = e => {
+    const { id } = e.target;
+    setFocus(prev => ({ ...prev, [`${id}Focus`]: true }));
+  };
+
+  const handleBlur = e => {
+    const { id } = e.target;
+    setFocus(prev => ({ ...prev, [`${id}Focus`]: false }));
+  };
 
   const handleSubmit = async e => {
     e.preventDefault();
 
-    const v1 = USER_REGEX.test(user);
-    const v2 = PWD_REGEX.test(pwd);
+    const v1 = USER_REGEX.test(formData.user);
+    const v2 = PWD_REGEX.test(formData.pwd);
     if (!v1 || !v2) {
       setErrMsg("Invalid Entry");
       return;
@@ -56,9 +83,9 @@ const Register = () => {
         headers: { "Content-Type": "application/json" },
         credentials: "include",
         body: JSON.stringify({
-          username: user,
-          password: pwd,
-          confirmPassword: matchPwd,
+          username: formData.user,
+          password: formData.pwd,
+          confirmPassword: formData.matchPwd,
         }),
       });
 
@@ -66,9 +93,11 @@ const Register = () => {
         throw new Error("Registration failed");
       }
 
-      setUser("");
-      setPwd("");
-      setMatchPwd("");
+      setFormData({
+        user: "",
+        pwd: "",
+        matchPwd: "",
+      });
       navigate("/LogIn");
     } catch (err) {
       if (!err.message) {
@@ -95,59 +124,67 @@ const Register = () => {
         <form className="sign-inputs" onSubmit={handleSubmit}>
           <input
             type="text"
-            id="username"
+            id="user"
             ref={userRef}
             autoComplete="off"
-            onChange={e => setUser(e.target.value)}
-            value={user}
+            onChange={handleChange}
+            value={formData.user}
             required
             placeholder="Username"
-            aria-invalid={validName ? "false" : "true"}
+            aria-invalid={formValidity.validName ? "false" : "true"}
             aria-describedby="uidnote"
-            onFocus={() => setUserFocus(true)}
-            onBlur={() => setUserFocus(false)}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
           />
           <p
             id="uidnote"
             className={
-              userFocus && user && !validName ? "instructions" : "offscreen"
+              focus.userFocus && formData.user && !formValidity.validName
+                ? "instructions"
+                : "offscreen"
             }>
             4 to 24 characters. Must begin with a letter.
           </p>
           <input
             type="password"
-            id="password"
-            onChange={e => setPwd(e.target.value)}
-            value={pwd}
+            id="pwd"
+            onChange={handleChange}
+            value={formData.pwd}
             required
             placeholder="Password"
-            aria-invalid={validPwd ? "false" : "true"}
+            aria-invalid={formValidity.validPwd ? "false" : "true"}
             aria-describedby="pwdnote"
-            onFocus={() => setPwdFocus(true)}
-            onBlur={() => setPwdFocus(false)}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
           />
           <p
             id="pwdnote"
-            className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
+            className={
+              focus.pwdFocus && !formValidity.validPwd
+                ? "instructions"
+                : "offscreen"
+            }>
             6 to 16 characters. Must include uppercase and lowercase letters and
             a number.
           </p>
           <input
             type="password"
-            id="confirm_pwd"
-            onChange={e => setMatchPwd(e.target.value)}
-            value={matchPwd}
+            id="matchPwd"
+            onChange={handleChange}
+            value={formData.matchPwd}
             required
             placeholder="Confirm Password"
-            aria-invalid={validMatch ? "false" : "true"}
+            aria-invalid={formValidity.validMatch ? "false" : "true"}
             aria-describedby="confirmnote"
-            onFocus={() => setMatchFocus(true)}
-            onBlur={() => setMatchFocus(false)}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
           />
           <p
             id="confirmnote"
             className={
-              matchFocus && !validMatch ? "instructions" : "offscreen"
+              focus.matchFocus && !formValidity.validMatch
+                ? "instructions"
+                : "offscreen"
             }>
             Must match the first password input field.
           </p>
@@ -157,7 +194,11 @@ const Register = () => {
               <Link to="/LogIn">Log in</Link>
             </div>
             <button
-              disabled={!validName || !validPwd || !validMatch ? true : false}>
+              disabled={
+                !formValidity.validName ||
+                !formValidity.validPwd ||
+                !formValidity.validMatch
+              }>
               Sign Up
             </button>
           </div>
