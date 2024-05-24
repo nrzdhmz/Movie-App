@@ -42,40 +42,42 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+      
         const v1 = USER_REGEX.test(user);
         const v2 = PWD_REGEX.test(pwd);
         if (!v1 || !v2) {
-            setErrMsg("Invalid Entry");
-            return;
+          setErrMsg("Invalid Entry");
+          return;
         }
-
+      
         try {
-            const response = await fetch('http://localhost:5000/register', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username: user, password: pwd, confirmPassword: matchPwd })
-            });
-
-            if (!response.ok) {
-                throw new Error('Registration failed');
-            }
-
-            setUser('');
-            setPwd('');
-            setMatchPwd('');
-            navigate('/LogIn');
+          const response = await fetch('http://localhost:5000/api/auth/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include', // include cookies in the request
+            body: JSON.stringify({ username: user, password: pwd, confirmPassword: matchPwd })
+          });
+      
+          if (!response.ok) {
+            throw new Error('Registration failed');
+          }
+      
+          setUser('');
+          setPwd('');
+          setMatchPwd('');
+          navigate('/LogIn');
         } catch (err) {
-            if (!err.message) {
-                setErrMsg('No Server Response');
-            } else if (err.message.includes('Username Taken')) {
-                setErrMsg('Username Taken');
-            } else {
-                setErrMsg('Registration Failed');
-            }
-            errRef.current.focus();
+          if (!err.message) {
+            setErrMsg('No Server Response');
+          } else if (err.message.includes('Username Taken')) {
+            setErrMsg('Username Taken');
+          } else {
+            setErrMsg('Registration Failed');
+          }
+          errRef.current.focus();
         }
-    };
+      };
+      
 
     return (
         <div className="container justify">
