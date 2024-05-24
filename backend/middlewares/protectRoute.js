@@ -17,7 +17,7 @@ const protectRoute = async (req, res, next) => {
 
     const user = await prisma.user.findFirst({
       where: { id: decoded.userId },
-      select: { username: true },
+      select: { username: true, id: true },
     });
 
     if (!user) return res.status(404).json({ error: "User not found" });

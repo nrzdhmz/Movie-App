@@ -90,3 +90,34 @@ export const getWatchlistController = async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 };
+
+// UPDATE MOVIE STATUS
+export const updateMovieStatus = async (req, res) => {
+  try {
+    const { movieId, status } = req.body;
+
+    // Find the movie inside watchlist and update its status
+    await prisma.watchlist.update({
+      data: {
+        movieItems: {
+          update: {
+            where: {
+              movieId,
+            },
+            data: {
+              status,
+            },
+          },
+        },
+      },
+      where: {
+        userId: req.user.id,
+      },
+    });
+
+    return res.status(200).json({ message: "Successfully updated" });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ error: "Server error" });
+  }
+};
