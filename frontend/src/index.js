@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './scss/main.css';
+import './assets/scss/main.css';
 import HomePage from './pages/HomePage';
 import LogIn from './pages/LogIn';
 import ProfilePage from './pages/ProfilePage';

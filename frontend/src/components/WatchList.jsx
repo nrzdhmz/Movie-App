@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import data from '../data.json';
+import data from '../db/data.json';
 import Filter from './Filter';
 
 const WatchList = () => {
@@ -63,7 +63,7 @@ const WatchList = () => {
             <div className="movie-item-img">
               <img src={item.Poster} alt={item.Title} />
               <p className='imdb-img'><i className="fa-solid fa-star"></i>{item.imdbRating}</p>
-              <div className='movie-info' >
+              <div className='movie-info' > 
                 <div className='info-text'><div className="lighter movie-info-title">{item.Title}</div></div>
                 <div className='info-text'><i className="fa-solid fa-star"></i>{item.imdbRating}</div>
                 <div className='info-text'>{item.Plot}</div>

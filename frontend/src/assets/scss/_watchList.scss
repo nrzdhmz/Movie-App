@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 50px 0 250px;
+  padding: 30px 0 250px;
 
   .watch-list-item {
     display: flex;
@@ -15,8 +15,8 @@
       position: absolute;
       top: 5px;
       right: 5px;
-      width: 35px;
-      height: 35px;
+      width: 25px;
+      height: 25px;
       text-align: center;
       border-radius: 8px;
       background-color: white;
@@ -31,20 +31,20 @@
         }
       }
       i{
-        font-size: 1.65rem;
+        font-size: 1.25rem;
       }
       .changeType{
         position: absolute;
-        top: 40px;
+        top: 30px;
         right: 0;
         flex-direction: column;
         display: none;
         .type{
           text-align: left;
           background-color: white;
-          padding: 15px;
-          font-size: 1.05rem;
-          width: 160px;
+          padding: 10px;
+          font-size: 0.8rem;
+          width: 120px;
           transition: 0.1s;
           &:hover{
             background-color: $site-common-white;
@@ -55,7 +55,7 @@
 
     p {
       margin: 10px 0;
-      font-size: 1.1rem;
+      font-size: 0.8rem;
       color: $site-common-white;
     }
 
@@ -66,12 +66,13 @@
       .imdb-img{
         background-color: white;
         position: absolute;
-        top: 0;
-        left: 10px;
+        top: -5px;
+        left: 5px;
+        font-size: 0.8rem;
         border-radius: 5px;
         color: $dark-color;
         padding: 4px 5px;
-        i{
+        i{  
           padding-right: 3px;
           color: #FFD43B;
         }
@@ -79,27 +80,25 @@
       .movie-info{
         display: none;
         flex-direction: column;
-        padding: 20px;
-        border-radius: 15px;
+        padding: 15px;
+        border-radius: 10px;
         top: 50%;
         left: 50%;
         position: absolute;
-        width: 350px;
+        width: 280px;
         backdrop-filter: blur(100px);
         -webkit-backdrop-filter: blur(100px);
         z-index: 1001;
         gap: 10px;
         .img-title{
-          font-size: 1.4rem;
+          font-size: 1.3rem;
         }
         .info-text{
           display: flex;
           flex-wrap: wrap;
           gap: 5px;
+          font-size: 0.85rem;
           color: darken($site-common-white, 15%);
-          .movie-info-title{
-            font-size: 1.4rem;
-          }
         }
         i{
           color: #FFD43B;
@@ -107,7 +106,7 @@
       }
 
       img {
-        height: 340px !important;
+        height: 260px !important;
         object-fit: cover;
         width: 100%;
         transition: filter 0.3s ease;
@@ -142,8 +141,9 @@
 .remove{
   color: red;
 }
-// .changeType {
-// }
+.movie-info-title{
+  font-size: 1.1rem;
+}
 
 .visible {
   display: flex;

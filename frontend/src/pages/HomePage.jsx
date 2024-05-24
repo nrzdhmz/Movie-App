@@ -39,7 +39,7 @@ const HomePage = () => {
             </div>
             <div className="container">
                 <div className="result-container">
-                    <div className="result-grid">
+                    <div className="result-grid"> 
                         {selectedMovie && <MovieDetails movie={selectedMovie} />}
                     </div>
                 </div>
