@@ -1,14 +1,9 @@
 import { useRef, useState, useEffect } from 'react';
-// import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import AuthContext from "../context/AuthProvider";
 import { Link } from 'react-router-dom';
 
-// import axios from './api/axios';
-// const LOGIN_URL = '/auth';
 
 const LogInBox = () => {
-    // const { setAuth } = useContext(AuthContext);
     const userRef = useRef();
     const errRef = useRef();
     const navigate = useNavigate();
@@ -16,7 +11,6 @@ const LogInBox = () => {
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
-    // const [success, setSuccess] = useState(false);
 
     useEffect(() => {
         userRef.current.focus();
@@ -30,22 +24,9 @@ const LogInBox = () => {
         e.preventDefault();
 
         try {
-            // const response = await axios.post(LOGIN_URL,
-            //     JSON.stringify({ user, pwd }),
-            //     {
-            //         headers: { 'Content-Type': 'application/json' },
-            //         withCredentials: true
-            //     }
-            // );
-            // console.log(JSON.stringify(response?.data));
-            //console.log(JSON.stringify(response));
-            // const accessToken = response?.data?.accessToken;
-            // const roles = response?.data?.roles;
-            // setAuth({ user, pwd, roles, accessToken });
             setUser('');
             setPwd('');
-            // setSuccess(true);
-            navigate('/HomePage');  // Redirect to HomePage after successful login
+            navigate('/HomePage');  
         } catch (err) {
             if (!err?.response) {
                 setErrMsg('No Server Response');
