@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios';
 
 const LogInBox = () => {
   const userRef = useRef();
@@ -30,30 +31,30 @@ const LogInBox = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
-        method: "POST",
+      await axios.post("http://localhost:5000/api/auth/login", {
+        username: formData.user,
+        password: formData.pwd,
+      }, {
         headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify({
-          username: formData.user,
-          password: formData.pwd,
-        }),
+        withCredentials: true,
       });
-
-      if (!response.ok) {
-        if (response.status === 400) {
-          throw new Error("Missing Username or Password");
-        } else if (response.status === 401) {
-          throw new Error("Unauthorized");
-        } else {
-          throw new Error("Login Failed");
-        }
-      }
 
       setFormData({ user: '', pwd: '' });
       navigate('/HomePage');
     } catch (err) {
-      setErrMsg(err.message);
+      if (err.response) {
+        if (err.response.status === 400) {
+          setErrMsg("Missing Username or Password");
+        } else if (err.response.status === 401) {
+          setErrMsg("Unauthorized");
+        } else {
+          setErrMsg("Login Failed");
+        }
+      } else if (err.request) {
+        setErrMsg("No response from server");
+      } else {
+        setErrMsg("Error: " + err.message);
+      }
       errRef.current.focus();
     }
   };
