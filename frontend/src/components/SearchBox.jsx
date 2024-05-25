@@ -9,8 +9,9 @@ const SearchBox = ({ onMoviesLoaded }) => {
             const URL = `http://localhost:5000/api/movies/${searchTerm}`;
             try {
                 const res = await axios.get(URL);
-                if (res.data.Response === "True") {
-                    onMoviesLoaded(res.data.Search);
+                console.log('API Response:', res.data);
+                if (res.data.movies) {
+                    onMoviesLoaded(res.data.movies);
                 } else {
                     onMoviesLoaded([]);
                 }
@@ -26,6 +27,7 @@ const SearchBox = ({ onMoviesLoaded }) => {
     const handleChange = (e) => {
         const value = e.target.value;
         setSearchTerm(value);
+        console.log('Search Term:', value);
         findMovies(value);
     };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 
 const SearchList = ({ movies, onMovieSelect, show }) => {
+    console.log('Movies:', movies);
     return (
         <div className={`search-list ${show ? '' : 'hide-search-list'}`} id="search-list">
             {movies.map(movie => (
@@ -17,5 +18,6 @@ const SearchList = ({ movies, onMovieSelect, show }) => {
         </div>
     );
 };
+
 
 export default SearchList;

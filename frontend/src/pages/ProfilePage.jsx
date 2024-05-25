@@ -25,12 +25,12 @@ const ProfilePage = () => {
           </div>
         </div>
       )}
-      <div className="container-top">
+      <header className="container-top">
         <div className="search-container">
           <Logo/>
           <NavigationBar/>
         </div>
-      </div>
+      </header>
       <div className="container">
         <div className="profile-section">
           <div className="profile-summary">

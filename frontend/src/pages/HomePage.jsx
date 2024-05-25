@@ -13,7 +13,7 @@ const HomePage = () => {
 
     const handleMovies = (movies) => {
         setMovies(movies);
-        setShowSearchList(true);
+        setShowSearchList(movies.length > 0);
     };
 
     const handleMovieSelection = (movie) => {
@@ -23,7 +23,7 @@ const HomePage = () => {
 
     return (
         <div className="wrapper">
-            <div className="container-top">
+            <header className="container-top">
                 <div className="search-container">
                     <Logo />
                     <div className="search-element">
@@ -36,7 +36,7 @@ const HomePage = () => {
                     </div>
                     <NavigationBar />
                 </div>
-            </div>
+            </header>
             <div className="container">
                 <div className="result-container">
                     <div className="result-grid">
