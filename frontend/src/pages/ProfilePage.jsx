@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Logo from '../components/Logo';
 import NavigationBar from '../components/NavigationBar';
 import { Link } from 'react-router-dom';
-import { dataLength } from '../components/WatchList';
 
 const ProfilePage = () => {
   const [showOverlay, setShowOverlay] = useState(false);
@@ -46,7 +45,7 @@ const ProfilePage = () => {
             <div className="profile-summary-right">
               <div className="profile-stats">
                 <Link onClick={toggleOverlay}>
-                  <span className='value'>{dataLength}</span>
+                  <span className='value'>0</span>
                   <span className='definition'>Films</span>
                 </Link>
               </div>

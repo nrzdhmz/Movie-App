@@ -28,7 +28,6 @@ const SearchBox = ({ onMoviesLoaded }) => {
   const handleChange = e => {
     const value = e.target.value;
     setSearchTerm(value);
-    // console.log("Search Term:", value);
     findMovies(value);
   };
 
