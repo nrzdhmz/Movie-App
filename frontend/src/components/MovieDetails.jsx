@@ -48,6 +48,8 @@ const MovieDetails = ({ movie }) => {
                     <button className='addToList' onClick={addToWatchlist}><i className="fa-solid fa-plus"></i> Add to Watchlist</button>
                 </div>
             </div>
+
+            
         )
     );
 };
