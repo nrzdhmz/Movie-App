@@ -18,7 +18,7 @@ const MovieDetails = ({ movie }) => {
 
     const addToWatchlist = async () => {
         try {
-            await axios.post('http://localhost:5000/api/watchlist/add',{movieId: details.imdbID}, {withCredentials : true});
+            await axios.post('http://localhost:5000/api/watchlist/add',{movieId: movie.imdbID}, {withCredentials : true});
             alert('Movie added');
         } catch (error) {
             console.error('Error adding movie to watchlist:', error);
@@ -27,6 +27,7 @@ const MovieDetails = ({ movie }) => {
 
     return (
         details && (
+
             <div className="movie-details">
                 <div className="movie-poster">
                     <img src={details.poster !== "N/A" ? details.poster : "./assets/img/image_not_found.png"} alt="movie poster" />
