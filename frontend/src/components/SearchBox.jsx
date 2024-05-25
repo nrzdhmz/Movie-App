@@ -4,32 +4,15 @@ import axios from "axios";
 const SearchBox = ({ onMoviesLoaded }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-<<<<<<< HEAD
-    const findMovies = async (searchTerm) => {
-        if (searchTerm.length > 0) {
-            const URL = `http://localhost:5000/api/movies/${searchTerm}`;
-            try {
-                const res = await axios.get(URL, { withCredentials: true });
-                console.log('API Response:', res.data);
-                if (res.data.movies) {
-                    onMoviesLoaded(res.data.movies);
-                } else {
-                    onMoviesLoaded([]);
-                }
-            } catch (error) {
-                console.error('Error fetching movies:', error);
-                onMoviesLoaded([]);
-            }
-=======
   const findMovies = async searchTerm => {
     if (searchTerm.length > 0) {
       const URL = `http://localhost:5000/api/movies/${searchTerm}`;
       try {
         const res = await axios.get(URL, { withCredentials: true });
-        console.log("API Response:", res.data);
+        // console.log("API Response:", res.data);
+
         if (res.data.movies) {
           onMoviesLoaded(res.data.movies);
->>>>>>> 48b49d7fffc0ab3c1e43b5edcc4741748cafe541
         } else {
           onMoviesLoaded([]);
         }
@@ -45,7 +28,7 @@ const SearchBox = ({ onMoviesLoaded }) => {
   const handleChange = e => {
     const value = e.target.value;
     setSearchTerm(value);
-    console.log("Search Term:", value);
+    // console.log("Search Term:", value);
     findMovies(value);
   };
 

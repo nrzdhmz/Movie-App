@@ -7,7 +7,7 @@ const MovieDetails = ({ movie }) => {
     useEffect(() => {
         const loadMovieDetails = async () => {
             try {
-                const result = await axios.get(`http://localhost:5000/api/movies/get/${movie.imdbId}`);
+                const result = await axios.get(`http://localhost:5000/api/movies/get/${movie.imdbID}` ,{withCredentials : true});
                 setDetails(result.data.movie);
             } catch (error) {
                 console.error('Error fetching movie details:', error);
@@ -18,9 +18,7 @@ const MovieDetails = ({ movie }) => {
 
     const addToWatchlist = async () => {
         try {
-            await axios.post('http://localhost:5000/api/watchlist/add', {
-                movie: details,
-            });
+            await axios.post('http://localhost:5000/api/watchlist/add',{movieId: details.imdbID}, {withCredentials : true});
             alert('Movie added');
         } catch (error) {
             console.error('Error adding movie to watchlist:', error);
