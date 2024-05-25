@@ -22,11 +22,26 @@ const WatchList = () => {
     fetchMovies();
   }, []);
 
-  const toggleChangeType = (index) => {
-    const newShowChangeType = Array(movies.length).fill(false);
-    newShowChangeType[index] = !showChangeType[index];
-    setCoverVisible(!showChangeType[index]);
-    setShowChangeType(newShowChangeType);
+  const toggleChangeType = async (index) => {
+    try {
+      const newShowChangeType = Array(movies.length).fill(false);
+      newShowChangeType[index] = !showChangeType[index];
+      setShowChangeType(newShowChangeType);
+
+      const updateStatus = await axios.post('http://localhost:5000/api/watchlist/update-status', 
+      {
+        movieId: movies[index].movie.id,
+        newStatus: 'Watching'
+      },
+      {
+        withCredentials : true
+      }
+      );
+
+      console.log('Status updated successfully:', updateStatus.data);
+    } catch (error) {
+      console.error('Error updating status:', error);
+    }
   };
 
   const hideChangeType = () => {
@@ -44,9 +59,9 @@ const WatchList = () => {
       sortedData.sort((a, b) => a.movie.title.localeCompare(b.movie.title));
     } else if (sortOption === 'Released Date') {
       sortedData.sort((a, b) => {
-        const yearA = parseInt(a.movie.Year.substring(0, 4), 10);
-        const yearB = parseInt(b.movie.Year.substring(0, 4), 10);
-        return yearA - yearB;
+        const dateA = new Date(a.movie.released);
+        const dateB = new Date(b.movie.released);
+        return dateA - dateB;
       });
     } else if (sortOption === 'IMDB') {
       sortedData.sort((a, b) => b.movie.imdbRating - a.movie.imdbRating);
@@ -68,11 +83,11 @@ const WatchList = () => {
                 <i className="fas fa-ellipsis-v"></i>
               </button>
               <div className='changeType' style={{ display: showChangeType[index] ? 'block' : 'none'}}>
-                <div className="type">Watching</div>
-                <div className="type">On-Hold</div>
-                <div className="type">Plan to watch</div>
-                <div className="type">Dropped</div>
-                <div className="type">Completed</div>
+                <div className="type" onClick={() => toggleChangeType(index, 'Watching')}>Watching</div>
+                <div className="type" onClick={() => toggleChangeType(index, 'On-Hold')}>On-Hold</div>
+                <div className="type" onClick={() => toggleChangeType(index, 'Plan to watch')}>Plan to watch</div>
+                <div className="type" onClick={() => toggleChangeType(index, 'Dropped')}>Dropped</div>
+                <div className="type" onClick={() => toggleChangeType(index, 'Completed')}>Completed</div>
                 <div className="type remove">Remove</div>
               </div>
               <div className="movie-item-img">
