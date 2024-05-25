@@ -79,6 +79,7 @@ export const getWatchlistController = async (req, res) => {
         movieItems: {
           select: {
             movie: true,
+            status: true,
           },
         },
       },
