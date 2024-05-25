@@ -31,7 +31,7 @@ const WatchList = () => {
       const updateStatus = await axios.post('http://localhost:5000/api/watchlist/update-status', 
       {
         movieId: movies[index].movie.id,
-        newStatus: 'Watching'
+        status: 'Watching'
       },
       {
         withCredentials : true
