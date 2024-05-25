@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,16}$/;
@@ -78,20 +79,14 @@ const Register = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/signup", {
-        method: "POST",
+      await axios.post("http://localhost:5000/api/auth/signup", {
+        username: formData.user,
+        password: formData.pwd,
+        confirmPassword: formData.matchPwd,
+      }, {
         headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify({
-          username: formData.user,
-          password: formData.pwd,
-          confirmPassword: formData.matchPwd,
-        }),
+        withCredentials: true,
       });
-
-      if (!response.ok) {
-        throw new Error("Registration failed");
-      }
 
       setFormData({
         user: "",
@@ -100,12 +95,16 @@ const Register = () => {
       });
       navigate("/LogIn");
     } catch (err) {
-      if (!err.message) {
+      if (err.response) {
+        if (err.response.status === 409) {
+          setErrMsg("Username Taken");
+        } else {
+          setErrMsg("Registration Failed");
+        }
+      } else if (err.request) {
         setErrMsg("No Server Response");
-      } else if (err.message.includes("Username Taken")) {
-        setErrMsg("Username Taken");
       } else {
-        setErrMsg("Registration Failed");
+        setErrMsg("Error: " + err.message);
       }
       errRef.current.focus();
     }
