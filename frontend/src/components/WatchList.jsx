@@ -27,7 +27,7 @@ const WatchList = () => {
     await axios.post(
       'http://localhost:5000/api/watchlist/update-status', 
       {
-        movieId: movies[index].movie.imdbID,
+        movieId: movies[index].movie.imdbId,
         status: status
       },
       {
@@ -41,6 +41,8 @@ const WatchList = () => {
       
       const response = await axios.get('http://localhost:5000/api/watchlist/get', { withCredentials: true });
       setMovies(response.data.movies.movieItems);
+
+      console.log(response.data.movies.movieItems);
 
     } catch (error) {
       console.error('Error updating status:');
