@@ -7,6 +7,11 @@
   width: 400px;
   border-radius: 20px;
   background-color: $md-dark-color;
+  @media (max-width: 500px) {
+    &{
+      width: 100%;
+    }
+  }
     .sign-top{
       color: $site-common-white;
       margin: 40px 0 0;

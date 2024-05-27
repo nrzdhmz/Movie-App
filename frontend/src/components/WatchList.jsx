@@ -12,7 +12,7 @@ const WatchList = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/watchlist/get', { withCredentials: true });
+        const response = await axios.get('http://localhost:5000/api/watchlist', { withCredentials: true });
         setMovies(response.data.movies.movieItems);
         setShowChangeType(Array(response.data.movies.movieItems.length).fill(false));
       } catch (error) {
@@ -26,7 +26,7 @@ const WatchList = () => {
   const toggleChangeType = async (index, status) => {
     try {
       await axios.post(
-        'http://localhost:5000/api/watchlist/update-status',
+        'http://localhost:5000/api/watchlist',
         {
           movieId: movies[index].movie.imdbId,
           status: status
@@ -39,7 +39,7 @@ const WatchList = () => {
         }
       );
 
-      const response = await axios.get('http://localhost:5000/api/watchlist/get', { withCredentials: true });
+      const response = await axios.get('http://localhost:5000/api/watchlist', { withCredentials: true });
       setMovies(response.data.movies.movieItems);
 
       console.log(response.data.movies.movieItems);

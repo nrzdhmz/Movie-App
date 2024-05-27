@@ -58,10 +58,11 @@ a:active {
   max-width: 1050px;
   margin: 0 auto;
   padding: 0 1rem;
-  height: 80px;
+  min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -476,6 +477,7 @@ a:active {
   align-items: center;
   margin: 40px 0 0;
   flex-wrap: wrap;
+  gap: 10px;
 }
 .filter-container .filterBy {
   padding: 5px;
@@ -489,14 +491,14 @@ a:active {
 .filter-container .filter {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   flex-wrap: wrap;
 }
 .filter-container .filter .filterBtn {
   font-size: 1rem;
   border: none;
   padding: 8px;
-  border-radius: 8px;
+  border-radius: 6px;
   min-width: 90px;
   cursor: pointer;
   color: #DDDDDD;
@@ -518,6 +520,11 @@ a:active {
   width: 400px;
   border-radius: 20px;
   background-color: #383f46;
+}
+@media (max-width: 500px) {
+  .sign-in-container {
+    width: 100%;
+  }
 }
 .sign-in-container .sign-top {
   color: #DDDDDD;
