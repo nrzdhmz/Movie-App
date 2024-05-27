@@ -9,7 +9,6 @@ const SearchBox = ({ onMoviesLoaded }) => {
       const URL = `http://localhost:5000/api/movies/${searchTerm}`;
       try {
         const res = await axios.get(URL, { withCredentials: true });
-        // console.log("API Response:", res.data);
 
         if (res.data.movies) {
           onMoviesLoaded(res.data.movies);

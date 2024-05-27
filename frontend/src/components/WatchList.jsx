@@ -96,13 +96,9 @@ const WatchList = () => {
 
 
 
-  const handleRemoveMovie = async (movieId ,status) => {
+  const handleRemoveMovie = async (movieId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/watchlist`,
-      {
-        movieId: movieId,
-        status: 'Remove'
-      }, 
+      await axios.delete(`http://localhost:5000/api/watchlist/${movieId}`,
       {
         withCredentials: true,
         headers: {
