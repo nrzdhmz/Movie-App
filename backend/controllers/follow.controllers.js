@@ -1,4 +1,4 @@
-import prisma from "../prismaClient";
+import prisma from "../prismaClient/index.js";
 
 // Get following list of the user
 export const getFollowingController = async (req, res) => {
@@ -49,7 +49,7 @@ export const getFollowerController = async (req, res) => {
 };
 
 // User follows another user
-export const addFollowerController = async (req, res) => {
+export const addFollowingController = async (req, res) => {
   try {
     const { id: userId } = req.user;
     const { followingId } = req.body;
@@ -60,6 +60,25 @@ export const addFollowerController = async (req, res) => {
       },
     });
     return res.status(200).json({ message: "Successfully followed" });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ error: "Server error" });
+  }
+};
+
+// User unfollows another user
+export const removeFollowingController = async (req, res) => {
+  try {
+    const { id: userId } = req.user;
+    const { followingId } = req.body;
+
+    await prisma.follow.delete({
+      where: {
+        followerId: userId,
+        followingId,
+      },
+    });
+    return res.status(200).json({ message: "Successfully unfollowed" });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: "Server error" });
