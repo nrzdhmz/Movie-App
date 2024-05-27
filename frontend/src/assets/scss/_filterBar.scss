@@ -4,6 +4,7 @@
   align-items: center;
   margin: 40px 0 0;
   flex-wrap: wrap;
+  gap: 10px;
   .filterBy{
     padding: 5px;
     color: $site-common-white;
@@ -16,13 +17,13 @@
   .filter{
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 6px;
     flex-wrap: wrap;
     .filterBtn{
       font-size: 1rem;
       border: none;
       padding: 8px;
-      border-radius: 8px;
+      border-radius: 6px;
       min-width: 90px;
       cursor: pointer;
       color: $site-common-white;

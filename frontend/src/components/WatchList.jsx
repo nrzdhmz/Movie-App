@@ -12,7 +12,7 @@ const WatchList = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/watchlist/get', { withCredentials: true });
+        const response = await axios.get('http://localhost:5000/api/watchlist', { withCredentials: true });
         setMovies(response.data.movies.movieItems);
         setShowChangeType(Array(response.data.movies.movieItems.length).fill(false));
       } catch (error) {
@@ -25,8 +25,8 @@ const WatchList = () => {
 
   const toggleChangeType = async (index, status) => {
     try {
-      await axios.post(
-        'http://localhost:5000/api/watchlist/update-status',
+      await axios.patch(
+        'http://localhost:5000/api/watchlist',
         {
           movieId: movies[index].movie.imdbId,
           status: status
@@ -39,7 +39,7 @@ const WatchList = () => {
         }
       );
 
-      const response = await axios.get('http://localhost:5000/api/watchlist/get', { withCredentials: true });
+      const response = await axios.get('http://localhost:5000/api/watchlist', { withCredentials: true });
       setMovies(response.data.movies.movieItems);
 
       console.log(response.data.movies.movieItems);
@@ -94,6 +94,29 @@ const WatchList = () => {
   const filteredData = getFilteredData();
   const sortedData = filteredData.length > 0 ? getSortedData(filteredData) : [];
 
+
+
+  const handleRemoveMovie = async (movieId ,status) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/watchlist`,
+      {
+        movieId: movieId,
+        status: 'Remove'
+      }, 
+      {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const response = await axios.get('http://localhost:5000/api/watchlist', { withCredentials: true });
+      setMovies(response.data.movies.movieItems);
+    } catch (error) {
+      console.error('Error removing movie:');
+    }
+  };
+  
+
   return (
     <>
       <div className="cover" style={{ display: coverVisible ? 'block' : 'none' }} onClick={hideChangeType}></div>
@@ -111,7 +134,7 @@ const WatchList = () => {
                 <div className="type" onClick={() => toggleChangeType(index, 'PlanToWatch')}>Plan to watch</div>
                 <div className="type" onClick={() => toggleChangeType(index, 'Dropped')}>Dropped</div>
                 <div className="type" onClick={() => toggleChangeType(index, 'Completed')}>Completed</div>
-                <div className="type remove">Remove</div>
+                <div className="type remove" onClick={() => handleRemoveMovie(item.movie.imdbId)}>Remove</div>
               </div>
               <div className="movie-item-img">
                 <img src={item.movie.poster} alt={item.movie.title} />

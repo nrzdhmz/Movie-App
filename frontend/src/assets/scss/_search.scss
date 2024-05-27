@@ -2,10 +2,11 @@
   max-width: 1050px;
   margin: 0 auto;
   padding: 0 1rem;
-  height: 80px;
+  min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .logo {
