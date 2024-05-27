@@ -25,7 +25,7 @@ const WatchList = () => {
 
   const toggleChangeType = async (index, status) => {
     try {
-      await axios.post(
+      await axios.patch(
         'http://localhost:5000/api/watchlist',
         {
           movieId: movies[index].movie.imdbId,
@@ -94,6 +94,29 @@ const WatchList = () => {
   const filteredData = getFilteredData();
   const sortedData = filteredData.length > 0 ? getSortedData(filteredData) : [];
 
+
+
+  const handleRemoveMovie = async (movieId) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/watchlist`,
+      {
+        movieId: movieId,
+        status: 'remove'
+      }, 
+      {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const response = await axios.get('http://localhost:5000/api/watchlist', { withCredentials: true });
+      setMovies(response.data.movies.movieItems);
+    } catch (error) {
+      console.error('Error removing movie:');
+    }
+  };
+  
+
   return (
     <>
       <div className="cover" style={{ display: coverVisible ? 'block' : 'none' }} onClick={hideChangeType}></div>
@@ -111,7 +134,7 @@ const WatchList = () => {
                 <div className="type" onClick={() => toggleChangeType(index, 'PlanToWatch')}>Plan to watch</div>
                 <div className="type" onClick={() => toggleChangeType(index, 'Dropped')}>Dropped</div>
                 <div className="type" onClick={() => toggleChangeType(index, 'Completed')}>Completed</div>
-                <div className="type remove">Remove</div>
+                <button className="type remove" onClick={() => handleRemoveMovie(item.movie.imdbId)}>Remove</button>
               </div>
               <div className="movie-item-img">
                 <img src={item.movie.poster} alt={item.movie.title} />
