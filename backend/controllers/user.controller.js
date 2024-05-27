@@ -1,5 +1,6 @@
 import prisma from "../prismaClient/index.js";
 
+// SEARCH USER BY USERNAME
 export const searchUsersController = async (req, res) => {
   try {
     const { query } = req.params;
