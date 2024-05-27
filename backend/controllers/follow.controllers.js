@@ -70,7 +70,7 @@ export const addFollowingController = async (req, res) => {
 export const removeFollowingController = async (req, res) => {
   try {
     const { id: userId } = req.user;
-    const { followingId } = req.body;
+    const { followingId } = req.params;
 
     await prisma.follow.delete({
       where: {
