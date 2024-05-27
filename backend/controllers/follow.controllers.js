@@ -47,3 +47,21 @@ export const getFollowerController = async (req, res) => {
     return res.status(500).json({ error: "Server error" });
   }
 };
+
+// User follows another user
+export const addFollowerController = async (req, res) => {
+  try {
+    const { id: userId } = req.user;
+    const { followingId } = req.body;
+    await prisma.follow.create({
+      data: {
+        followerId: userId,
+        followingId,
+      },
+    });
+    return res.status(200).json({ message: "Successfully followed" });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ error: "Server error" });
+  }
+};
