@@ -134,7 +134,7 @@ const WatchList = () => {
                 <div className="type" onClick={() => toggleChangeType(index, 'PlanToWatch')}>Plan to watch</div>
                 <div className="type" onClick={() => toggleChangeType(index, 'Dropped')}>Dropped</div>
                 <div className="type" onClick={() => toggleChangeType(index, 'Completed')}>Completed</div>
-                <button className="type remove" onClick={() => handleRemoveMovie(item.movie.imdbId)}>Remove</button>
+                <div className="type remove" onClick={() => handleRemoveMovie(item.movie.imdbId)}>Remove</div>
               </div>
               <div className="movie-item-img">
                 <img src={item.movie.poster} alt={item.movie.title} />
