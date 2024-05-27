@@ -2,32 +2,32 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './assets/scss/main.css';
 import HomePage from './pages/HomePage';
-import LogIn from './pages/LogIn';
+import LogInPage from './pages/LogInPage';
 import ProfilePage from './pages/ProfilePage';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import WatchListPage from './pages/WatchListPage';
-import Register from './pages/RegisterPage';
+import RegisterPage from './pages/RegisterPage';
 
 
 const router = createBrowserRouter([
   {
     path: '/' ,
-    element: <Register/>
+    element: <RegisterPage/>
   },  
   {
-    path: '/HomePage' ,
+    path: '/Home' ,
     element: <HomePage/>
   }, 
   {
-    path: '/WatchListPage' ,
+    path: '/MyLists' ,
     element: <WatchListPage/>
   },  
   {
-    path: '/LogIn' ,
-    element: <LogIn/>
+    path: '/Login' ,
+    element: <LogInPage/>
   },  
   {
-    path: '/ProfilePage' ,
+    path: '/Profile' ,
     element: <ProfilePage/>
   }
 ]);

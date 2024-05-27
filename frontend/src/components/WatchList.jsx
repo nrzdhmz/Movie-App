@@ -7,6 +7,7 @@ const WatchList = () => {
   const [showChangeType, setShowChangeType] = useState([]);
   const [coverVisible, setCoverVisible] = useState(false);
   const [sortOption, setSortOption] = useState('Default');
+  const [statusFilter, setStatusFilter] = useState('All');
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -15,7 +16,7 @@ const WatchList = () => {
         setMovies(response.data.movies.movieItems);
         setShowChangeType(Array(response.data.movies.movieItems.length).fill(false));
       } catch (error) {
-        console.error('Error fetching movies:', error);
+        console.error('Error fetching movies:', error.response || error.message);
       }
     };
 
@@ -24,31 +25,36 @@ const WatchList = () => {
 
   const toggleChangeType = async (index, status) => {
     try {
-      const newShowChangeType = Array(movies.length).fill(false);
-      newShowChangeType[index] = !showChangeType[index];
-      setShowChangeType(newShowChangeType);
-
-      const updateStatus = await axios.post(
-        'http://localhost:5000/api/watchlist/update-status', 
+      await axios.post(
+        'http://localhost:5000/api/watchlist/update-status',
         {
-          movieId: movies[index].movie.id,
+          movieId: movies[index].movie.imdbId,
           status: status
         },
         {
-          withCredentials: true
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json'
+          }
         }
       );
 
-      console.log('Status updated successfully:', updateStatus.data);
+      const response = await axios.get('http://localhost:5000/api/watchlist/get', { withCredentials: true });
+      setMovies(response.data.movies.movieItems);
+
+      console.log(response.data.movies.movieItems);
+
+      setShowChangeType(Array(movies.length).fill(false));
+      setCoverVisible(false);
     } catch (error) {
-      console.error('Error updating status:', error);
+      console.error('Error updating status:', error.response || error.message);
     }
   };
 
   const handleToggleChangeType = (index) => {
-    const newShowChangeType = showChangeType.map((val, i) => (i === index ? !val : false));
+    const newShowChangeType = showChangeType.map((value, i) => (i === index ? !value : false));
     setShowChangeType(newShowChangeType);
-    setCoverVisible(newShowChangeType.some(val => val));
+    setCoverVisible(newShowChangeType.some(value => value));
   };
 
   const hideChangeType = () => {
@@ -60,8 +66,17 @@ const WatchList = () => {
     setSortOption(option);
   };
 
-  const getSortedData = () => {
-    let sortedData = [...movies];
+  const handleStatusFilterChange = (status) => {
+    setStatusFilter(status);
+  };
+
+  const getFilteredData = () => {
+    if (statusFilter === 'All') return movies;
+    return movies.filter(movie => movie.status === statusFilter);
+  };
+
+  const getSortedData = (filteredData) => {
+    let sortedData = [...filteredData];
     if (sortOption === 'Name') {
       sortedData.sort((a, b) => a.movie.title.localeCompare(b.movie.title));
     } else if (sortOption === 'Released Date') {
@@ -76,23 +91,24 @@ const WatchList = () => {
     return sortedData;
   };
 
-  const sortedData = movies.length > 0 ? getSortedData() : [];
+  const filteredData = getFilteredData();
+  const sortedData = filteredData.length > 0 ? getSortedData(filteredData) : [];
 
   return (
     <>
       <div className="cover" style={{ display: coverVisible ? 'block' : 'none' }} onClick={hideChangeType}></div>
       <div className="container">
-        <Filter onSortChange={handleSortChange} />
+        <Filter onSortChange={handleSortChange} onStatusFilterChange={handleStatusFilterChange} />
         <div className="watch-list-container">
           {sortedData.map((item, index) => (
             <div key={index} className="watch-list-item">
               <button className="movieTypeBtn" onClick={() => handleToggleChangeType(index)}>
                 <i className="fas fa-ellipsis-v"></i>
               </button>
-              <div className='changeType' style={{ display: showChangeType[index] ? 'block' : 'none'}}>
+              <div className='changeType' style={{ display: showChangeType[index] ? 'block' : 'none' }}>
                 <div className="type" onClick={() => toggleChangeType(index, 'Watching')}>Watching</div>
-                <div className="type" onClick={() => toggleChangeType(index, 'On-Hold')}>On-Hold</div>
-                <div className="type" onClick={() => toggleChangeType(index, 'Plan to watch')}>Plan to watch</div>
+                <div className="type" onClick={() => toggleChangeType(index, 'OnHold')}>On-Hold</div>
+                <div className="type" onClick={() => toggleChangeType(index, 'PlanToWatch')}>Plan to watch</div>
                 <div className="type" onClick={() => toggleChangeType(index, 'Dropped')}>Dropped</div>
                 <div className="type" onClick={() => toggleChangeType(index, 'Completed')}>Completed</div>
                 <div className="type remove">Remove</div>

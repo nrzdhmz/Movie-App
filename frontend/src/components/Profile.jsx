@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Profile = () => {
   return (
-    <Link to="/ProfilePage">
+    <Link to="/Profile">
         <div className='profileBtn'></div>
     </Link>
   )

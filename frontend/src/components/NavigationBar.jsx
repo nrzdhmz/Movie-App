@@ -6,7 +6,7 @@ const NavigationBar = () => {
   return (
     <nav className='navBar'>
       <ul>
-        <li><Link to="/WatchListPage">WatchList</Link></li>
+        <li><Link to="/Mylists">WatchList</Link></li>
         <Profile/>
       </ul>
     </nav>

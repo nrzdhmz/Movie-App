@@ -9,6 +9,21 @@
     flex-direction: column;
     width: calc(20% - 16px);
     position: relative;
+    @media (max-width: 1000px) {
+      &{
+        width: calc(25% - 15px);
+      }
+    }
+    @media (max-width: 800px) {
+      &{
+        width: calc(33% - 12px);
+      }
+    }
+    @media (max-width: 600px) {
+      &{
+        width: calc(50% - 10px);
+      }
+    }
     .changeType{
       position: absolute;
       top: 35px;
@@ -27,7 +42,7 @@
           background-color: $site-common-white;
         }
       }
-    }
+    } 
     .movieTypeBtn {
       border: none;
       cursor: pointer;
@@ -64,6 +79,13 @@
       position: relative;
       width: 100%;
       cursor: pointer;
+      height: 260px;
+      img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        transition: filter 0.3s ease;
+      }
       .imdb-img{
         background-color: white;
         position: absolute;
@@ -105,14 +127,6 @@
           color: #FFD43B;
         }
       }
-
-      img {
-        height: 260px !important;
-        object-fit: cover;
-        width: 100%;
-        transition: filter 0.3s ease;
-      }
-
       &::after {
         content: "";
         position: absolute;
