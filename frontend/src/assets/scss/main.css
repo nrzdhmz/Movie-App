@@ -293,6 +293,25 @@ a:active {
   width: calc(20% - 16px);
   position: relative;
 }
+.watch-list-container .watch-list-item .changeType {
+  position: absolute;
+  top: 35px;
+  right: 5px;
+  flex-direction: column;
+  display: none;
+  z-index: 9999;
+}
+.watch-list-container .watch-list-item .changeType .type {
+  text-align: left;
+  background-color: white;
+  padding: 10px;
+  font-size: 0.8rem;
+  width: 120px;
+  transition: 0.1s;
+}
+.watch-list-container .watch-list-item .changeType .type:hover {
+  background-color: #DDDDDD;
+}
 .watch-list-container .watch-list-item .movieTypeBtn {
   border: none;
   cursor: pointer;
@@ -317,28 +336,6 @@ a:active {
 }
 .watch-list-container .watch-list-item .movieTypeBtn i {
   font-size: 1.25rem;
-}
-.watch-list-container .watch-list-item .changeType {
-  position: absolute;
-  top: 30px;
-  right: 0;
-  flex-direction: column;
-  display: none;
-  z-index: 999;
-}
-.watch-list-container .watch-list-item .changeType .type {
-  text-align: left;
-  background-color: white;
-  padding: 10px;
-  font-size: 0.8rem;
-  width: 120px;
-  transition: 0.1s;
-}
-.watch-list-container .watch-list-item .changeType .type:hover {
-  background-color: #DDDDDD;
-}
-.watch-list-container .watch-list-item:hover .changeType {
-  display: flex;
 }
 .watch-list-container .watch-list-item p {
   margin: 10px 0;
@@ -398,9 +395,6 @@ a:active {
   width: 100%;
   transition: filter 0.3s ease;
 }
-.watch-list-container .watch-list-item .movie-item-img img:hover .movie-info {
-  display: flex;
-}
 .watch-list-container .watch-list-item .movie-item-img::after {
   content: "";
   position: absolute;
@@ -414,8 +408,27 @@ a:active {
   -webkit-backdrop-filter: blur(10px);
   transition: opacity 0.3s ease;
 }
+.watch-list-container .watch-list-item .movie-item-img:hover .movie-info {
+  display: flex;
+}
 .watch-list-container .watch-list-item .movie-item-img:hover::after {
   opacity: 1;
+}
+
+.remove {
+  color: red;
+}
+
+.movie-info-title {
+  font-size: 1.1rem;
+}
+
+.visible {
+  display: flex;
+}
+
+.lighter {
+  color: white;
 }
 
 .cover {
@@ -427,10 +440,6 @@ a:active {
   width: 100%;
   height: 100%;
   z-index: 900;
-}
-
-.remove {
-  color: red;
 }
 
 .profileBtn {

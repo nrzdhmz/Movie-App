@@ -22,26 +22,33 @@ const WatchList = () => {
     fetchMovies();
   }, []);
 
-  const toggleChangeType = async (index) => {
+  const toggleChangeType = async (index, status) => {
     try {
       const newShowChangeType = Array(movies.length).fill(false);
       newShowChangeType[index] = !showChangeType[index];
       setShowChangeType(newShowChangeType);
 
-      const updateStatus = await axios.post('http://localhost:5000/api/watchlist/update-status', 
-      {
-        movieId: movies[index].movie.id,
-        status: 'Watching'
-      },
-      {
-        withCredentials : true
-      }
+      const updateStatus = await axios.post(
+        'http://localhost:5000/api/watchlist/update-status', 
+        {
+          movieId: movies[index].movie.id,
+          status: status
+        },
+        {
+          withCredentials: true
+        }
       );
 
       console.log('Status updated successfully:', updateStatus.data);
     } catch (error) {
       console.error('Error updating status:', error);
     }
+  };
+
+  const handleToggleChangeType = (index) => {
+    const newShowChangeType = showChangeType.map((val, i) => (i === index ? !val : false));
+    setShowChangeType(newShowChangeType);
+    setCoverVisible(newShowChangeType.some(val => val));
   };
 
   const hideChangeType = () => {
@@ -59,8 +66,8 @@ const WatchList = () => {
       sortedData.sort((a, b) => a.movie.title.localeCompare(b.movie.title));
     } else if (sortOption === 'Released Date') {
       sortedData.sort((a, b) => {
-        const dateA = new Date(a.movie.released);
-        const dateB = new Date(b.movie.released);
+        const dateA = new Date(b.movie.released);
+        const dateB = new Date(a.movie.released);
         return dateA - dateB;
       });
     } else if (sortOption === 'IMDB') {
@@ -79,7 +86,7 @@ const WatchList = () => {
         <div className="watch-list-container">
           {sortedData.map((item, index) => (
             <div key={index} className="watch-list-item">
-              <button className="movieTypeBtn" onClick={() => toggleChangeType(index)}>
+              <button className="movieTypeBtn" onClick={() => handleToggleChangeType(index)}>
                 <i className="fas fa-ellipsis-v"></i>
               </button>
               <div className='changeType' style={{ display: showChangeType[index] ? 'block' : 'none'}}>
@@ -93,7 +100,7 @@ const WatchList = () => {
               <div className="movie-item-img">
                 <img src={item.movie.poster} alt={item.movie.title} />
                 <p className='imdb-img'><i className="fa-solid fa-star"></i>{item.movie.imdbRating}</p>
-                <div className='movie-info' > 
+                <div className='movie-info'>
                   <div className='info-text'><div className="lighter movie-info-title">{item.movie.title}</div></div>
                   <div className='info-text'><i className="fa-solid fa-star"></i>{item.movie.imdbRating}</div>
                   <div className='info-text'>{item.movie.plot}</div>
