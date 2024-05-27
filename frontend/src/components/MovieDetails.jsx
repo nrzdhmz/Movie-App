@@ -18,7 +18,7 @@ const MovieDetails = ({ movie }) => {
 
     const addToWatchlist = async () => {
         try {
-            await axios.patch('http://localhost:5000/api/watchlist',{movieId: movie.imdbID}, {withCredentials : true});
+            await axios.post('http://localhost:5000/api/watchlist',{movieId: movie.imdbID}, {withCredentials : true});
             alert('Movie added');
         } catch (error) {
             console.error('Error adding movie to watchlist:', error);
