@@ -44,7 +44,6 @@ const WatchList = () => {
 
       console.log(response.data.movies.movieItems);
 
-      // Hide the changeType dropdown after updating the status
       setShowChangeType(Array(movies.length).fill(false));
       setCoverVisible(false);
     } catch (error) {
