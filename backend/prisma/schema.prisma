@@ -35,7 +35,7 @@ model Watchlist {
 
 model MovieItem {
   id              Int         @id @default(autoincrement())
-  movieId         String      @unique
+  movieId         String
   movie           Movie       @relation(fields: [movieId], references: [imdbId])
   watchListMovies Watchlist[] @relation("UserWatchlist")
   status          Status      @default(PlanToWatch)

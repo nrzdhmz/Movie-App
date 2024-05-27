@@ -6,6 +6,7 @@ import cors from "cors";
 import authRoutes from "./routes/auth.routes.js";
 import watchlistRoutes from "./routes/watchlist.routes.js";
 import movieRoutes from "./routes/movie.routes.js";
+import followRoutes from "./routes/follow.routes.js";
 
 import prisma from "./prismaClient/index.js";
 
@@ -24,6 +25,7 @@ app.use(cookieParser()); // to access the cookies
 app.use("/api/auth", authRoutes);
 app.use("/api/watchlist", watchlistRoutes);
 app.use("/api/movies", movieRoutes);
+app.use("/api/follow", followRoutes);
 
 // Shutdow database connection on shutdown
 const shutdown = async () => {
