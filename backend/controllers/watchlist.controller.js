@@ -45,6 +45,7 @@ export const addWatchlistController = async (req, res) => {
           },
         });
       } catch (err) {
+        console.log(err);
         return res.status(404).json({ error: "Error fetching the movie" });
       }
     }
@@ -126,18 +127,25 @@ export const updateMovieStatusController = async (req, res) => {
 // REMOVE MOVIE
 export const removeMovieController = async (req, res) => {
   try {
-    const { movieId } = req.body;
+    const { movieId } = req.params;
     const { id: userId } = req.user;
-    await prisma.watchlist.delete({
+    const watchlist = await prisma.watchlist.findFirst({
       where: {
         userId,
-        movieItems: {
-          some: {
-            movieId,
-          },
-        },
+      },
+      include: {
+        movieItems: true,
       },
     });
+
+    const movieItem = watchlist.movieItems.find(m => m.movieId === movieId);
+
+    await prisma.movieItem.delete({
+      where: {
+        id: movieItem.id,
+      },
+    });
+
     return res.status(200).json({ message: "Successfully deleted" });
   } catch (error) {
     console.log(error);

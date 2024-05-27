@@ -12,6 +12,6 @@ const router = Router();
 router.post("/", protectRoute, addWatchlistController);
 router.get("/", protectRoute, getWatchlistController);
 router.patch("/", protectRoute, updateMovieStatusController);
-router.delete("/", protectRoute, removeMovieController);
+router.delete("/:movieId", protectRoute, removeMovieController);
 
 export default router;
