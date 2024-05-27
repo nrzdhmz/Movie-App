@@ -23,12 +23,12 @@ const WatchList = () => {
     fetchMovies();
   }, []);
 
-  const toggleChangeType = async (index, status) => {
+  const toggleChangeType = async (movieId, status) => {
     try {
       await axios.patch(
         'http://localhost:5000/api/watchlist',
         {
-          movieId: movies[index].movie.imdbId,
+          movieId: movieId,
           status: status
         },
         {
@@ -96,13 +96,9 @@ const WatchList = () => {
 
 
 
-  const handleRemoveMovie = async (movieId ,status) => {
+  const handleRemoveMovie = async (movieId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/watchlist`,
-      {
-        movieId: movieId,
-        status: 'Remove'
-      }, 
+      await axios.delete(`http://localhost:5000/api/watchlist/${movieId}`,
       {
         withCredentials: true,
         headers: {
@@ -129,11 +125,11 @@ const WatchList = () => {
                 <i className="fas fa-ellipsis-v"></i>
               </button>
               <div className='changeType' style={{ display: showChangeType[index] ? 'block' : 'none' }}>
-                <div className="type" onClick={() => toggleChangeType(index, 'Watching')}>Watching</div>
-                <div className="type" onClick={() => toggleChangeType(index, 'OnHold')}>On-Hold</div>
-                <div className="type" onClick={() => toggleChangeType(index, 'PlanToWatch')}>Plan to watch</div>
-                <div className="type" onClick={() => toggleChangeType(index, 'Dropped')}>Dropped</div>
-                <div className="type" onClick={() => toggleChangeType(index, 'Completed')}>Completed</div>
+                <div className="type" onClick={() => toggleChangeType(item.movie.imdbId, 'Watching')}>Watching</div>
+                <div className="type" onClick={() => toggleChangeType(item.movie.imdbId, 'OnHold')}>On-Hold</div>
+                <div className="type" onClick={() => toggleChangeType(item.movie.imdbId, 'PlanToWatch')}>Plan to watch</div>
+                <div className="type" onClick={() => toggleChangeType(item.movie.imdbId, 'Dropped')}>Dropped</div>
+                <div className="type" onClick={() => toggleChangeType(item.movie.imdbId, 'Completed')}>Completed</div>
                 <div className="type remove" onClick={() => handleRemoveMovie(item.movie.imdbId)}>Remove</div>
               </div>
               <div className="movie-item-img">
