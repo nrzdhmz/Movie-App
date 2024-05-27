@@ -93,7 +93,7 @@ export const getWatchlistController = async (req, res) => {
 };
 
 // UPDATE MOVIE STATUS
-export const updateMovieStatus = async (req, res) => {
+export const updateMovieStatusController = async (req, res) => {
   try {
     const { movieId, status } = req.body;
 

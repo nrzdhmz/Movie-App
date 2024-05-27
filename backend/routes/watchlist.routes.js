@@ -3,13 +3,13 @@ import protectRoute from "./../middlewares/protectRoute.js";
 import {
   addWatchlistController,
   getWatchlistController,
-  updateMovieStatus,
+  updateMovieStatusController,
 } from "../controllers/watchlist.controller.js";
 
 const router = Router();
 
-router.post("/add", protectRoute, addWatchlistController);
-router.get("/get", protectRoute, getWatchlistController);
-router.post("/update-status", protectRoute, updateMovieStatus);
+router.post("/", protectRoute, addWatchlistController);
+router.get("/", protectRoute, getWatchlistController);
+router.patch("/", protectRoute, updateMovieStatusController);
 
 export default router;
