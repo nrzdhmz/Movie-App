@@ -12,6 +12,10 @@ const router = Router();
 router.get("/following", protectRoute, getFollowingController);
 router.get("/followers", protectRoute, getFollowerController);
 router.post("/following", protectRoute, addFollowingController);
-router.delete("/following", protectRoute, removeFollowingController);
+router.delete(
+  "/following/:followingId",
+  protectRoute,
+  removeFollowingController
+);
 
 export default router;
