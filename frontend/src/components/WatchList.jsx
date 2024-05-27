@@ -15,7 +15,7 @@ const WatchList = () => {
         setMovies(response.data.movies.movieItems);
         setShowChangeType(Array(response.data.movies.movieItems.length).fill(false));
       } catch (error) {
-        console.error('Error fetching movies:', error);
+        console.error('Error fetching movies:', error.response || error.message);
       }
     };
 
@@ -23,25 +23,28 @@ const WatchList = () => {
   }, []);
 
   const toggleChangeType = async (index, status) => {
-    try {
-      const newShowChangeType = Array(movies.length).fill(false);
-      newShowChangeType[index] = !showChangeType[index];
-      setShowChangeType(newShowChangeType);
-
-      const updateStatus = await axios.post(
-        'http://localhost:5000/api/watchlist/update-status', 
-        {
-          movieId: movies[index].movie.id,
-          status: status
-        },
-        {
-          withCredentials: true
+  try {
+    await axios.post(
+      'http://localhost:5000/api/watchlist/update-status', 
+      {
+        movieId: movies[index].movie.id,
+        status: status
+      },
+      {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json'
         }
-      );
+      }
+    );
 
       console.log('Status updated successfully:', updateStatus.data);
+      
+      const response = await axios.get('http://localhost:5000/api/watchlist/get', { withCredentials: true });
+      setMovies(response.data.movies.movieItems);
+
     } catch (error) {
-      console.error('Error updating status:', error);
+      console.error('Error updating status:');
     }
   };
 
@@ -91,8 +94,8 @@ const WatchList = () => {
               </button>
               <div className='changeType' style={{ display: showChangeType[index] ? 'block' : 'none'}}>
                 <div className="type" onClick={() => toggleChangeType(index, 'Watching')}>Watching</div>
-                <div className="type" onClick={() => toggleChangeType(index, 'On-Hold')}>On-Hold</div>
-                <div className="type" onClick={() => toggleChangeType(index, 'Plan to watch')}>Plan to watch</div>
+                <div className="type" onClick={() => toggleChangeType(index, 'OnHold')}>On-Hold</div>
+                <div className="type" onClick={() => toggleChangeType(index, 'PlanToWatch')}>Plan to watch</div>
                 <div className="type" onClick={() => toggleChangeType(index, 'Dropped')}>Dropped</div>
                 <div className="type" onClick={() => toggleChangeType(index, 'Completed')}>Completed</div>
                 <div className="type remove">Remove</div>

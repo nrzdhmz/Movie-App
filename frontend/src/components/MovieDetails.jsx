@@ -27,7 +27,6 @@ const MovieDetails = ({ movie }) => {
 
     return (
         details && (
-
             <div className="movie-details">
                 <div className="movie-poster">
                     <img src={details.poster !== "N/A" ? details.poster : "./assets/img/image_not_found.png"} alt="movie poster" />

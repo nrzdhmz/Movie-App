@@ -40,7 +40,7 @@ const LogInBox = () => {
       });
 
       setFormData({ user: '', pwd: '' });
-      navigate('/HomePage');
+      navigate('/Home');
     } catch (err) {
       if (err.response) {
         if (err.response.status === 400) {

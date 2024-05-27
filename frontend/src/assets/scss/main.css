@@ -32,7 +32,7 @@ a:active {
 }
 
 .container {
-  width: 65%;
+  max-width: 1050px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -293,6 +293,21 @@ a:active {
   width: calc(20% - 16px);
   position: relative;
 }
+@media (max-width: 1000px) {
+  .watch-list-container .watch-list-item {
+    width: calc(25% - 15px);
+  }
+}
+@media (max-width: 800px) {
+  .watch-list-container .watch-list-item {
+    width: calc(33% - 12px);
+  }
+}
+@media (max-width: 600px) {
+  .watch-list-container .watch-list-item {
+    width: calc(50% - 10px);
+  }
+}
 .watch-list-container .watch-list-item .changeType {
   position: absolute;
   top: 35px;
@@ -346,6 +361,14 @@ a:active {
   position: relative;
   width: 100%;
   cursor: pointer;
+  height: 260px;
+}
+.watch-list-container .watch-list-item .movie-item-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+  transition: filter 0.3s ease;
 }
 .watch-list-container .watch-list-item .movie-item-img .imdb-img {
   background-color: white;
@@ -387,13 +410,6 @@ a:active {
 }
 .watch-list-container .watch-list-item .movie-item-img .movie-info i {
   color: #FFD43B;
-}
-.watch-list-container .watch-list-item .movie-item-img img {
-  height: 260px !important;
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
-  transition: filter 0.3s ease;
 }
 .watch-list-container .watch-list-item .movie-item-img::after {
   content: "";
@@ -459,6 +475,7 @@ a:active {
   justify-content: space-between;
   align-items: center;
   margin: 40px 0 0;
+  flex-wrap: wrap;
 }
 .filter-container .filterBy {
   padding: 5px;
@@ -473,6 +490,7 @@ a:active {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 .filter-container .filter .filterBtn {
   font-size: 1rem;
