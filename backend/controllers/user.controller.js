@@ -3,7 +3,8 @@ import prisma from "../prismaClient/index.js";
 // SEARCH USER BY USERNAME
 export const searchUsersController = async (req, res) => {
   try {
-    const { query } = req.query;
+    let { query } = req.query;
+    query.toLowerCase();
     console.log(query);
     const users = await prisma.user.findMany({
       where: {
@@ -14,6 +15,7 @@ export const searchUsersController = async (req, res) => {
       select: {
         _count: true,
         username: true,
+        profilePicture: true,
       },
     });
     return res.status(200).json({ users });

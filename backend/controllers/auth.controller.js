@@ -4,7 +4,9 @@ import prisma from "./../prismaClient/index.js";
 
 export const signupController = async (req, res) => {
   try {
-    const { username, password, confirmPassword } = req.body;
+    let { username, password, confirmPassword } = req.body;
+
+    username = username.toLowerCase();
 
     // Check passwords
     if (password !== confirmPassword) {
@@ -64,7 +66,9 @@ export const signupController = async (req, res) => {
 
 export const loginController = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    let { username, password } = req.body;
+
+    username = username.toLowerCase();
 
     const user = await prisma.user.findFirst({
       where: {
@@ -90,6 +94,12 @@ export const loginController = async (req, res) => {
     const userData = await prisma.user.findFirst({
       where: { username },
       select: {
+        _count: {
+          select: {
+            followers: true,
+            following: true,
+          },
+        },
         username: true,
         profilePicture: true,
         watchlist: {

@@ -12,7 +12,7 @@ model User {
   username       String     @unique
   watchlist      Watchlist?
   password       String
-  profilePicture String     @default("/uploads/default_profile_picture.webp")
+  profilePicture String     @default("/uploads/default_profile_picture.png")
   createdAt      DateTime   @default(now())
   updatedAt      DateTime   @updatedAt
   following      Follow[]   @relation("Following")
