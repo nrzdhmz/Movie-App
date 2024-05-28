@@ -56,6 +56,7 @@ export const getUserByIdController = async (req, res) => {
       id: userId,
     },
     select: {
+      id: true,
       username: true,
       followers: true,
       following: true,
@@ -67,12 +68,6 @@ export const getUserByIdController = async (req, res) => {
               status: true,
             },
           },
-        },
-      },
-      _count: {
-        select: {
-          followers: true,
-          following: true,
         },
       },
     },
