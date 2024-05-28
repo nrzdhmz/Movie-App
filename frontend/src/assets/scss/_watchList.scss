@@ -38,6 +38,7 @@
         font-size: 0.8rem;
         width: 120px;
         transition: 0.1s;
+        cursor: pointer;
         &:hover{
           background-color: $site-common-white;
         }

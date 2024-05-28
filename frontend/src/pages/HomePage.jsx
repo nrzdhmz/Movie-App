@@ -27,7 +27,7 @@ const HomePage = () => {
                 <div className="search-container">
                     <Logo />
                     <div className="search-element">
-                        <SearchBox onMoviesLoaded={handleMovies} />
+                        <SearchBox onMoviesLoaded={handleMovies} placeholder={'Movie Title'} />
                         <SearchList
                             movies={movies}
                             onMovieSelect={handleMovieSelection}

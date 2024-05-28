@@ -1,25 +1,29 @@
-.filter-container{
+.filter-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 40px 0 0;
   flex-wrap: wrap;
   gap: 10px;
-  .filterBy{
+
+  .filterBy {
     padding: 5px;
     color: $site-common-white;
     background-color: $md-dark-color;
     font-size: 1.2rem;
-    .option{
-      font-size: 1rem;  
+
+    .option {
+      font-size: 1rem;
     }
   }
-  .filter{
+
+  .filter {
     display: flex;
     align-items: center;
     gap: 6px;
     flex-wrap: wrap;
-    .filterBtn{
+
+    .filterBtn {
       font-size: 1rem;
       border: none;
       padding: 8px;
@@ -28,11 +32,14 @@
       cursor: pointer;
       color: $site-common-white;
       background-color: $md-dark-color;
-      &:hover{
+
+      &:hover {
         background-color: lighten($md-dark-color, 20%);
       }
-      &:active{
-        background-color: darken($yellow-color, 10%);
+
+      &.selected {
+        background-color: $yellow-color;
+        color: $dark-color;
       }
     }
   }

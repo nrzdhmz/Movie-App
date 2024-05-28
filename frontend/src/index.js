@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './assets/scss/main.css';
+import './assets/scss/main.scss';
 import HomePage from './pages/HomePage';
 import LogInPage from './pages/LogInPage';
 import ProfilePage from './pages/ProfilePage';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import WatchListPage from './pages/WatchListPage';
 import RegisterPage from './pages/RegisterPage';
+import Community from './components/Community';
 
 
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: '/MyLists' ,
     element: <WatchListPage/>
+  },
+  {
+    path: '/Community' ,
+    element: <Community/>
   },  
   {
     path: '/Login' ,

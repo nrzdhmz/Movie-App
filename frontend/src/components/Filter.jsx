@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Filter = ({ onSortChange, onStatusFilterChange }) => {
+  const [selectedStatus, setSelectedStatus] = useState('All');
+
+  const handleStatusFilterChange = (status) => {
+    setSelectedStatus(status);
+    onStatusFilterChange(status);
+  };
+
   return (
     <div className="filter-container">
       <div className='filter'>
-        <button className='filterBtn' onClick={() => onStatusFilterChange('All')}>All</button>
-        <button className='filterBtn' onClick={() => onStatusFilterChange('Watching')}>Watching</button>
-        <button className='filterBtn' onClick={() => onStatusFilterChange('OnHold')}>On-Hold</button>
-        <button className='filterBtn' onClick={() => onStatusFilterChange('PlanToWatch')}>Plan to watch</button>
-        <button className='filterBtn' onClick={() => onStatusFilterChange('Dropped')}>Dropped</button>
-        <button className='filterBtn' onClick={() => onStatusFilterChange('Completed')}>Completed</button>
+        {['All', 'Watching', 'OnHold', 'PlanToWatch', 'Dropped', 'Completed'].map(status => (
+          <button
+            key={status}
+            className={`filterBtn ${selectedStatus === status ? 'selected' : ''}`}
+            onClick={() => handleStatusFilterChange(status)}
+          >
+          {status}
+          </button>
+        ))}
       </div>
       <select className="filterBy" onChange={e => onSortChange(e.target.value)}>
         <option className='option' value="Default">Default</option>

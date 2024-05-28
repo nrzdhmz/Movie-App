@@ -323,6 +323,7 @@ a:active {
   font-size: 0.8rem;
   width: 120px;
   transition: 0.1s;
+  cursor: pointer;
 }
 .watch-list-container .watch-list-item .changeType .type:hover {
   background-color: #DDDDDD;
@@ -506,8 +507,9 @@ a:active {
 .filter-container .filter .filterBtn:hover {
   background-color: #65727f;
 }
-.filter-container .filter .filterBtn:active {
-  background-color: #d1a609;
+.filter-container .filter .filterBtn.selected {
+  background-color: #F5C518;
+  color: #202428;
 }
 
 .sign-in-container {
