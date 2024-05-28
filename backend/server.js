@@ -1,6 +1,7 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import fs from "fs";
 
 // Routes
 import authRoutes from "./routes/auth.routes.js";
@@ -10,6 +11,7 @@ import followRoutes from "./routes/follow.routes.js";
 import userRoutes from "./routes/user.routes.js";
 
 import prisma from "./prismaClient/index.js";
+import multer from "multer";
 
 const app = express();
 
@@ -20,6 +22,7 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use("/static", express.static("uploads")); // to serve the static files
 app.use(express.json()); // to parse the incoming requests with JSON payloads (from req.body)
 app.use(cookieParser()); // to access the cookies
 

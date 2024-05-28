@@ -97,24 +97,28 @@ export const getWatchlistController = async (req, res) => {
 export const updateMovieStatusController = async (req, res) => {
   try {
     const { movieId, status } = req.body;
+    const { id: userId } = req.user;
 
-    // Find the movie inside watchlist and update its status
-    await prisma.watchlist.update({
-      data: {
-        movieItems: {
-          update: {
-            where: {
-              movieId,
-            },
-            data: {
-              status,
-            },
-          },
-        },
-      },
-      where: {
-        userId: req.user.id,
-      },
+    const watchlist = await prisma.watchlist.findUnique({
+      where: { userId: userId },
+      include: { movieItems: true },
+    });
+
+    if (!watchlist) {
+      throw new Error("Watchlist not found for the user");
+    }
+
+    const movieItem = watchlist.movieItems.find(
+      item => item.movieId === movieId
+    );
+
+    if (!movieItem) {
+      throw new Error("MovieItem not found in the user's watchlist");
+    }
+
+    await prisma.movieItem.update({
+      where: { id: movieItem.id },
+      data: { status: status },
     });
 
     return res.status(200).json({ message: "Successfully updated" });
@@ -146,7 +150,7 @@ export const removeMovieController = async (req, res) => {
       },
     });
 
-    return res.status(200).json({ message: "Successfully deleted" });
+    return res.status(200).json({ message: "Successfully removed" });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: "Server error" });

@@ -51,6 +51,7 @@ export const signupController = async (req, res) => {
       res.status(201).json({
         id: newUser.id,
         username: newUser.username,
+        profilePicture: newUser.profilePicture,
       });
     } else {
       res.status(400).json({ error: "Invalid user data" });
@@ -65,7 +66,16 @@ export const loginController = async (req, res) => {
   try {
     const { username, password } = req.body;
 
-    const user = await prisma.user.findFirst({ where: { username } });
+    const user = await prisma.user.findFirst({
+      where: {
+        username,
+      },
+      select: {
+        username: true,
+        password: true,
+      },
+    });
+
     const isPasswordCorrect = await bcrypt.compare(
       password,
       user?.password || ""
@@ -77,10 +87,25 @@ export const loginController = async (req, res) => {
 
     generateTokenAndSetCookie(user.id, res);
 
-    return res.status(200).json({
-      id: user.id,
-      username: user.username,
+    const userData = await prisma.user.findFirst({
+      where: { username },
+      select: {
+        username: true,
+        profilePicture: true,
+        watchlist: {
+          select: {
+            movieItems: {
+              select: {
+                _count: true,
+                movie: true,
+              },
+            },
+          },
+        },
+      },
     });
+
+    return res.status(200).json({ ...userData });
   } catch (err) {
     console.log(err);
     return res.status(500).json({ error: "Server error" });
