@@ -2,26 +2,34 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Logo from '../components/header/Logo';
 import NavigationBar from '../components/header/NavigationBar';
-import { useParams } from 'react-router-dom';
 
 const ProfilePage = () => {
   const [userData, setUserData] = useState(null);
-  const { id } = useParams(); 
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/users/${id}`);
+        const url = window.location.href;
+        const lastSlashIndex = url.lastIndexOf('/');
+        const userid = url.substring(lastSlashIndex + 1);
+
+        console.log({ userid });
+
+        const response = await axios.get(
+          `http://localhost:5000/api/users/${userid}`,
+          { withCredentials: true }
+        );
+
         console.log(response.data);
-        setUserData(response.data); 
+        setUserData(response.data);
 
       } catch (error) {
-        console.error('Error backendden data gelmir');
+        console.error('Error fetching user data from backend');
       }
     };
 
     fetchUserData();
-  }, [id]); 
+  }, []);
 
   return (
     <div className="wrapper">
