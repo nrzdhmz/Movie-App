@@ -9,7 +9,7 @@ const SearchList = ({ movies, onMovieSelect, show }) => {
                     <div className="search-item-thumbnail">
                         <img src={movie.Poster !== "N/A" ? movie.Poster : "./assets/img/image_not_found.png"} alt="movie poster" />
                     </div>
-                    <div className="search-item-info">
+                    <div className="search-item-info"> 
                         <h3>{movie.Title}</h3>
                         <p>{movie.Year}</p>
                     </div>
