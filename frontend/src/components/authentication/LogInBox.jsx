@@ -38,7 +38,6 @@ const LogInBox = () => {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
-
       setFormData({ user: '', pwd: '' });
       navigate('/Home');
     } catch (err) {

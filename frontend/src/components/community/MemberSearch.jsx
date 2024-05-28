@@ -19,7 +19,7 @@ const MemberSearch = () => {
             },
             withCredentials: true
           });
-          console.log(response.data.users[0].profilePicture);
+          console.log(response.data);
           setUsers(response.data.users);
         } catch (error) {
           console.error('Error fetching users:', error);
@@ -46,7 +46,7 @@ const MemberSearch = () => {
           <div key={index} className="search-list-item">
             <div className="user-info">
               <img
-                src={`http://localhost:5000/static${user.profilePicture}`}
+                src={`http://localhost:5000${user.profilePicture}`}
                 alt="user profile picture"
               />
               <div className='usersearch'>{user.username}</div>
