@@ -34,8 +34,8 @@ const MemberSearch = () => {
     fetchData();
   }, [searchTerm]);
 
-  const handleUserClick = (username) => {
-    navigate(`/Profile/${username}`);
+  const handleUserClick = (userId) => {
+    navigate(`/Profile/${userId}`);
   };
 
   return (
@@ -52,7 +52,7 @@ const MemberSearch = () => {
           <div 
             key={index} 
             className="search-list-item" 
-            onClick={() => handleUserClick(user.username)}
+            onClick={() => handleUserClick(user.id)}
           >
             <div className="user-info">
               <img

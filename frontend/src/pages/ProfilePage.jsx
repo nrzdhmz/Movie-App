@@ -1,28 +1,30 @@
-import React, { useState } from "react";
-import Logo from "../components/header/Logo";
-import NavigationBar from "../components/header/NavigationBar";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Logo from '../components/header/Logo';
+import NavigationBar from '../components/header/NavigationBar';
+import { useParams } from 'react-router-dom';
 
 const ProfilePage = () => {
-  const [showOverlay, setShowOverlay] = useState(false);
+  const [userData, setUserData] = useState(null);
+  const { id } = useParams(); 
 
-  const toggleOverlay = () => {
-    setShowOverlay(!showOverlay);
-  };
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/api/users/${id}`);
+        console.log('User Data:', response.data);
+        setUserData(response.data); 
+
+      } catch (error) {
+        console.error('Error backendden data gelmir');
+      }
+    };
+
+    fetchUserData();
+  }, [id]); 
 
   return (
     <div className="wrapper">
-      {showOverlay && (
-        <div className="blackBg">
-          <div className="overlay">
-            <div className="follow-box-top">
-              <p>Following</p>
-              <i className="fa-solid fa-xmark" onClick={toggleOverlay}></i>
-            </div>
-            <div className="overlay-content"></div>
-          </div>
-        </div>
-      )}
       <header className="container-top">
         <div className="search-container">
           <Logo />
@@ -31,41 +33,39 @@ const ProfilePage = () => {
       </header>
       <div className="container">
         <div className="profile-section">
-          <div className="profile-summary">
-            <div className="profile-summary-left">
-              <div className="profile-pic-container">
-                <img
-                  src="https://www.gravatar.com/avatar/?d=mp&s=55"
-                  alt="user profile pic"
-                />
+          {userData ? (
+            <div className="profile-summary">
+              <div className="profile-summary-left">
+                <div className="profile-pic-container">
+                  <img
+                    src={`http://localhost:5000${userData.profilePicture}`}
+                    alt="user profile pic"
+                  />
+                </div>
+                <div className="username">{userData.username}</div>
+                <button>
+                  EDIT PROFILE
+                  <i id="pen" className="fas fa-pen"></i>
+                </button>
               </div>
-              <div className="username">username</div>
-              <button>
-                EDIT PROFILE
-                <i id="pen" className="fas fa-pen"></i>
-              </button>
-            </div>
-            <div className="profile-summary-right">
-              <div className="profile-stats">
-                <Link onClick={toggleOverlay}>
+              <div className="profile-summary-right">
+                <div className="profile-stats">
                   <span className="value">0</span>
                   <span className="definition">Films</span>
-                </Link>
-              </div>
-              <div id="following" className="profile-stats border-left">
-                <Link onClick={toggleOverlay}>
+                </div>
+                <div id="following" className="profile-stats border-left">
                   <span className="value">0</span>
                   <span className="definition">Following</span>
-                </Link>
-              </div>
-              <div id="followers" className="profile-stats border-left">
-                <Link>
+                </div>
+                <div id="followers" className="profile-stats border-left">
                   <span className="value">0</span>
                   <span className="definition">Followers</span>
-                </Link>
+                </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <div>Loading...</div>
+          )}
           <nav className="profile-nav">
             <ul>
               <li>Profile</li>

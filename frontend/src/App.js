@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './assets/scss/main.scss';
 import HomePage from './pages/HomePage';
 import LogInPage from './pages/LogInPage';
@@ -9,37 +9,19 @@ import RegisterPage from './pages/RegisterPage';
 import CommunityPage from './pages/CommunityPage';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <RegisterPage/>
-  },
-  {
-    path: '/Home',
-    element: <HomePage/>
-  },
-  {
-    path: '/MyLists',
-    element: <WatchListPage/>
-  },
-  {
-    path: '/Community',
-    element: <CommunityPage/>
-  },
-  {
-    path: '/Login',
-    element: <LogInPage/>
-  },
-  {
-    path: '/Profile/:username',
-    element: <ProfilePage/>
-  }
-]);
-
 const App = () => {
   return (
-    <RouterProvider router={router}/>
+    <Router>
+      <Routes>
+        <Route path="/" element={<RegisterPage />} />
+        <Route path="/Home" element={<HomePage />} />
+        <Route path="/MyLists" element={<WatchListPage />} />
+        <Route path="/Community" element={<CommunityPage />} />
+        <Route path="/Login" element={<LogInPage />} />
+        <Route path="/Profile/:userid" element={<ProfilePage />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
