@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const SearchBox = ({ onMoviesLoaded }) => {
+const SearchBox = ({ onMoviesLoaded, placeholder }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const findMovies = async searchTerm => {
@@ -34,7 +34,7 @@ const SearchBox = ({ onMoviesLoaded }) => {
     <input
       type="text"
       className="form-control"
-      placeholder="Search Movie Title ..."
+      placeholder={`Search ${placeholder} ...`}
       value={searchTerm}
       onChange={handleChange}
     />

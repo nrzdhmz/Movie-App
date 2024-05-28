@@ -1,7 +1,7 @@
 import React from 'react';
-import Logo from '../components/Logo';
-import NavigationBar from '../components/NavigationBar';
-import  WatchList  from '../components/WatchList';
+import Logo from '../components/header/Logo';
+import NavigationBar from '../components/header/NavigationBar';
+import WatchList  from '../components/watchlist/WatchList';
 
 const WatchListPage = () => {
 

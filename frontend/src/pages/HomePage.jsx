@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import SearchBox from '../components/SearchBox';
-import NavigationBar from '../components/NavigationBar';
-import SearchList from '../components/SearchList';
-import MovieDetails from '../components/MovieDetails';
-import Logo from '../components/Logo';
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import SearchBox from '../components/home/SearchBox';
+import NavigationBar from '../components/header/NavigationBar';
+import SearchList from '../components/home/SearchList';
+import MovieDetails from '../components/home/MovieDetails';
+import Logo from '../components/header/Logo';
 
 const HomePage = () => {
     const [movies, setMovies] = useState([]);
@@ -27,7 +26,7 @@ const HomePage = () => {
                 <div className="search-container">
                     <Logo />
                     <div className="search-element">
-                        <SearchBox onMoviesLoaded={handleMovies} />
+                        <SearchBox onMoviesLoaded={handleMovies} placeholder={'Movie Title'} />
                         <SearchList
                             movies={movies}
                             onMovieSelect={handleMovieSelection}

@@ -1,5 +1,5 @@
 import React from 'react'
-import LogInBox from '../components/LogInBox'
+import LogInBox from '../components/authentication/LogInBox'
 
 const LogIn = () => {
   return (

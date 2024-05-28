@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Logo from "../components/Logo";
-import NavigationBar from "../components/NavigationBar";
+import Logo from "../components/header/Logo";
+import NavigationBar from "../components/header/NavigationBar";
 import { Link } from "react-router-dom";
 
 const ProfilePage = () => {
