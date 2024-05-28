@@ -783,4 +783,15 @@ a:active {
 
 .usersearch {
   font-size: 1.1rem;
+}
+
+.user-info {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.user-info img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }/*# sourceMappingURL=main.css.map */
