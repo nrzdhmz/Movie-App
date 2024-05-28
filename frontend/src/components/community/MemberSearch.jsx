@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const MemberSearch = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
 
-  const handleInputChange = (change) => {
-    setSearchTerm(change.target.value);
+  const handleInputChange = (event) => {
+    setSearchTerm(event.target.value);
   };
 
   useEffect(() => {
@@ -32,6 +34,10 @@ const MemberSearch = () => {
     fetchData();
   }, [searchTerm]);
 
+  const handleUserClick = (username) => {
+    navigate(`/Profile/${username}`);
+  };
+
   return (
     <>
       <input
@@ -43,7 +49,11 @@ const MemberSearch = () => {
       />
       <div className="search-list">
         {users.map((user, index) => (
-          <div key={index} className="search-list-item">
+          <div 
+            key={index} 
+            className="search-list-item" 
+            onClick={() => handleUserClick(user.username)}
+          >
             <div className="user-info">
               <img
                 src={`http://localhost:5000${user.profilePicture}`}
