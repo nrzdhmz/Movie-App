@@ -8,14 +8,15 @@ datasource db {
 }
 
 model User {
-  id        Int        @id @default(autoincrement())
-  username  String     @unique
-  watchlist Watchlist?
-  password  String
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
-  following Follow[]   @relation("Following")
-  followers Follow[]   @relation("Followers")
+  id             Int        @id @default(autoincrement())
+  username       String     @unique
+  watchlist      Watchlist?
+  password       String
+  profilePicture String     @default("/uploads/default_profile_picture.webp")
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+  following      Follow[]   @relation("Following")
+  followers      Follow[]   @relation("Followers")
 }
 
 model Follow {
