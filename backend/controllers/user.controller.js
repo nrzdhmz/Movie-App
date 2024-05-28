@@ -58,8 +58,7 @@ export const getUserByIdController = async (req, res) => {
     },
     select: {
       username: true,
-      followers: true,
-      following: true,
+      profilePicture: true,
       watchlist: {
         select: {
           movieItems: {
