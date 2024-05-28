@@ -8,6 +8,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import WatchListPage from './pages/WatchListPage';
 import RegisterPage from './pages/RegisterPage';
 import Community from './components/community/Community';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 
 const router = createBrowserRouter([
@@ -39,7 +41,7 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <>
       <RouterProvider router={router}/>
-  </React.StrictMode>
+  </>
 );

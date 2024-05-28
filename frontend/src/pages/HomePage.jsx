@@ -4,7 +4,6 @@ import NavigationBar from '../components/header/NavigationBar';
 import SearchList from '../components/home/SearchList';
 import MovieDetails from '../components/home/MovieDetails';
 import Logo from '../components/header/Logo';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const HomePage = () => {
     const [movies, setMovies] = useState([]);
