@@ -16,6 +16,7 @@ const MemberSearch = () => {
             params: {
               query: searchTerm
             },
+            withCredentials: true
           });
           console.log(response.data);
         } catch (error) {
