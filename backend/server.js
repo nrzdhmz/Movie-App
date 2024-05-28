@@ -22,7 +22,7 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.use("/static", express.static("uploads")); // to serve the static files
+app.use("/uploads", express.static("uploads")); // to serve the static files
 app.use(express.json()); // to parse the incoming requests with JSON payloads (from req.body)
 app.use(cookieParser()); // to access the cookies
 

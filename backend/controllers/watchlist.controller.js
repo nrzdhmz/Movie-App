@@ -72,7 +72,7 @@ export const addWatchlistController = async (req, res) => {
 // GET MOVIES IN THE WATCHLIST
 export const getWatchlistController = async (req, res) => {
   try {
-    const { id: userId } = req.user;
+    const { userId } = req.params;
 
     const movieItems = await prisma.watchlist.findFirst({
       where: { userId },
