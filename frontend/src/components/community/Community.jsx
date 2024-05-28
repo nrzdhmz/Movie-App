@@ -1,6 +1,6 @@
 import React from 'react';
-import Logo from './Logo';
-import NavigationBar from './NavigationBar';
+import Logo from '../header/Logo';
+import NavigationBar from '../header/NavigationBar';
 import MemberSearch from './MemberSearch';
 
 const Community = () => {

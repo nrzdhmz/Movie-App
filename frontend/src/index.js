@@ -7,7 +7,7 @@ import ProfilePage from './pages/ProfilePage';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import WatchListPage from './pages/WatchListPage';
 import RegisterPage from './pages/RegisterPage';
-import Community from './components/Community';
+import Community from './components/community/Community';
 
 
 const router = createBrowserRouter([

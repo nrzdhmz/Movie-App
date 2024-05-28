@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom"
-import Profile from '../components/Profile';
+import Profile from '../profile/Profile';
 
 const NavigationBar = () => {
   return (

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import SearchBox from '../components/SearchBox';
-import NavigationBar from '../components/NavigationBar';
-import SearchList from '../components/SearchList';
-import MovieDetails from '../components/MovieDetails';
-import Logo from '../components/Logo';
+import SearchBox from '../components/home/SearchBox';
+import NavigationBar from '../components/header/NavigationBar';
+import SearchList from '../components/home/SearchList';
+import MovieDetails from '../components/home/MovieDetails';
+import Logo from '../components/header/Logo';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const HomePage = () => {

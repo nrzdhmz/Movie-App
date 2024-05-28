@@ -1,15 +1,26 @@
-@import 'variables';
-@import 'reset';
-@import 'typography';
-@import 'container';
-@import 'wrapper';
-@import 'search';
-@import 'movie';
-@import 'navbar';
-@import 'watchList';
-@import 'profileBtn';
-@import 'filterBar';
-@import 'signIn';
-@import 'profilePage';
-@import 'scrollBar';
-@import 'followBox';
+//GLOBALS
+@import './globals/container';
+@import './globals/reset';
+@import './globals/scrollBar';
+@import './globals/typography';
+@import './globals/variables';
+@import './globals//wrapper';
+
+//AUTHENTICATION
+@import './authentication-scss/signIn';
+
+//HOME
+@import './home-scss/movie';
+
+//WATCHLIST
+@import './watchlist-scss/filterBar';
+@import './watchlist-scss/watchList';
+
+//PROFILE
+@import './profile-scss/followBox';
+@import './profile-scss/profilePage';
+
+//HEADER
+@import './navbar-scss/navbar';
+@import './navbar-scss/profileBtn';
+@import './navbar-scss/search';
