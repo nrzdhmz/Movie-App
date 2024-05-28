@@ -1,7 +1,7 @@
 import React from 'react';
-import Logo from '../header/Logo';
-import NavigationBar from '../header/NavigationBar';
-import MemberSearch from './MemberSearch';
+import Logo from '../components/header/Logo';
+import NavigationBar from '../components/header/NavigationBar';
+import MemberSearch from '../components/community/MemberSearch';
 
 const Community = () => {
   return (

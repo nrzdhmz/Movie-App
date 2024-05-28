@@ -10,7 +10,7 @@ const SearchBox = ({ onMoviesLoaded, placeholder }) => {
       try {
         const res = await axios.get(URL, { withCredentials: true });
 
-        if (res.data.movies) {
+        if (res.data.movies) { 
           onMoviesLoaded(res.data.movies);
         } else {
           onMoviesLoaded([]);
