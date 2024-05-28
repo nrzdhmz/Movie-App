@@ -13,7 +13,7 @@ export const searchUsersController = async (req, res) => {
         },
       },
       select: {
-        _count: true,
+        id: true,
         username: true,
         profilePicture: true,
       },
@@ -49,6 +49,7 @@ export const updateProfilePicture = async (req, res) => {
   }
 };
 
+// GET USER BY ID
 export const getUserByIdController = async (req, res) => {
   const userId = Number(req.params.userId);
   const user = await prisma.user.findUnique({
@@ -56,7 +57,6 @@ export const getUserByIdController = async (req, res) => {
       id: userId,
     },
     select: {
-      id: true,
       username: true,
       followers: true,
       following: true,
@@ -68,6 +68,12 @@ export const getUserByIdController = async (req, res) => {
               status: true,
             },
           },
+        },
+      },
+      _count: {
+        select: {
+          followers: true,
+          following: true,
         },
       },
     },
