@@ -19,13 +19,13 @@ const MemberSearch = () => {
             },
             withCredentials: true
           });
-          console.log(response.data);
-          setUsers(response.data.users); 
+          console.log(response.data.users[0].profilePicture);
+          setUsers(response.data.users);
         } catch (error) {
           console.error('Error fetching users:', error);
         }
       } else {
-        setUsers([]); 
+        setUsers([]);
       }
     };
 
@@ -34,18 +34,22 @@ const MemberSearch = () => {
 
   return (
     <>
-      <input 
-        className='form-control' 
-        type="text" 
-        placeholder='Search Members ...' 
-        value={searchTerm} 
-        onChange={handleInputChange} 
+      <input
+        className='form-control'
+        type="text"
+        placeholder='Search Members ...'
+        value={searchTerm}
+        onChange={handleInputChange}
       />
       <div className="search-list">
         {users.map((user, index) => (
           <div key={index} className="search-list-item">
             <div className="user-info">
-              <h3>{user.username}</h3>
+              <img
+                src={`http://localhost:5000/static${user.profilePicture}`}
+                alt="user profile picture"
+              />
+              <div className='usersearch'>{user.username}</div>
             </div>
           </div>
         ))}
