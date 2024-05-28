@@ -12,7 +12,7 @@ const MemberSearch = () => {
     const fetchData = async () => {
       if (searchTerm) {
         try {
-          const response = await axios.get('http://localhost:5000/users', {
+          const response = await axios.get('http://localhost:5000/api/users', {
             params: {
               query: searchTerm
             },
