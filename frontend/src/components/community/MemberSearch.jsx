@@ -14,7 +14,7 @@ const MemberSearch = () => {
         try {
           const response = await axios.get('http://localhost:5000/users', {
             params: {
-              name: searchTerm
+              query: searchTerm
             },
           });
           console.log(response.data);
