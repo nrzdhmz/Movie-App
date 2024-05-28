@@ -10,8 +10,8 @@ import {
 const router = Router();
 
 router.post("/", protectRoute, addWatchlistController);
-router.get("/", protectRoute, getWatchlistController);
 router.patch("/", protectRoute, updateMovieStatusController);
+router.get("/:userId", protectRoute, getWatchlistController);
 router.delete("/:movieId", protectRoute, removeMovieController);
 
 export default router;
