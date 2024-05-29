@@ -10,7 +10,16 @@ const ProfilePage = () => {
   const [overlayType, setOverlayType] = useState("following");
   const [userData, setUserData] = useState(null);
   const { userid } = useParams();
-  console.log(userData);
+
+  const [localData, setLocalData] = useState("");
+  useEffect(() => {
+    const storedData = localStorage.getItem('userData');
+    if (storedData) {
+      const parsedData = JSON.parse(storedData);
+      setLocalData(parsedData.id);
+    }
+  }, []);
+
 
   const toggleOverlay = (type) => {
     setOverlayType(type);
@@ -105,7 +114,7 @@ const ProfilePage = () => {
                   />
                 </div>
                 <div className="username">{userData.username}</div>
-                {userData == userid && (
+                {localData == userid && (
                   <button>
                     EDIT PROFILE
                     <i id="pen" className="fas fa-pen"></i>

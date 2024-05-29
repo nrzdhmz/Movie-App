@@ -81,18 +81,26 @@ export const addFollowingController = async (req, res) => {
   }
 };
 
-// User unfollows another user
 export const removeFollowingController = async (req, res) => {
   try {
     const { id: userId } = req.user;
     const { followingId } = req.params;
 
-    await prisma.follow.delete({
+    const follow = await prisma.follow.findFirst({
       where: {
         followerId: userId,
-        followingId,
+        followingId: Number(followingId),
       },
     });
+    if (!follow)
+      return res.status(404).json({ error: "Users do not follow each other" });
+
+    await prisma.follow.delete({
+      where: {
+        id: follow.id,
+      },
+    });
+
     return res.status(200).json({ message: "Successfully unfollowed" });
   } catch (error) {
     console.log(error);
