@@ -49,7 +49,7 @@ const ProfilePage = () => {
 
   const handleUnFollow = async () => {
     try {
-      const response = await axios.post(
+      const response = await axios.delete(
         `http://localhost:5000/api/follow/following/${userid}`,
         { withCredentials: true }
       );
