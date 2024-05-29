@@ -53,6 +53,21 @@ export const addFollowingController = async (req, res) => {
   try {
     const { id: userId } = req.user;
     const { followingId } = req.body;
+
+    if (userId === followingId)
+      return res.status(400).json({ error: "Users cannot follow themselves" });
+
+    const existingFollow = await prisma.follow.findFirst({
+      where: {
+        followerId: userId,
+        followingId,
+      },
+    });
+    if (existingFollow)
+      return res
+        .status(400)
+        .json({ error: "User can only follow another user once" });
+
     await prisma.follow.create({
       data: {
         followerId: userId,
