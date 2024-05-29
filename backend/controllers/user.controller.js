@@ -5,7 +5,6 @@ export const searchUsersController = async (req, res) => {
   try {
     let { query } = req.query;
     query.toLowerCase();
-    console.log(query);
     const users = await prisma.user.findMany({
       where: {
         username: {
@@ -72,7 +71,7 @@ export const getUserByIdController = async (req, res) => {
       },
       followers: {
         select: {
-          followingUser: {
+          followerUser: {
             select: {
               id: true,
               username: true,
@@ -83,7 +82,7 @@ export const getUserByIdController = async (req, res) => {
       },
       following: {
         select: {
-          followerUser: {
+          followingUser: {
             select: {
               id: true,
               username: true,
