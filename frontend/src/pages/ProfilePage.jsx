@@ -10,6 +10,7 @@ const ProfilePage = () => {
   const [overlayType, setOverlayType] = useState("following");
   const [userData, setUserData] = useState(null);
   const { userid } = useParams();
+  console.log(userData);
 
   const toggleOverlay = (type) => {
     setOverlayType(type);
@@ -104,10 +105,12 @@ const ProfilePage = () => {
                   />
                 </div>
                 <div className="username">{userData.username}</div>
-                <button>
-                  EDIT PROFILE
-                  <i id="pen" className="fas fa-pen"></i>
-                </button>
+                {userData == userid && (
+                  <button>
+                    EDIT PROFILE
+                    <i id="pen" className="fas fa-pen"></i>
+                  </button>
+                )}
                 {userData.isFollowing ? (
                   <button onClick={handleUnFollow}>Unfollow</button>
                 ) : (
