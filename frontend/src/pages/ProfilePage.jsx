@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import Logo from "../components/header/Logo";
 import NavigationBar from "../components/header/NavigationBar";
-import { useParams } from "react-router-dom";
-import UserList from "../components/profile/UserList";
+import ProfileSummary from "../components/profile/ProfileSummary";
+import ProfileNav from "../components/profile/ProfileNav";
+import WatchList from "../components/profile/WatchList";
+import Overlay from "../components/profile/Overlay";
 
 const ProfilePage = () => {
   const [showOverlay, setShowOverlay] = useState(false);
@@ -19,7 +22,6 @@ const ProfilePage = () => {
       setLocalData(parsedData.id);
     }
   }, []);
-
 
   const toggleOverlay = (type) => {
     setOverlayType(type);
@@ -67,34 +69,16 @@ const ProfilePage = () => {
     }
   };
 
-  const MainProfile = (localData == userid);
+  const isMainProfile = localData == userid;
 
   return (
     <div className="wrapper">
       {showOverlay && (
-        <div className="blackBg">
-          <div className="overlay">
-            <div className="follow-box-top">
-              <p>{overlayType === "followers" ? "Followers" : "Following"}</p>
-              <i className="fa-solid fa-xmark" onClick={() => setShowOverlay(false)}></i>
-            </div>
-            <div className="overlay-content">
-              {overlayType === "followers" ? (
-                <UserList 
-                  users={userData?.following?.map(f => f.followerUser) || []} 
-                  type="followers" 
-                  closeOverlay={() => setShowOverlay(false)} 
-                />
-              ) : (
-                <UserList 
-                  users={userData?.followers?.map(f => f.followingUser) || []} 
-                  type="following" 
-                  closeOverlay={() => setShowOverlay(false)}
-                />
-              )}
-            </div>
-          </div>
-        </div>
+        <Overlay
+          overlayType={overlayType}
+          userData={userData}
+          closeOverlay={() => setShowOverlay(false)}
+        />
       )}
       <header className="container-top">
         <div className="search-container">
@@ -105,84 +89,19 @@ const ProfilePage = () => {
       <div className="container">
         <div className="profile-section">
           {userData ? (
-            <div className="profile-summary">
-              <div className="profile-summary-left">
-                <div className="profile-pic-container">
-                  <img
-                    src={`http://localhost:5000${userData.profilePicture}`}
-                    alt="user profile pic"
-                  />
-                </div>
-                <div className="username">{userData.username}</div>
-                {MainProfile && (
-                  <button>
-                    EDIT PROFILE
-                    <i id="pen" className="fas fa-pen"></i>
-                  </button>
-                )}
-                {MainProfile ? (null) : 
-                (
-                  userData.isFollowing ? (
-                    <button onClick={handleUnFollow}>Unfollow</button>
-                  ) : (
-                    <button onClick={handleFollow}>Follow</button>
-                  )
-                )}
-              </div>
-              <div className="profile-summary-right">
-                <div className="profile-stats">
-                  <span className="value">
-                    {userData.watchlist.movieItems.length}
-                  </span>
-                  <span className="definition">Films</span>
-                </div>
-                <div
-                  onClick={() => toggleOverlay("followers")}
-                  id="followers"
-                  className="profile-stats border-left">
-                  <span className="value">{userData._count.following}</span>
-                  <span className="definition">Followers</span>
-                </div>
-                <div
-                  onClick={() => toggleOverlay("following")}
-                  id="following"
-                  className="profile-stats border-left">
-                  <span className="value">{userData._count.followers}</span>
-                  <span className="definition">Following</span>
-                </div>
-              </div>
-            </div>
+            <ProfileSummary
+              userData={userData}
+              isMainProfile={isMainProfile}
+              handleFollow={handleFollow}
+              handleUnFollow={handleUnFollow}
+              toggleOverlay={toggleOverlay}
+            />
           ) : (
             <div>Loading...</div>
           )}
-          <div className="profile-nav">
-            <button>Profile</button>
-            <button>Watchlist</button>
-            <button>Lists</button>
-            <button>Likes</button>
-          </div>
+          <ProfileNav />
           {userData && userData.watchlist && (
-            <div className="watch-list-container">
-              {userData.watchlist.movieItems.map((item, index) => (
-                <div key={index} className="watch-list-item">
-                  <div className="movie-item-img">
-                    <img src={item.movie.poster} alt={item.movie.title} />
-                    <p className="imdb-img"><i className="fa-solid fa-star"></i>{item.movie.imdbRating}</p>
-                    <div className="movie-info">
-                      <div className="info-text">
-                        <div className="lighter movie-info-title">{item.movie.title}</div>
-                      </div>
-                      <div className="info-text"><i className="fa-solid fa-star"></i>{item.movie.imdbRating}</div>
-                      <div className="info-text">{item.movie.plot}</div>
-                      <div className="info-text"><div className="lighter">Language:</div>{item.movie.language}</div>
-                      <div className="info-text"><div className="lighter">Aired:</div>{item.movie.released}</div>
-                      <div className="info-text"><div className="lighter">Genres:</div>{item.movie.genre}</div>
-                    </div>
-                  </div>
-                  <p>{item.movie.title}</p>
-                </div>
-              ))}
-            </div>
+            <WatchList watchlist={userData.watchlist} />
           )}
         </div>
       </div>
