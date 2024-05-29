@@ -2,34 +2,59 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Logo from '../components/header/Logo';
 import NavigationBar from '../components/header/NavigationBar';
+import { useParams } from 'react-router-dom';
 
 const ProfilePage = () => {
   const [userData, setUserData] = useState(null);
+  const { userid } = useParams();
+
+  // useEffect(() => {
+    // const fetchFollowing = async () => {
+    //   try {
+    //     const response = await axios.post(
+    //       `http://localhost:5000/api/following`,
+    //       { withCredentials: true }
+    //     );
+    //     console.log(response.data);
+    //   } catch (error) {
+    //     console.error('ATON ERROR VERIR');
+    //   }
+    // };
+    // fetchFollowing(); 
+  // }, []); 
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const url = window.location.href;
-        const lastSlashIndex = url.lastIndexOf('/');
-        const userid = url.substring(lastSlashIndex + 1);
-
-        console.log({ userid });
-
         const response = await axios.get(
           `http://localhost:5000/api/users/${userid}`,
           { withCredentials: true }
         );
-
-        console.log(response.data);
+        // console.log(response.data);
         setUserData(response.data);
-
       } catch (error) {
-        console.error('Error fetching user data from backend');
+        console.error('Error fetching user data from backend', error);
       }
     };
 
     fetchUserData();
-  }, []);
+  }, [userid]); 
+
+  const handleFollow = async () => {
+    const fetchFollowing = async () => {
+      try {
+        const response = await axios.post(
+          `http://localhost:5000/api/follow/following`,
+          { withCredentials: true }
+        );
+        console.log(response.data);
+        console.log('Follow button clicked');
+      } catch (error) {
+        console.error('ATON ERROR VERIR');
+      }
+    };
+    fetchFollowing(); 
+  };
 
   return (
     <div className="wrapper">
@@ -54,6 +79,9 @@ const ProfilePage = () => {
                 <button>
                   EDIT PROFILE
                   <i id="pen" className="fas fa-pen"></i>
+                </button>
+                <button onClick={handleFollow}>
+                  Follow
                 </button>
               </div>
               <div className="profile-summary-right">
