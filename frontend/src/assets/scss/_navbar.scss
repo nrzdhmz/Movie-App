@@ -1,13 +1,14 @@
 .navBar{
   ul{
     display: flex;
-    align-items: center;
-    gap: 15px;
+    flex-direction: column;
+    gap: 20px;
     li{
+      background-color: $dark-color;
+      padding: 0.6rem;
+      border-radius: 8px;
+      display: flex;
       a{
-        border-radius: 8px;
-        background-color: $dark-color;
-        padding: 0.6rem;
         font-size: 1.1rem;
         color: $site-common-white;
       }

@@ -9,13 +9,13 @@ const Community = () => {
       <header className="container-top">
         <div className="search-container">
           <Logo />
-          <div className="search-element">
-            <MemberSearch/>
-          </div>
           <NavigationBar />
         </div>
       </header>
       <div className="container">
+        <div className="search-element">
+            <MemberSearch/>
+        </div>
       </div>
     </div>
   );

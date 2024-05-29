@@ -33,18 +33,18 @@ const HomePage = () => {
             <header className="container-top">
                 <div className="search-container">
                     <Logo />
-                    <div className="search-element">
+                    <NavigationBar />
+                </div>
+            </header>
+            <div className="container">
+                <div className="search-element">
                         <SearchBox onMoviesLoaded={handleMovies} placeholder={'Movie Title'} />
                         <SearchList
                             movies={movies}
                             onMovieSelect={handleMovieSelection}
                             show={showSearchList}
                         />
-                    </div>
-                    <NavigationBar />
                 </div>
-            </header>
-            <div className="container">
                 <div className="result-container">
                     <div className="result-grid">
                         {selectedMovie && <MovieDetails movie={selectedMovie} />}

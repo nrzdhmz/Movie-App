@@ -21,7 +21,7 @@ const UserList = ({ users, type, closeOverlay }) => {
           </Link>
         ))
       ) : (
-        <p>No {type}.</p>
+        <p className='user-item'>No {type}.</p>
       )}
     </div>
   );

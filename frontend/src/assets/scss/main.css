@@ -32,12 +32,13 @@ a:active {
 }
 
 .container {
-  max-width: 1050px;
+  width: 1050px;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
 .container-top {
+  width: 244px;
   background-color: #383f46;
 }
 
@@ -45,6 +46,7 @@ a:active {
   min-height: 100vh;
   background-color: #202428;
   position: relative;
+  display: flex;
 }
 
 .signUpPage {
@@ -59,9 +61,9 @@ a:active {
   margin: 0 auto;
   padding: 0 1rem;
   min-height: 80px;
-  display: flex;
-  align-items: center;
   justify-content: space-between;
+  display: flex;
+  flex-direction: column;
 }
 
 .logo {
@@ -82,6 +84,7 @@ a:active {
   justify-content: center;
   flex-direction: column;
   position: relative;
+  margin: 20px 0 0;
 }
 .search-element h3 {
   align-self: center;
@@ -97,14 +100,13 @@ a:active {
   border: none;
   border-radius: 15px;
   outline: none;
-  background-color: #202428;
+  background-color: #383f46;
   color: #DDDDDD;
   width: 350px;
 }
 .search-element .search-list {
   position: absolute;
-  right: 0;
-  top: 100%;
+  top: 105%;
   max-height: 400px;
   overflow-y: scroll;
   z-index: 10;
@@ -270,13 +272,16 @@ a:active {
 
 .navBar ul {
   display: flex;
-  align-items: center;
-  gap: 15px;
+  flex-direction: column;
+  gap: 20px;
 }
-.navBar ul li a {
-  border-radius: 8px;
+.navBar ul li {
   background-color: #202428;
   padding: 0.6rem;
+  border-radius: 8px;
+  display: flex;
+}
+.navBar ul li a {
   font-size: 1.1rem;
   color: #DDDDDD;
 }
@@ -502,13 +507,18 @@ a:active {
 
 .profileBtn {
   display: flex;
-  width: 50px;
-  height: 50px;
-  border: 3px solid #202428;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #202428;
   background-size: cover;
   background-position: center;
   border-radius: 50%;
   cursor: pointer;
+  gap: 10px;
+}
+.profileBtn p {
+  color: #DDDDDD;
 }
 .profileBtn img {
   border-radius: 50%;
@@ -766,19 +776,21 @@ a:active {
   width: 100%;
   height: 50px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 20px;
   color: #F5F5F5;
   border-bottom: solid 1px #383f46;
 }
 .blackBg .overlay .follow-box-top p {
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 400;
 }
 .blackBg .overlay .follow-box-top i {
+  position: absolute;
+  right: 10px;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
 .blackBg .overlay .overlay-content {
   color: white;

@@ -6,6 +6,9 @@ const NavigationBar = () => {
   return (
     <nav className='navBar'>
       <ul>
+        <li><Link to="/home">Home</Link></li>
+        <li><Link to="/home">Messages</Link></li>
+        <li><Link to="/home">Notifications</Link></li>
         <li><Link to="/Community">Community</Link></li>
         <li><Link to="/Mylists">WatchList</Link></li>
         <Profile/>

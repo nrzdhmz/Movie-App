@@ -3,9 +3,9 @@
   margin: 0 auto;
   padding: 0 1rem;
   min-height: 80px;
-  display: flex;
-  align-items: center;
   justify-content: space-between;
+  display: flex;
+  flex-direction: column;
 }
 
 .logo {
@@ -27,6 +27,7 @@
   justify-content: center;
   flex-direction: column;
   position: relative;
+  margin: 20px 0 0;
 
   h3 {
     align-self: center;
@@ -43,15 +44,14 @@
     border: none;
     border-radius: 15px;
     outline: none;
-    background-color: $dark-color;
+    background-color: $md-dark-color;
     color: $site-common-white;
     width: 350px;
   }
 
   .search-list {
     position: absolute;
-    right: 0;
-    top: 100%;
+    top: 105%;
     max-height: 400px;
     overflow-y: scroll;
     z-index: 10;

@@ -6,7 +6,7 @@ const Overlay = ({ overlayType, userData, closeOverlay }) => (
     <div className="overlay">
       <div className="follow-box-top">
         <p>{overlayType === "followers" ? "Followers" : "Following"}</p>
-        <i className="fa-solid fa-xmark" onClick={closeOverlay}></i>
+        <i className="fa-solid fa-xmark " onClick={closeOverlay}></i>
       </div>
       <div className="overlay-content">
         {overlayType === "followers" ? (

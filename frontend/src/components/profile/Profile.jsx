@@ -19,6 +19,7 @@ const Profile = () => {
           src={`http://localhost:5000${userData.profilePicture}`}
           alt="user profile pic"
         />
+        <p>Profile</p>
       </div>
     </Link>
   );
