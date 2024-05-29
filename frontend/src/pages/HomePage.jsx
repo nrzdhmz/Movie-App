@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchBox from '../components/home/SearchBox';
 import NavigationBar from '../components/header/NavigationBar';
 import SearchList from '../components/home/SearchList';
@@ -19,6 +19,14 @@ const HomePage = () => {
         setSelectedMovie(movie);
         setShowSearchList(false);
     };
+
+    useEffect(() => {
+        const storedData = localStorage.getItem('userData');
+        if (storedData) {
+            const userData = JSON.parse(storedData);
+            console.log('User Data:', userData);
+        }
+    }, []);
 
     return (
         <div className="wrapper">

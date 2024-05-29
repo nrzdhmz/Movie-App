@@ -9,6 +9,15 @@ const WatchList = () => {
   const [sortOption, setSortOption] = useState('Default');
   const [statusFilter, setStatusFilter] = useState('All');
 
+
+  useEffect(() => {
+    const storedData = localStorage.getItem('userData');
+    if (storedData) {
+        const userData = JSON.parse(storedData);
+        console.log('User Data:', userData);
+    }
+}, []);
+
   useEffect(() => {
     const fetchMovies = async () => {
       try {

@@ -22,23 +22,24 @@ const LogInBox = () => {
     setErrMsg('');
   }, [formData]);
 
-  const handleChange = e => {
-    const { id, value } = e.target;
-    setFormData(prev => ({ ...prev, [id]: value }));
-  };
-
   const handleSubmit = async e => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:5000/api/auth/login", {
+      const response = await axios.post("http://localhost:5000/api/auth/login", {
         username: formData.user,
         password: formData.pwd,
       }, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
+
+      const userData = response.data;
+
+      localStorage.setItem('userData', JSON.stringify(userData));
+
       setFormData({ user: '', pwd: '' });
+
       navigate('/Home');
     } catch (err) {
       if (err.response) {
@@ -56,6 +57,11 @@ const LogInBox = () => {
       }
       errRef.current.focus();
     }
+  };
+
+  const handleChange = e => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
   };
 
   return (
@@ -88,7 +94,7 @@ const LogInBox = () => {
               <p>Don't have an Account?</p>
               <Link to="/">Register</Link>
             </div>
-            <button>Log In</button>                          
+            <button type="submit">Log In</button>
           </div>
         </form>
       </div>
