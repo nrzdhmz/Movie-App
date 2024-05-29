@@ -52,6 +52,7 @@ export const updateProfilePicture = async (req, res) => {
 // GET USER BY ID
 export const getUserByIdController = async (req, res) => {
   const userId = Number(req.params.userId);
+
   const user = await prisma.user.findUnique({
     where: {
       id: userId,
@@ -69,6 +70,24 @@ export const getUserByIdController = async (req, res) => {
           },
         },
       },
+      followers: {
+        select: {
+          followingUser: {
+            select: {
+              id: true,
+              username: true,
+              profilePicture: true,
+            },
+          },
+          follwerUser: {
+            select: {
+              id: true,
+              username: true,
+              profilePicture: true,
+            },
+          },
+        },
+      },
       _count: {
         select: {
           followers: true,
@@ -77,6 +96,16 @@ export const getUserByIdController = async (req, res) => {
       },
     },
   });
+
+  const isFollowing = (await prisma.follow.findFirst({
+    where: {
+      followerId: req.user.id,
+      followingId: userId,
+    },
+  }))
+    ? true
+    : false;
+
   if (!user) return res.status(404).json({ error: "User does not exist" });
-  return res.status(200).json({ ...user });
+  return res.status(200).json({ ...user, isFollowing });
 };
