@@ -281,6 +281,47 @@ a:active {
   color: #DDDDDD;
 }
 
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px 0 0;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.filter-container .filterBy {
+  padding: 5px;
+  color: #DDDDDD;
+  background-color: #383f46;
+  font-size: 1.2rem;
+}
+.filter-container .filterBy .option {
+  font-size: 1rem;
+}
+.filter-container .filter {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.filter-container .filter .filterBtn {
+  font-size: 1rem;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  min-width: 90px;
+  cursor: pointer;
+  color: #DDDDDD;
+  background-color: #383f46;
+}
+.filter-container .filter .filterBtn:hover {
+  background-color: #65727f;
+}
+.filter-container .filter .filterBtn.selected {
+  background-color: #F5C518;
+  color: #202428;
+}
+
 .watch-list-container {
   display: flex;
   flex-wrap: wrap;
@@ -476,47 +517,6 @@ a:active {
   background-position: center center;
 }
 
-.filter-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 40px 0 0;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.filter-container .filterBy {
-  padding: 5px;
-  color: #DDDDDD;
-  background-color: #383f46;
-  font-size: 1.2rem;
-}
-.filter-container .filterBy .option {
-  font-size: 1rem;
-}
-.filter-container .filter {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-.filter-container .filter .filterBtn {
-  font-size: 1rem;
-  border: none;
-  padding: 8px;
-  border-radius: 6px;
-  min-width: 90px;
-  cursor: pointer;
-  color: #DDDDDD;
-  background-color: #383f46;
-}
-.filter-container .filter .filterBtn:hover {
-  background-color: #65727f;
-}
-.filter-container .filter .filterBtn.selected {
-  background-color: #F5C518;
-  color: #202428;
-}
-
 .sign-in-container {
   display: flex;
   justify-content: center;
@@ -677,6 +677,10 @@ a:active {
   display: flex;
 }
 .profile-section .profile-summary .profile-summary-right .profile-stats {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   padding: 5px;
 }
 .profile-section .profile-summary .profile-summary-right .profile-stats a {
@@ -750,13 +754,11 @@ a:active {
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin: 20px;
   width: calc(100vw - 88px);
   min-width: 260px;
-  max-width: 500px;
-  min-height: 500px;
-  max-height: calc(100% - 40px);
+  max-width: 400px;
+  height: 400px;
 }
 .blackBg .overlay .follow-box-top {
   width: 100%;
@@ -777,8 +779,33 @@ a:active {
   font-size: 2rem;
 }
 .blackBg .overlay .overlay-content {
-  text-align: center;
   color: white;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+.blackBg .overlay .overlay-content .user-list {
+  display: flex;
+  flex-direction: column;
+}
+.blackBg .overlay .overlay-content .user-list .user-item {
+  display: flex;
+  padding: 8px 16px;
+  background-color: #262626;
+  cursor: pointer;
+}
+.blackBg .overlay .overlay-content .user-list .user-item:hover {
+  background-color: #494949;
+}
+.blackBg .overlay .overlay-content .user-list .user-item img {
+  margin-right: 10px;
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+}
+.blackBg .overlay .overlay-content .user-list .user-item span {
+  display: flex;
+  align-items: center;
 }
 
 .usersearch {

@@ -3,13 +3,16 @@ import axios from "axios";
 import Logo from "../components/header/Logo";
 import NavigationBar from "../components/header/NavigationBar";
 import { useParams } from "react-router-dom";
+import UserList from "../components/profile/UserList";
 
 const ProfilePage = () => {
   const [showOverlay, setShowOverlay] = useState(false);
+  const [overlayType, setOverlayType] = useState("following");
   const [userData, setUserData] = useState(null);
   const { userid } = useParams();
 
-  const toggleOverlay = () => {
+  const toggleOverlay = (type) => {
+    setOverlayType(type);
     setShowOverlay(!showOverlay);
   };
 
@@ -31,20 +34,17 @@ const ProfilePage = () => {
   }, [userid]);
 
   const handleFollow = async () => {
-    const fetchFollowing = async () => {
-      try {
-        const response = await axios.post(
-          `http://localhost:5000/api/follow/following`,
-          { followingId: Number(userid) },
-          { withCredentials: true }
-        );
-        console.log(response.data);
-        console.log("Follow button clicked");
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchFollowing();
+    try {
+      const response = await axios.post(
+        `http://localhost:5000/api/follow/following`,
+        { followingId: Number(userid) },
+        { withCredentials: true }
+      );
+      console.log(response.data);
+      console.log("Follow button clicked");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -53,10 +53,24 @@ const ProfilePage = () => {
         <div className="blackBg">
           <div className="overlay">
             <div className="follow-box-top">
-              <p>Following</p>
-              <i className="fa-solid fa-xmark" onClick={toggleOverlay}></i>
+              <p>{overlayType === "followers" ? "Followers" : "Following"}</p>
+              <i className="fa-solid fa-xmark" onClick={() => setShowOverlay(false)}></i>
             </div>
-            <div className="overlay-content"></div>
+            <div className="overlay-content">
+              {overlayType === "followers" ? (
+                <UserList 
+                  users={userData?.following?.map(f => f.followerUser) || []} 
+                  type="following" 
+                  closeOverlay={() => setShowOverlay(false)} 
+                />
+              ) : (
+                <UserList 
+                  users={userData?.followers?.map(f => f.followingUser) || []} 
+                  type="followers" 
+                  closeOverlay={() => setShowOverlay(false)}
+                />
+              )}
+            </div>
           </div>
         </div>
       )}
@@ -92,17 +106,17 @@ const ProfilePage = () => {
                   <span className="definition">Films</span>
                 </div>
                 <div
-                  onClick={toggleOverlay}
+                  onClick={() => toggleOverlay("followers")}
                   id="followers"
                   className="profile-stats border-left">
-                  <span className="value">{userData._count.followers}</span>
+                  <span className="value">{userData._count.following}</span>
                   <span className="definition">Followers</span>
                 </div>
                 <div
-                  onClick={toggleOverlay}
+                  onClick={() => toggleOverlay("following")}
                   id="following"
                   className="profile-stats border-left">
-                  <span className="value">{userData._count.following}</span>
+                  <span className="value">{userData._count.followers}</span>
                   <span className="definition">Following</span>
                 </div>
               </div>
