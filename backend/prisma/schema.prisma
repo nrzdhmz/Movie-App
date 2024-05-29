@@ -15,16 +15,16 @@ model User {
   profilePicture String     @default("/uploads/default_profile_picture.png")
   createdAt      DateTime   @default(now())
   updatedAt      DateTime   @updatedAt
-  following      Follow[]   @relation("Following")
-  followers      Follow[]   @relation("Followers")
+  followers      Follow[]   @relation("Following")
+  following      Follow[]   @relation("Followers")
 }
 
 model Follow {
   id            Int  @id @default(autoincrement())
   followerId    Int
   followingId   Int
-  followerUser  User @relation("Followers", fields: [followerId], references: [id])
-  followingUser User @relation("Following", fields: [followingId], references: [id])
+  followerUser  User @relation("Following", fields: [followerId], references: [id])
+  followingUser User @relation("Followers", fields: [followingId], references: [id])
 }
 
 model Watchlist {

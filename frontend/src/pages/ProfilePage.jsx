@@ -93,13 +93,13 @@ const ProfilePage = () => {
                   <span className="value">{userData.watchlist.movieItems.length}</span>
                   <span className="definition">Films</span>
                 </div>
-                <div onClick={toggleOverlay}  id="following" className="profile-stats border-left">
-                  <span className="value">{userData._count.followers}</span>
-                  <span className="definition">Following</span>
-                </div>
                 <div onClick={toggleOverlay} id="followers" className="profile-stats border-left">
                   <span className="value">{userData._count.following}</span>
                   <span className="definition">Followers</span>
+                </div>
+                <div onClick={toggleOverlay}  id="following" className="profile-stats border-left">
+                  <span className="value">{userData._count.followers}</span>
+                  <span className="definition">Following</span>
                 </div>
               </div>
             </div>

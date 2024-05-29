@@ -72,7 +72,7 @@ export const getUserByIdController = async (req, res) => {
       },
       followers: {
         select: {
-          followerUser: {
+          followingUser: {
             select: {
               id: true,
               username: true,
@@ -83,7 +83,7 @@ export const getUserByIdController = async (req, res) => {
       },
       following: {
         select: {
-          followingUser: {
+          followerUser: {
             select: {
               id: true,
               username: true,
@@ -94,8 +94,8 @@ export const getUserByIdController = async (req, res) => {
       },
       _count: {
         select: {
-          followers: true,
           following: true,
+          followers: true,
         },
       },
     },
