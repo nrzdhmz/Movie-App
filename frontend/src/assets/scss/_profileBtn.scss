@@ -1,17 +1,14 @@
 .profileBtn {
   display: flex;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border: 2px solid $dark-color;
   background-size: cover; 
   background-position: center; 
   border-radius: 50%;
   cursor: pointer;
   gap: 10px;
-  p{
-    color: $site-common-white;
-  }
   img{
     border-radius: 50%;
     width: 100%;

@@ -2,15 +2,21 @@
   ul{
     display: flex;
     flex-direction: column;
-    gap: 20px;
     li{
-      background-color: $dark-color;
-      padding: 0.6rem;
-      border-radius: 8px;
       display: flex;
       a{
+        margin: 4px 0;
+        padding: 12px;
+        border-radius: 8px;
         font-size: 1.1rem;
+        align-items: center;
         color: $site-common-white;
+        display: flex;
+        gap: 9px;
+        i{
+          font-size: 1.3rem;
+          width: 30px;
+        }
       }
     }
   }
