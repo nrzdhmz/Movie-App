@@ -1,14 +1,27 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
-  return (
-    <Link to="/Profile">
-        <div className='profileBtn'>
-          <img src="https://www.gravatar.com/avatar/?d=mp&s=55" alt="profile pic" />
-        </div>
-    </Link>
-  )
-}
+  const [userData, setUserData] = useState("");
 
-export default Profile
+  useEffect(() => {
+    const storedData = localStorage.getItem('userData');
+    if (storedData) {
+      const parsedData = JSON.parse(storedData);
+      setUserData(parsedData);
+    }
+  }, []);
+
+  return (
+    <Link to={`/Profile/${userData.id}`}>
+      <div className='profileBtn'>
+        <img
+          src={`http://localhost:5000${userData.profilePicture}`}
+          alt="user profile pic"
+        />
+      </div>
+    </Link>
+  );
+};  
+
+export default Profile;

@@ -15,6 +15,7 @@ const LogInBox = () => {
   const [errMsg, setErrMsg] = useState('');
 
   useEffect(() => {
+    localStorage.removeItem('userData');
     userRef.current.focus();
   }, []);
 
