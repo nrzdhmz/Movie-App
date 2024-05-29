@@ -6,19 +6,17 @@ import parseRequest from "../utils/parseRequest.js";
 export const addWatchlistController = async (req, res) => {
   try {
     const { movieId } = req.body;
-    const watchlist = await prisma.watchlist.findFirst({
+    const existingWatchlist = await prisma.watchlist.findFirst({
       where: { userId: req.user.id },
-    });
-
-    const existingMovieInWatchlist = await prisma.watchlist.findFirst({
-      where: {
-        movieItems: {
-          some: {
-            movieId,
-          },
-        },
+      include: {
+        movieItems: true,
       },
     });
+
+    const existingMovieInWatchlist = existingWatchlist.movieItems.find(
+      item => item.movieId === movieId
+    );
+
     if (existingMovieInWatchlist)
       return res
         .status(409)
@@ -52,7 +50,7 @@ export const addWatchlistController = async (req, res) => {
 
     await prisma.watchlist.update({
       where: {
-        id: watchlist.id,
+        id: existingWatchlist.id,
       },
       data: {
         movieItems: {
