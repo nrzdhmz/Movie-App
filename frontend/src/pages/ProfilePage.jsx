@@ -5,8 +5,14 @@ import NavigationBar from '../components/header/NavigationBar';
 import { useParams } from 'react-router-dom';
 
 const ProfilePage = () => {
+
+  const [showOverlay, setShowOverlay] = useState(false);
   const [userData, setUserData] = useState(null);
   const { userid } = useParams();
+
+  const toggleOverlay = () => {
+    setShowOverlay(!showOverlay);
+  }
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -30,7 +36,7 @@ const ProfilePage = () => {
       try {
         const response = await axios.post(
           `http://localhost:5000/api/follow/following`,
-          { followingId: userid},
+          { followingId: Number(userid)},
           { withCredentials: true }
         );
         console.log(response.data);
@@ -44,6 +50,18 @@ const ProfilePage = () => {
 
   return (
     <div className="wrapper">
+      {showOverlay && (
+        <div className="blackBg">
+          <div className="overlay">
+            <div className="follow-box-top">
+              <p>Following</p>
+              <i className='fa-solid fa-xmark' onClick={toggleOverlay}></i>
+            </div>
+            <div className="overlay-content">
+            </div>
+          </div>
+        </div>
+      )}
       <header className="container-top">
         <div className="search-container">
           <Logo />
@@ -72,15 +90,15 @@ const ProfilePage = () => {
               </div>
               <div className="profile-summary-right">
                 <div className="profile-stats">
-                  <span className="value">0</span>
+                  <span className="value">{userData.watchlist.movieItems.length}</span>
                   <span className="definition">Films</span>
                 </div>
-                <div id="following" className="profile-stats border-left">
-                  <span className="value">0</span>
+                <div onClick={toggleOverlay}  id="following" className="profile-stats border-left">
+                  <span className="value">{userData._count.followers}</span>
                   <span className="definition">Following</span>
                 </div>
-                <div id="followers" className="profile-stats border-left">
-                  <span className="value">0</span>
+                <div onClick={toggleOverlay} id="followers" className="profile-stats border-left">
+                  <span className="value">{userData._count.following}</span>
                   <span className="definition">Followers</span>
                 </div>
               </div>
