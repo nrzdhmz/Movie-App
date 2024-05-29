@@ -47,6 +47,19 @@ const ProfilePage = () => {
     }
   };
 
+  const handleUnFollow = async () => {
+    try {
+      const response = await axios.post(
+        `http://localhost:5000/api/follow/following/${userid}`,
+        { withCredentials: true }
+      );
+      console.log(response.data);
+      console.log("Unfollow button clicked");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="wrapper">
       {showOverlay && (
@@ -97,6 +110,7 @@ const ProfilePage = () => {
                   <i id="pen" className="fas fa-pen"></i>
                 </button>
                 <button onClick={handleFollow}>Follow</button>
+                <button onClick={handleUnFollow}>Unfollow</button>
               </div>
               <div className="profile-summary-right">
                 <div className="profile-stats">
