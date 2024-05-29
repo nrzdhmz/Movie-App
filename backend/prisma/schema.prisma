@@ -15,8 +15,8 @@ model User {
   profilePicture String     @default("/uploads/default_profile_picture.png")
   createdAt      DateTime   @default(now())
   updatedAt      DateTime   @updatedAt
-  followers      Follow[]   @relation("Following")
-  following      Follow[]   @relation("Followers")
+  following      Follow[]   @relation("Following")
+  followers      Follow[]   @relation("Followers")
 }
 
 model Follow {
