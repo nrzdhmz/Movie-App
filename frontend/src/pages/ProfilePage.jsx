@@ -32,12 +32,6 @@ const ProfilePage = () => {
     fetchUserData();
   }, [userid]);
 
-  useEffect(() => {
-    if (userData) {
-      console.log('Watchlist:', userData.watchlist);
-    }
-  }, [userData]);
-
   const handleFollow = async () => {
     try {
       const response = await axios.post(
@@ -78,13 +72,13 @@ const ProfilePage = () => {
               {overlayType === "followers" ? (
                 <UserList 
                   users={userData?.following?.map(f => f.followerUser) || []} 
-                  type="following" 
+                  type="followers" 
                   closeOverlay={() => setShowOverlay(false)} 
                 />
               ) : (
                 <UserList 
                   users={userData?.followers?.map(f => f.followingUser) || []} 
-                  type="followers" 
+                  type="following" 
                   closeOverlay={() => setShowOverlay(false)}
                 />
               )}
@@ -114,8 +108,11 @@ const ProfilePage = () => {
                   EDIT PROFILE
                   <i id="pen" className="fas fa-pen"></i>
                 </button>
-                <button onClick={handleFollow}>Follow</button>
-                <button onClick={handleUnFollow}>Unfollow</button>
+                {userData.isFollowing ? (
+                  <button onClick={handleUnFollow}>Unfollow</button>
+                ) : (
+                  <button onClick={handleFollow}>Follow</button>
+                )}
               </div>
               <div className="profile-summary-right">
                 <div className="profile-stats">
@@ -167,6 +164,7 @@ const ProfilePage = () => {
                       <div className="info-text"><div className="lighter">Genres:</div>{item.movie.genre}</div>
                     </div>
                   </div>
+                  <p>{item.movie.title}</p>
                 </div>
               ))}
             </div>
