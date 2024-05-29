@@ -8,21 +8,6 @@ const ProfilePage = () => {
   const [userData, setUserData] = useState(null);
   const { userid } = useParams();
 
-  // useEffect(() => {
-    // const fetchFollowing = async () => {
-    //   try {
-    //     const response = await axios.post(
-    //       `http://localhost:5000/api/following`,
-    //       { withCredentials: true }
-    //     );
-    //     console.log(response.data);
-    //   } catch (error) {
-    //     console.error('ATON ERROR VERIR');
-    //   }
-    // };
-    // fetchFollowing(); 
-  // }, []); 
-
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -30,7 +15,7 @@ const ProfilePage = () => {
           `http://localhost:5000/api/users/${userid}`,
           { withCredentials: true }
         );
-        // console.log(response.data);
+        console.log(response.data);
         setUserData(response.data);
       } catch (error) {
         console.error('Error fetching user data from backend', error);
@@ -45,12 +30,13 @@ const ProfilePage = () => {
       try {
         const response = await axios.post(
           `http://localhost:5000/api/follow/following`,
+          { followingId: userid},
           { withCredentials: true }
         );
         console.log(response.data);
         console.log('Follow button clicked');
       } catch (error) {
-        console.error('ATON ERROR VERIR');
+        console.error(error);
       }
     };
     fetchFollowing(); 
