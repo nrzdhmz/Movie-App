@@ -23,7 +23,7 @@ model Follow {
   id            Int  @id @default(autoincrement())
   followerId    Int
   followingId   Int
-  follwerUser   User @relation("Followers", fields: [followerId], references: [id])
+  followerUser  User @relation("Followers", fields: [followerId], references: [id])
   followingUser User @relation("Following", fields: [followingId], references: [id])
 }
 
