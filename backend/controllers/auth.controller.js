@@ -39,6 +39,7 @@ export const signupController = async (req, res) => {
 
     if (newUser) {
       // Generate JWT token
+      console.log(newUser.id);
       generateTokenAndSetCookie(newUser.id, res);
 
       await prisma.watchlist.create({
@@ -75,6 +76,7 @@ export const loginController = async (req, res) => {
         username,
       },
       select: {
+        id: true,
         username: true,
         password: true,
       },
@@ -100,6 +102,7 @@ export const loginController = async (req, res) => {
             following: true,
           },
         },
+        id: true,
         username: true,
         profilePicture: true,
         watchlist: {
