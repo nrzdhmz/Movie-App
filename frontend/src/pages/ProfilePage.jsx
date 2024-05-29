@@ -23,7 +23,6 @@ const ProfilePage = () => {
           `http://localhost:5000/api/users/${userid}`,
           { withCredentials: true }
         );
-        console.log(response.data);
         setUserData(response.data);
       } catch (error) {
         console.error("Error fetching user data from backend", error);
@@ -32,6 +31,12 @@ const ProfilePage = () => {
 
     fetchUserData();
   }, [userid]);
+
+  useEffect(() => {
+    if (userData) {
+      console.log('Watchlist:', userData.watchlist);
+    }
+  }, [userData]);
 
   const handleFollow = async () => {
     try {
@@ -138,14 +143,34 @@ const ProfilePage = () => {
           ) : (
             <div>Loading...</div>
           )}
-          <nav className="profile-nav">
-            <ul>
-              <li>Profile</li>
-              <li>Watchlist</li>
-              <li>Lists</li>
-              <li>Likes</li>
-            </ul>
-          </nav>
+          <div className="profile-nav">
+            <button>Profile</button>
+            <button>Watchlist</button>
+            <button>Lists</button>
+            <button>Likes</button>
+          </div>
+          {userData && userData.watchlist && (
+            <div className="watch-list-container">
+              {userData.watchlist.movieItems.map((item, index) => (
+                <div key={index} className="watch-list-item">
+                  <div className="movie-item-img">
+                    <img src={item.movie.poster} alt={item.movie.title} />
+                    <p className="imdb-img"><i className="fa-solid fa-star"></i>{item.movie.imdbRating}</p>
+                    <div className="movie-info">
+                      <div className="info-text">
+                        <div className="lighter movie-info-title">{item.movie.title}</div>
+                      </div>
+                      <div className="info-text"><i className="fa-solid fa-star"></i>{item.movie.imdbRating}</div>
+                      <div className="info-text">{item.movie.plot}</div>
+                      <div className="info-text"><div className="lighter">Language:</div>{item.movie.language}</div>
+                      <div className="info-text"><div className="lighter">Aired:</div>{item.movie.released}</div>
+                      <div className="info-text"><div className="lighter">Genres:</div>{item.movie.genre}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

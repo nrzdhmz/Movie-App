@@ -699,17 +699,18 @@ a:active {
   padding: 0 20px;
   border: 2px solid #383f46;
   border-radius: 10px;
-}
-.profile-section .profile-nav ul {
   display: flex;
 }
-.profile-section .profile-nav ul li {
+.profile-section .profile-nav button {
+  background: transparent;
   font-size: 1rem;
+  border: none;
+  color: #DDDDDD;
   padding: 12px;
   cursor: pointer;
   transition: 0.2s;
 }
-.profile-section .profile-nav ul li:hover {
+.profile-section .profile-nav button:hover {
   color: #F5C518;
 }
 
