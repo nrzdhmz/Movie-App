@@ -26,31 +26,30 @@ const ProfilePage = () => {
     setShowOverlay(!showOverlay);
   };
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:5000/api/users/${userid}`,
-          { withCredentials: true }
-        );
-        setUserData(response.data);
-      } catch (error) {
-        console.error("Error fetching user data from backend", error);
-      }
-    };
+  const fetchUserData = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:5000/api/users/${userid}`,
+        { withCredentials: true }
+      );
+      setUserData(response.data);
+    } catch (error) {
+      console.error("Error fetching user data from backend", error);
+    }
+  };
 
+  useEffect(() => {
     fetchUserData();
   }, [userid]);
 
   const handleFollow = async () => {
     try {
-      const response = await axios.post(
+      await axios.post(
         `http://localhost:5000/api/follow/following`,
         { followingId: Number(userid) },
         { withCredentials: true }
       );
-      console.log(response.data);
-      console.log("Follow button clicked");
+      fetchUserData();
     } catch (error) {
       console.error(error);
     }
@@ -58,16 +57,17 @@ const ProfilePage = () => {
 
   const handleUnFollow = async () => {
     try {
-      const response = await axios.delete(
+      await axios.delete(
         `http://localhost:5000/api/follow/following/${userid}`,
         { withCredentials: true }
       );
-      console.log(response.data);
-      console.log("Unfollow button clicked");
+      fetchUserData();
     } catch (error) {
       console.error(error);
     }
   };
+
+  const MainProfile = (localData == userid);
 
   return (
     <div className="wrapper">
@@ -114,16 +114,19 @@ const ProfilePage = () => {
                   />
                 </div>
                 <div className="username">{userData.username}</div>
-                {localData == userid && (
+                {MainProfile && (
                   <button>
                     EDIT PROFILE
                     <i id="pen" className="fas fa-pen"></i>
                   </button>
                 )}
-                {userData.isFollowing ? (
-                  <button onClick={handleUnFollow}>Unfollow</button>
-                ) : (
-                  <button onClick={handleFollow}>Follow</button>
+                {MainProfile ? (null) : 
+                (
+                  userData.isFollowing ? (
+                    <button onClick={handleUnFollow}>Unfollow</button>
+                  ) : (
+                    <button onClick={handleFollow}>Follow</button>
+                  )
                 )}
               </div>
               <div className="profile-summary-right">
