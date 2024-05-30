@@ -2,10 +2,10 @@ import React from 'react';
 
 const ProfileNav = () => (
   <div className="profile-nav">
-    <button>Profile</button>
-    <button>Watchlist</button>
-    <button>Lists</button>
-    <button>Likes</button>
+    <button className='profile-btn'>Profile</button>
+    <button className='profile-btn'>Watchlist</button>
+    <button className='profile-btn'>Lists</button>
+    <button className='profile-btn'>Likes</button>
   </div>
 );
 

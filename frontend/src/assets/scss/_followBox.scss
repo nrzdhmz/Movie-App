@@ -50,27 +50,42 @@
         .user-list{
         display: flex;
         flex-direction: column;
-        .user-item{
+        .user-item-container{
           display: flex;
-          padding: 8px 16px;
-          background-color: #262626;
-          cursor: pointer;
-          &:hover{
-            background-color: #494949;
-          }
-          img{
-            margin-right: 10px;
-            height: 44px;
-            width: 44px;
-            border-radius: 50%;
-          } 
-          span{
+          align-items: center;
+          justify-content: space-between;
+          .user-item{
             display: flex;
-            align-items: center;
+            padding: 8px 16px;
+            background-color: #262626;
+            cursor: pointer;
+
+            img{
+              margin-right: 10px;
+              height: 44px;
+              width: 44px;
+              border-radius: 50%;
+            } 
+            span{
+              display: flex;
+              align-items: center;
+            }
           }
         }
       }
     }
   }
   
+}
+.box-btn{
+  border: none;
+  color: $site-common-white;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #494949;
+  margin-right: 20px;
+  cursor: pointer;
+  &:hover{
+    background-color: #737373;
+  }
 }

@@ -78,21 +78,22 @@
     border: 2px solid $md-dark-color;
     border-radius: 10px;
     display: flex;
-    button{
-      background: transparent;
-      font-size: 1rem;  
-      border: none;
-      color: $site-common-white;
-      padding: 12px;
-      cursor: pointer;
-      transition: 0.2s;
-      &:hover{
-        color: $yellow-color;
-      }
-    }
   }
 }
 
 .border-left{
   border-left: 1px solid $md-dark-color;
+}
+
+.profile-btn{
+  background: transparent;
+  font-size: 1rem;  
+  border: none;
+  color: $site-common-white;
+  padding: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover{
+    color: $yellow-color;
+  }
 }

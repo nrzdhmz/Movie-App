@@ -1,11 +1,17 @@
-.search-container {
-  max-width: 1050px;
-  margin: 0 auto;
-  padding: 8px 12px 20px;
-  min-height: 80px;
-  justify-content: space-between;
-  display: flex;
-  flex-direction: column;
+
+.container-top{
+  width: 244px;
+  background-color: $dark-color;
+  border-right: 2px solid $md-dark-color;
+  .search-container {
+    width: 244px;
+    margin: 0 auto;
+    padding: 8px 12px 20px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100%;
+  }
 }
 
 .logo {

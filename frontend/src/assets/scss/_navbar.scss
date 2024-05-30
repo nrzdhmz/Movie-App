@@ -1,10 +1,11 @@
-.navBar{
-  ul{
+.navBar {
+  ul {
     display: flex;
     flex-direction: column;
-    li{
+    gap: 5px;
+    li {
       display: flex;
-      a{
+      a {
         margin: 4px 0;
         padding: 12px;
         border-radius: 8px;
@@ -13,9 +14,30 @@
         color: $site-common-white;
         display: flex;
         gap: 9px;
-        i{
-          font-size: 1.3rem;
+        transition: 0.3s;
+        width: 100%;
+        &.activeLink {
+          font-weight: 600;
+          color: white;
+        }
+        &:hover{
+          background-color: lighten($dark-color, 5%);
+          .icon{
+            i{
+              font-size: 1.4rem;
+            }
+          }
+        }
+        .icon{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
           width: 30px;
+          height: 30px;
+          i {
+            font-size: 1.3rem;
+          }
         }
       }
     }

@@ -24,9 +24,9 @@ const ProfileSummary = ({
       )}
       {!isMainProfile && (
         userData.isFollowing ? (
-          <button onClick={handleUnFollow}>Unfollow</button>
+          <button className='profile-btn' onClick={handleUnFollow}>Unfollow</button>
         ) : (
-          <button onClick={handleFollow}>Follow</button>
+          <button className='profile-btn' onClick={handleFollow}>Follow</button>
         )
       )}
     </div>

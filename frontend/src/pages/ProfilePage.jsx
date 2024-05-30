@@ -7,6 +7,7 @@ import ProfileSummary from "../components/profile/ProfileSummary";
 import ProfileNav from "../components/profile/ProfileNav";
 import WatchList from "../components/profile/WatchList";
 import Overlay from "../components/profile/Overlay";
+import UserList from "../components/profile/UserList"; // Import UserList component
 
 const ProfilePage = () => {
   const [showOverlay, setShowOverlay] = useState(false);
@@ -57,10 +58,10 @@ const ProfilePage = () => {
     }
   };
 
-  const handleUnFollow = async () => {
+  const handleUnFollow = async (userId) => {
     try {
       await axios.delete(
-        `http://localhost:5000/api/follow/following/${userid}`,
+        `http://localhost:5000/api/follow/following/${userId}`,
         { withCredentials: true }
       );
       fetchUserData();
@@ -102,6 +103,13 @@ const ProfilePage = () => {
           <ProfileNav />
           {userData && userData.watchlist && (
             <WatchList watchlist={userData.watchlist} />
+          )}
+          {showOverlay && (
+            <Overlay
+              overlayType={overlayType}
+              userData={userData}
+              closeOverlay={() => setShowOverlay(false)}
+            />
           )}
         </div>
       </div>

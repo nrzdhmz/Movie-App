@@ -7,6 +7,7 @@ import ProfilePage from './pages/ProfilePage';
 import WatchListPage from './pages/WatchListPage';
 import RegisterPage from './pages/RegisterPage';
 import CommunityPage from './pages/CommunityPage';
+import MessagesPage from './pages/MessagesPage';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/Home" element={<HomePage />} />
         <Route path="/MyLists" element={<WatchListPage />} />
         <Route path="/Community" element={<CommunityPage />} />
+        <Route path="/messages" element={<MessagesPage />} />
         <Route path="/Login" element={<LogInPage />} />
         <Route path="/Profile/:userid" element={<ProfilePage />} />
       </Routes>

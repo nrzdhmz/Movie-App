@@ -6,19 +6,22 @@ const UserList = ({ users, type, closeOverlay }) => {
     <div className="user-list">
       {users.length ? (
         users.map((user) => (
-          <Link
-            to={`/Profile/${user.id}`}
-            key={user.id}
-            className="user-item"
-            onClick={closeOverlay} 
-          >
-            <img
-              src={`http://localhost:5000${user.profilePicture}`}
-              alt={`${user.username} profile pic`}
-              className="user-pic"
-            />
-            <span>{user.username}</span>
-          </Link>
+          <div key={user.id}
+          className="user-item-container">
+            <Link
+              to={`/Profile/${user.id}`}
+              className="user-item"
+              onClick={closeOverlay} 
+            >
+              <img
+                src={`http://localhost:5000${user.profilePicture}`}
+                alt={`${user.username} profile pic`}
+                className="user-pic"
+              />
+              <span>{user.username}</span>
+            </Link>
+            <button className='box-btn'>remove</button>
+          </div>
         ))
       ) : (
         <p className='user-item'>No {type}.</p>
